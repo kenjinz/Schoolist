@@ -7,6 +7,7 @@ export default StyleSheet.create({
     height: Utils.scaleWithPixel(140),
     width: Utils.scaleWithPixel(120),
     borderRadius: 8,
+    // borderRadius: 8,
   },
   listContent: {
     flexDirection: 'row',
