@@ -1,0 +1,415 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+MERGED from [hermes-debug.aar] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6597106e6449be9aeb2b99fc47ec4242\hermes-debug\AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:8:1-18:12
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\101d4580d65c039baf87b3bcf226892f\flipper-network-plugin-0.37.0\AndroidManifest.xml:8:1-15:12
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\eaf8bc94a6bcb96e56d4e8808914e909\flipper-fresco-plugin-0.37.0\AndroidManifest.xml:8:1-15:12
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\343974d7f800206332cd92db092ae3ab\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:react-native-fast-image] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-fast-image\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-community_async-storage] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-community_masked-view] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-community_viewpager] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\viewpager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-dark-mode] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-dark-mode\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-gesture-handler] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [:react-native-reanimated] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-restart] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-restart\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-safe-area-context] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-screens] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
+MERGED from [:react-native-vector-icons] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:rn-range-slider] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\rn-range-slider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\96b8fba13527eb0917d6ea4e2e878ae1\swiperefreshlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.troZee:ViewPager2:v1.0.6] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\7c48ee783933de10bd8669eba53c5f7c\ViewPager2-v1.0.6\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6ff9aa3a504cc9b0d6634a1ac1c5c1fd\material-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\50c2f1e9e238f6f3402c8c40d454356e\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ee2b37f559c0ef35054b5a91d7c3fe0a\flipper-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b8104cd94e10e6a45638d21ecb89836e\stetho-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\181247bb054532633a0d17e7955b9343\fresco-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9a85dc51a46496ee67c5c169817bb545\imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\5efa72d02bb25912f2b3100dcfddc2e7\drawee-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\1d82508e8add2df5ddec6c0ac190242a\nativeimagefilters-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\5d91f577fceb2b8c13c6a43b912dbe3f\memory-type-native-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\aa354878f6e047ae5207671967c0f8c0\memory-type-java-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d9648977886a4bd74f3bacec1730ad4a\imagepipeline-native-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9716ed01c7fb61d1fd326388c485290b\memory-type-ashmem-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\84eb3543c909547b419c64ba715e90dc\imagepipeline-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\07a61ae618e88ae726c8eca3e04a75b0\nativeimagetranscoder-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d5c542fe4b0993d9559164e169e8006b\imagepipeline-base-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6b1daab2128c6b1273f7ecda88fd316e\soloader-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d7deb2b5168384107b0e336f7baf3ffe\soloader-0.8.2\AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\1e5f817aa270a744dd04db62fd4e2759\appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\7793cda1d5c603a5c6285dc40a11ab43\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\633bda2dbfdddc7d957aa24af70ac864\play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:17:1-29:12
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:2:1-16:12
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\89f9d708af4b661e48afe84299adffcc\glide-4.11.0\AndroidManifest.xml:2:1-12:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\836c3dbd694a56d30a485117c51db96c\play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f4bc7fd55aa413e3454108cf763e8f1f\play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\aacb2150d318a7e3171280f2f2732395\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9f424f1b336a86cbad9c704f22fb0424\fragment-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b9eda5566854fafbe66818addfdbc7b5\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d366cf07fdcaca11ea32d13f65e19f66\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\4a612f07e8758ef604e8c8d39640dfcc\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8c49af6f0c2f7855a1bbfcbb18c02266\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f52ffb701bbe4d8a4ed37746c271e36c\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\73981bca5ee627823c2ac9eba13d0d06\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\999c289fee94f54063cb78787158b0e1\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\2fe8c711c3fae4ef5cbc5e43ca4a516c\activity-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e76bafcc570498e7a0c540954eaca21\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.3.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ec2ca510f42b5c4cbc9ad8e3c730dd85\core-1.3.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\4dda8eee30e370c9ce5bd1a372d121b0\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f04cd9abae241608ed645f42a631cdd1\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d417890d1ba11b447fc3b7436347555d\gifdecoder-4.11.0\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\be49e01d1ac02bccaf60656a9b448719\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e6ef5655128d3ec31240cc41ec27c18\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b59e2974f1e17c7f67fb75eec025383d\lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8dda4a53307b4d2cf100684bd188ef64\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3f65a24db3f02a115e464113821140ee\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\859bc0bba5522424cd2b603b19e23171\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d9581e6442cad9af8b3822296d031c50\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\397bc0ead00db736c9bd7a1b0de026c2\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\0954444454d108e6f1102cdf5d1506b6\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\725757a1922e0aee6749f2ad0778e791\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9dc76b2f4641bbe6afb5fdda1cbb88a5\jetified-android-maps-utils-0.5\AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.soloader:annotation:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ad381b8799877e5b04e961412fb3761f\annotation-0.8.2\AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\efdf31a1bde212c384cf37c9a0ad6467\jetified-fbcore-2.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8d79030bef320f2f31c559fa668750c3\ui-common-2.2.0\AndroidManifest.xml:2:1-9:12
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+	package
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:2:3-25
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:1-31:12
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:15:5-67
+MERGED from [com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:15:5-67
+MERGED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:5:22-75
+application
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:7:5-29:19
+MERGED from [:react-native-dark-mode] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-dark-mode\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-20
+MERGED from [:react-native-dark-mode] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-dark-mode\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-20
+MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-12:19
+MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-12:19
+MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6ff9aa3a504cc9b0d6634a1ac1c5c1fd\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6ff9aa3a504cc9b0d6634a1ac1c5c1fd\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d7deb2b5168384107b0e336f7baf3ffe\soloader-0.8.2\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d7deb2b5168384107b0e336f7baf3ffe\soloader-0.8.2\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\633bda2dbfdddc7d957aa24af70ac864\play-services-location-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\633bda2dbfdddc7d957aa24af70ac864\play-services-location-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:22:5-27:19
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:10:5-14:19
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:10:5-14:19
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\89f9d708af4b661e48afe84299adffcc\glide-4.11.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\89f9d708af4b661e48afe84299adffcc\glide-4.11.0\AndroidManifest.xml:10:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\836c3dbd694a56d30a485117c51db96c\play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\836c3dbd694a56d30a485117c51db96c\play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f4bc7fd55aa413e3454108cf763e8f1f\play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f4bc7fd55aa413e3454108cf763e8f1f\play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.3.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ec2ca510f42b5c4cbc9ad8e3c730dd85\core-1.3.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ec2ca510f42b5c4cbc9ad8e3c730dd85\core-1.3.0\AndroidManifest.xml:24:5-89
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d417890d1ba11b447fc3b7436347555d\gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d417890d1ba11b447fc3b7436347555d\gifdecoder-4.11.0\AndroidManifest.xml:9:5-20
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e6ef5655128d3ec31240cc41ec27c18\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e6ef5655128d3ec31240cc41ec27c18\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9dc76b2f4641bbe6afb5fdda1cbb88a5\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9dc76b2f4641bbe6afb5fdda1cbb88a5\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
+MERGED from [com.facebook.soloader:annotation:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ad381b8799877e5b04e961412fb3761f\annotation-0.8.2\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:annotation:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ad381b8799877e5b04e961412fb3761f\annotation-0.8.2\AndroidManifest.xml:11:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.3.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ec2ca510f42b5c4cbc9ad8e3c730dd85\core-1.3.0\AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:9:7-39
+	android:icon
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:10:7-41
+	android:allowBackup
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:13:7-38
+	android:usesCleartextTraffic
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:12:7-42
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:8:7-38
+meta-data#com.google.android.geo.API_KEY
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:14:7-16:64
+	android:value
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:16:7-62
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:15:7-52
+activity#com.felixpro.MainActivity
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:17:7-27:18
+	android:label
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:19:9-41
+	android:launchMode
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:21:9-40
+	android:windowSoftInputMode
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:22:9-51
+	android:configChanges
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:20:9-86
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:18:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:23:9-26:25
+action#android.intent.action.MAIN
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:24:13-65
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:24:21-62
+category#android.intent.category.LAUNCHER
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:25:13-73
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:25:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:28:7-84
+	android:name
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:28:17-81
+uses-sdk
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+MERGED from [hermes-debug.aar] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6597106e6449be9aeb2b99fc47ec4242\hermes-debug\AndroidManifest.xml:5:5-44
+MERGED from [hermes-debug.aar] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6597106e6449be9aeb2b99fc47ec4242\hermes-debug\AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\101d4580d65c039baf87b3bcf226892f\flipper-network-plugin-0.37.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-network-plugin:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\101d4580d65c039baf87b3bcf226892f\flipper-network-plugin-0.37.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\eaf8bc94a6bcb96e56d4e8808914e909\flipper-fresco-plugin-0.37.0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\eaf8bc94a6bcb96e56d4e8808914e909\flipper-fresco-plugin-0.37.0\AndroidManifest.xml:11:5-13:41
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\343974d7f800206332cd92db092ae3ab\multidex-2.0.0\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\343974d7f800206332cd92db092ae3ab\multidex-2.0.0\AndroidManifest.xml:20:5-43
+MERGED from [:react-native-fast-image] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-fast-image\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-fast-image] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-fast-image\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_async-storage] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_async-storage] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\async-storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_masked-view] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_masked-view] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_viewpager] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\viewpager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_viewpager] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\@react-native-community\viewpager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-dark-mode] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-dark-mode\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-dark-mode] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-dark-mode\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-reanimated] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-restart] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-restart\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-restart] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-restart\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-safe-area-context] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-screens] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:rn-range-slider] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\rn-range-slider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:rn-range-slider] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\rn-range-slider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\96b8fba13527eb0917d6ea4e2e878ae1\swiperefreshlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\96b8fba13527eb0917d6ea4e2e878ae1\swiperefreshlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.troZee:ViewPager2:v1.0.6] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\7c48ee783933de10bd8669eba53c5f7c\ViewPager2-v1.0.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.troZee:ViewPager2:v1.0.6] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\7c48ee783933de10bd8669eba53c5f7c\ViewPager2-v1.0.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6ff9aa3a504cc9b0d6634a1ac1c5c1fd\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6ff9aa3a504cc9b0d6634a1ac1c5c1fd\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\50c2f1e9e238f6f3402c8c40d454356e\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\50c2f1e9e238f6f3402c8c40d454356e\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ee2b37f559c0ef35054b5a91d7c3fe0a\flipper-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:flipper:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ee2b37f559c0ef35054b5a91d7c3fe0a\flipper-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b8104cd94e10e6a45638d21ecb89836e\stetho-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:stetho:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b8104cd94e10e6a45638d21ecb89836e\stetho-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\181247bb054532633a0d17e7955b9343\fresco-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\181247bb054532633a0d17e7955b9343\fresco-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9a85dc51a46496ee67c5c169817bb545\imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9a85dc51a46496ee67c5c169817bb545\imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\5efa72d02bb25912f2b3100dcfddc2e7\drawee-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\5efa72d02bb25912f2b3100dcfddc2e7\drawee-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\1d82508e8add2df5ddec6c0ac190242a\nativeimagefilters-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\1d82508e8add2df5ddec6c0ac190242a\nativeimagefilters-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\5d91f577fceb2b8c13c6a43b912dbe3f\memory-type-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-native:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\5d91f577fceb2b8c13c6a43b912dbe3f\memory-type-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\aa354878f6e047ae5207671967c0f8c0\memory-type-java-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-java:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\aa354878f6e047ae5207671967c0f8c0\memory-type-java-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d9648977886a4bd74f3bacec1730ad4a\imagepipeline-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-native:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d9648977886a4bd74f3bacec1730ad4a\imagepipeline-native-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9716ed01c7fb61d1fd326388c485290b\memory-type-ashmem-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:memory-type-ashmem:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9716ed01c7fb61d1fd326388c485290b\memory-type-ashmem-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\84eb3543c909547b419c64ba715e90dc\imagepipeline-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\84eb3543c909547b419c64ba715e90dc\imagepipeline-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\07a61ae618e88ae726c8eca3e04a75b0\nativeimagetranscoder-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\07a61ae618e88ae726c8eca3e04a75b0\nativeimagetranscoder-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d5c542fe4b0993d9559164e169e8006b\imagepipeline-base-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d5c542fe4b0993d9559164e169e8006b\imagepipeline-base-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6b1daab2128c6b1273f7ecda88fd316e\soloader-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:soloader:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6b1daab2128c6b1273f7ecda88fd316e\soloader-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d7deb2b5168384107b0e336f7baf3ffe\soloader-0.8.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d7deb2b5168384107b0e336f7baf3ffe\soloader-0.8.2\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\1e5f817aa270a744dd04db62fd4e2759\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\1e5f817aa270a744dd04db62fd4e2759\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\7793cda1d5c603a5c6285dc40a11ab43\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\7793cda1d5c603a5c6285dc40a11ab43\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\633bda2dbfdddc7d957aa24af70ac864\play-services-location-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\633bda2dbfdddc7d957aa24af70ac864\play-services-location-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\89f9d708af4b661e48afe84299adffcc\glide-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\89f9d708af4b661e48afe84299adffcc\glide-4.11.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\836c3dbd694a56d30a485117c51db96c\play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\836c3dbd694a56d30a485117c51db96c\play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f4bc7fd55aa413e3454108cf763e8f1f\play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f4bc7fd55aa413e3454108cf763e8f1f\play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\aacb2150d318a7e3171280f2f2732395\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\aacb2150d318a7e3171280f2f2732395\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9f424f1b336a86cbad9c704f22fb0424\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9f424f1b336a86cbad9c704f22fb0424\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b9eda5566854fafbe66818addfdbc7b5\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b9eda5566854fafbe66818addfdbc7b5\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d366cf07fdcaca11ea32d13f65e19f66\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d366cf07fdcaca11ea32d13f65e19f66\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\4a612f07e8758ef604e8c8d39640dfcc\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\4a612f07e8758ef604e8c8d39640dfcc\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8c49af6f0c2f7855a1bbfcbb18c02266\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8c49af6f0c2f7855a1bbfcbb18c02266\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f52ffb701bbe4d8a4ed37746c271e36c\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f52ffb701bbe4d8a4ed37746c271e36c\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\73981bca5ee627823c2ac9eba13d0d06\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\73981bca5ee627823c2ac9eba13d0d06\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\999c289fee94f54063cb78787158b0e1\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\999c289fee94f54063cb78787158b0e1\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\2fe8c711c3fae4ef5cbc5e43ca4a516c\activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\2fe8c711c3fae4ef5cbc5e43ca4a516c\activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e76bafcc570498e7a0c540954eaca21\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e76bafcc570498e7a0c540954eaca21\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ec2ca510f42b5c4cbc9ad8e3c730dd85\core-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ec2ca510f42b5c4cbc9ad8e3c730dd85\core-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\4dda8eee30e370c9ce5bd1a372d121b0\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\4dda8eee30e370c9ce5bd1a372d121b0\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f04cd9abae241608ed645f42a631cdd1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f04cd9abae241608ed645f42a631cdd1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d417890d1ba11b447fc3b7436347555d\gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d417890d1ba11b447fc3b7436347555d\gifdecoder-4.11.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\be49e01d1ac02bccaf60656a9b448719\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\be49e01d1ac02bccaf60656a9b448719\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e6ef5655128d3ec31240cc41ec27c18\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6e6ef5655128d3ec31240cc41ec27c18\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b59e2974f1e17c7f67fb75eec025383d\lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b59e2974f1e17c7f67fb75eec025383d\lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8dda4a53307b4d2cf100684bd188ef64\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8dda4a53307b4d2cf100684bd188ef64\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3f65a24db3f02a115e464113821140ee\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3f65a24db3f02a115e464113821140ee\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\859bc0bba5522424cd2b603b19e23171\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\859bc0bba5522424cd2b603b19e23171\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d9581e6442cad9af8b3822296d031c50\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\d9581e6442cad9af8b3822296d031c50\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\397bc0ead00db736c9bd7a1b0de026c2\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\397bc0ead00db736c9bd7a1b0de026c2\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\0954444454d108e6f1102cdf5d1506b6\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\0954444454d108e6f1102cdf5d1506b6\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\725757a1922e0aee6749f2ad0778e791\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\725757a1922e0aee6749f2ad0778e791\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9dc76b2f4641bbe6afb5fdda1cbb88a5\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9dc76b2f4641bbe6afb5fdda1cbb88a5\jetified-android-maps-utils-0.5\AndroidManifest.xml:5:5-43
+MERGED from [com.facebook.soloader:annotation:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ad381b8799877e5b04e961412fb3761f\annotation-0.8.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:annotation:0.8.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\ad381b8799877e5b04e961412fb3761f\annotation-0.8.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\efdf31a1bde212c384cf37c9a0ad6467\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\efdf31a1bde212c384cf37c9a0ad6467\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8d79030bef320f2f31c559fa668750c3\ui-common-2.2.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8d79030bef320f2f31c559fa668750c3\ui-common-2.2.0\AndroidManifest.xml:5:5-7:41
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:16:5-76
+	android:name
+		ADDED from [com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:16:22-73
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+meta-data#com.bumptech.glide.integration.okhttp3.OkHttpGlideModule
+ADDED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:11:9-13:43
+	android:value
+		ADDED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:13:13-40
+	android:name
+		ADDED from [com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:12:13-84
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9dc76b2f4641bbe6afb5fdda1cbb88a5\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\9dc76b2f4641bbe6afb5fdda1cbb88a5\jetified-android-maps-utils-0.5\AndroidManifest.xml:8:9-10:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
