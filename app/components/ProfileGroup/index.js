@@ -44,7 +44,12 @@ export default function ProfileGroup(props) {
             flex: 1,
             alignItems: 'flex-start',
           }}>
-          <Text headline semibold numberOfLines={1}>
+          <Text
+            headline
+            Light
+            numberOfLines={1}
+            textAlign={'center'}
+            style={{paddingTop: 10}}>
             {name}
           </Text>
           <Text footnote grayColor numberOfLines={1}>

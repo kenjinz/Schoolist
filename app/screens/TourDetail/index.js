@@ -43,10 +43,10 @@ export default function TourDetail({navigation}) {
   const [userData] = useState(UserData[0]);
 
   // When tab is activated, set what's index value
-  const handleIndexChange = index => setIndex(index);
+  const handleIndexChange = (index) => setIndex(index);
 
   // Customize UI tab bar
-  const renderTabBar = props => (
+  const renderTabBar = (props) => (
     <TabBar
       {...props}
       scrollEnabled
@@ -609,14 +609,14 @@ function ReviewTab({navigation}) {
       }
       data={reviewList}
       keyExtractor={(item, index) => item.id}
-      ListHeaderComponent={() => (
-        <RateDetail
-          point={rateDetail.point}
-          maxPoint={rateDetail.maxPoint}
-          totalRating={rateDetail.totalRating}
-          data={rateDetail.data}
-        />
-      )}
+      // ListHeaderComponent={() => (
+      //   <RateDetail
+      //     point={rateDetail.point}
+      //     maxPoint={rateDetail.maxPoint}
+      //     totalRating={rateDetail.totalRating}
+      //     data={rateDetail.data}
+      //   />
+      // )}
       renderItem={({item}) => (
         <CommentItem
           style={{marginTop: 10}}

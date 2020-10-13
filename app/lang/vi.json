@@ -32,7 +32,7 @@
   "passenger": "Hành khách",
   "people": "Mọi người",
   "hours": "Giờ",
-  "filtering": "Lọc",
+  "filteringRating": "Lọc chỉ số",
   "lowest_price": "Giá thấp nhất",
   "hightest_price": "Giá cao nhất",
   "hightest_rating": "Đánh giá cao nhất",
@@ -147,7 +147,7 @@
   "date_time": "Ngày giờ",
   "date": "Ngày",
   "address": "Địa chỉ",
-  "description": "Sự miêu tả",
+  "description": "Mô tả",
   "see_details": "Xem chi tiết",
   "facilities": "Cơ sở vật chất",
   "you_may_also_like": "Bạn cũng có thể thích",
@@ -282,5 +282,9 @@
   "school": "Trường",
   "see_school": "Xem trường",
   "bach_khoa": "Bách Khoa",
-  "dut": "Bách Khoa Đà Nẵng"
+  "dut": "Bách Khoa Đà Nẵng",
+  "place": "Địa điểm",
+  "general": "Tổng quan",
+  "ratings": "Các chỉ số",
+  "comment": "Bình luận"
 }

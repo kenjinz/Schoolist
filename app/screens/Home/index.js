@@ -48,12 +48,6 @@ export default function Home({navigation}) {
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
 
-  /**
-   * @description Show icon services on form searching
-   * @author Passion UI <passionui.com>
-   * @date 2019-08-03
-   * @returns
-   */
   const renderIconService = () => {
     return (
       <FlatList
@@ -157,7 +151,7 @@ export default function Home({navigation}) {
                 <Card
                   style={[styles.promotionItem, {marginLeft: 15}]}
                   image={item.image}
-                  onPress={() => navigation.navigate('HotelDetail')}>
+                  onPress={() => navigation.navigate('EventDetail')}>
                   <Text subhead whiteColor>
                     {t(item.title1)}
                   </Text>
@@ -168,7 +162,7 @@ export default function Home({navigation}) {
                     <Button
                       style={styles.btnPromotion}
                       onPress={() => {
-                        navigation.navigate('PreviewBooking');
+                        navigation.navigate('TourDetail');
                       }}>
                       <Text body2 semibold whiteColor>
                         {t('see_school')}

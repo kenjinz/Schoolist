@@ -32,7 +32,7 @@
   "passenger": "Passenger",
   "people": "People",
   "hours": "Hours",
-  "filtering": "Filtering",
+  "filteringRating": "Ratings Filter",
   "lowest_price": "Lowest Price",
   "hightest_price": "Hightest Price",
   "hightest_rating": "Hightest Rating",
@@ -281,5 +281,9 @@
   "see_school": "See school",
   "da_nang": "Da Nang",
   "bach_khoa": "Bach Khoa",
-  "dut": "Da Nang University Of Technology"
+  "dut": "Da Nang University Of Technology",
+  "place": "Place",
+  "general": "General",
+  "ratings": "Ratings",
+  "comment": "Comments"
 }

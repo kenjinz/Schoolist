@@ -16,7 +16,6 @@ export const BaseColor = {
   blueColor: '#5DADE2',
   pinkColor: '#A569BD',
   greenColor: '#58D68D',
-  yellowColor: '#FDC60A',
 };
 
 /**
@@ -219,9 +218,9 @@ export const DefaultFont = 'Raleway';
  */
 export const useTheme = () => {
   const isDarkMode = useDarkMode();
-  const forceDark = useSelector(state => state.application.force_dark);
-  const themeStorage = useSelector(state => state.application.theme);
-  const listTheme = ThemeSupport.filter(item => item.theme == themeStorage);
+  const forceDark = useSelector((state) => state.application.force_dark);
+  const themeStorage = useSelector((state) => state.application.theme);
+  const listTheme = ThemeSupport.filter((item) => item.theme == themeStorage);
   const theme = listTheme.length > 0 ? listTheme[0] : DefaultTheme;
 
   if (forceDark) {
@@ -240,6 +239,6 @@ export const useTheme = () => {
  * @returns font
  */
 export const useFont = () => {
-  const font = useSelector(state => state.application.font);
+  const font = useSelector((state) => state.application.font);
   return font ?? DefaultFont;
 };

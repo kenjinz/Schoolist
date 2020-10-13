@@ -51,4 +51,16 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     paddingBottom: 20,
   },
+  fillRating: {
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  wrapRating: {
+    flexDirection: 'row',
+    height: 30,
+    backgroundColor: '#DCDCDC',
+    marginTop: 5,
+    borderRadius: 8,
+  },
 });
