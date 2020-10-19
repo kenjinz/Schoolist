@@ -65,11 +65,11 @@ export default function EventDetail({navigation}) {
       scrollEnabled
       indicatorStyle={[styles.indicator, {backgroundColor: colors.primary}]}
       style={[styles.tabbar, {backgroundColor: colors.background}]}
-      tabStyle={styles.tab}
+      tabStyle={[styles.tab]}
       inactiveColor={BaseColor.grayColor}
       activeColor={colors.text}
       renderLabel={({route, focused, color}) => (
-        <View style={{flex: 1, width: 130, alignItems: 'center'}}>
+        <View style={{flex: 1, width: 100, alignItems: 'center'}}>
           <Text headline semibold={focused} style={{color}}>
             {route.title}
           </Text>
