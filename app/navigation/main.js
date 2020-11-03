@@ -23,6 +23,7 @@ import TopSchool from '@screens/TopSchool';
 import TourDetail from '@screens/TourDetail';
 import EventDetail from '@screens/EventDetail';
 import EventDetail1 from '@screens/EventDetail1';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const MainStack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -49,13 +50,26 @@ export default function Main() {
     </MainStack.Navigator>
   );
 }
+function logCurrentStorage() {
+  AsyncStorage.getAllKeys((err, keys) => {
+    AsyncStorage.multiGet(keys, (error, stores) => {
+      stores.map((result, i, store) => {
+        console.log({[store[i][0]]: store[i][1]});
+        return true;
+      });
+    });
+  });
+}
 // ****************************TAB NAVIGATOR ***************************************************
 function BottomTabNavigator() {
+  console.log('BEFORE LOG STORAGE: ');
+  logCurrentStorage();
   const {t} = useTranslation();
   const {colors} = useTheme();
   const font = useFont();
   const auth = useSelector((state) => state.auth);
-  const login = auth.login.success;
+  console.log('AUTH:', auth);
+  const login = auth.isAuthenticated;
   return (
     <BottomTab.Navigator
       initialRouteName="Home"

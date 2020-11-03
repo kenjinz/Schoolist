@@ -28,8 +28,12 @@ export const heightHeader = () => {
   const height = Dimensions.get('window').height;
   const landscape = width > height;
 
-  if (Platform.OS === 'android') return 45;
-  if (Platform.isPad) return 65;
+  if (Platform.OS === 'android') {
+    return 45;
+  }
+  if (Platform.isPad) {
+    return 65;
+  }
   switch (height) {
     case 375:
     case 414:
@@ -70,7 +74,7 @@ export const scrollEnabled = (contentWidth, contentHeight) => {
   return contentHeight > Dimensions.get('window').height - heightHeader();
 };
 
-export const languageFromCode = code => {
+export const languageFromCode = (code) => {
   switch (code) {
     case 'en':
       return 'English';
@@ -109,7 +113,7 @@ export const languageFromCode = code => {
   }
 };
 
-export const isLanguageRTL = code => {
+export const isLanguageRTL = (code) => {
   switch (code) {
     case 'ar':
     case 'he':
@@ -127,3 +131,23 @@ export const reloadLocale = (oldLanguage, newLanguage) => {
     RNRestart.Restart();
   }
 };
+
+export const makeActionCreator = (type, params = null) => ({type, ...params});
+
+export const makeReducerCreator = (initialState = null, handlers = {}) => (
+  state = initialState,
+  action,
+) => {
+  if (!action && !action.type) {
+    return state;
+  }
+  const handler = handlers[action.type];
+  return (handler && handler(state, action)) || state;
+};
+export function makeConstantCreator(...params) {
+  const constant = {};
+  _.each(params, (param) => {
+    constant[param] = param;
+  });
+  return constant;
+}

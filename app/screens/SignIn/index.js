@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {AuthActions} from '@actions';
+import {useDispatch, useSelector} from 'react-redux';
+//import {AuthActions} from '@actions';
 import {
   View,
   TouchableOpacity,
@@ -11,7 +11,7 @@ import {BaseStyle, useTheme} from '@config';
 import {Header, SafeAreaView, Icon, Text, Button, TextInput} from '@components';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
-
+import {Login} from '../../redux/auth/actions';
 export default function SignIn({navigation}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
@@ -21,31 +21,38 @@ export default function SignIn({navigation}) {
     android: 20,
   });
 
-  const [id, setId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState({id: true, password: true});
-
+  //const [loading, setLoading] = useState(false);
+  // const [success, setSuccess] = useState({id: true, password: true});
+  const loading = useSelector((state) => state.auth.isLoading);
+  //const authentication = useSelector((state) => state.auth.isAuthenticated);
+  const success = useSelector((state) => state.auth.loginSuccess);
   /**
    * call when action login
    *
    */
+  //console.log('success: ', success);
+  if (success) {
+    navigation.navigate('Home');
+  }
   const onLogin = () => {
-    if (id == '' || password == '') {
-      setSuccess({
-        ...success,
-        id: false,
-        password: false,
-      });
-    } else {
-      setLoading(true);
-      dispatch(
-        AuthActions.authentication(true, (response) => {
-          setLoading(false);
-          navigation.goBack();
-        }),
-      );
-    }
+    // if (email === '' || password === '') {
+    //   setSuccess({
+    //     ...success,
+    //     id: false,
+    //     password: false,
+    //   });
+    // } else {
+    //   //setLoading(true);
+    //   // dispatch(
+    //   //   AuthActions.authentication(true, (response) => {
+    //   //     setLoading(false);
+    //   //     navigation.goBack();
+    //   //   }),
+    //   // );
+    //
+    dispatch(Login({email, password}));
   };
 
   return (
@@ -72,29 +79,29 @@ export default function SignIn({navigation}) {
         style={{flex: 1}}>
         <View style={styles.contain}>
           <TextInput
-            onChangeText={(text) => setId(text)}
-            onFocus={() => {
-              setSuccess({
-                ...success,
-                id: true,
-              });
-            }}
+            onChangeText={(text) => setEmail(text)}
+            // onFocus={() => {
+            //   setSuccess({
+            //     ...success,
+            //     id: true,
+            //   });
+            // }}
             placeholder={t('input_id')}
-            success={success.id}
-            value={id}
+            //success={success.id}
+            value={email}
           />
           <TextInput
             style={{marginTop: 10}}
             onChangeText={(text) => setPassword(text)}
-            onFocus={() => {
-              setSuccess({
-                ...success,
-                password: true,
-              });
-            }}
+            // onFocus={() => {
+            //   setSuccess({
+            //     ...success,
+            //     password: true,
+            //   });
+            // }}
             placeholder={t('input_password')}
             secureTextEntry={true}
-            success={success.password}
+            //success={success.password}
             value={password}
           />
           <Button
