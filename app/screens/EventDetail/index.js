@@ -30,7 +30,7 @@ export default function EventDetail({navigation}) {
   const deltaY = new Animated.Value(0);
   const heightImageBanner = Utils.scaleWithPixel(250, 1);
   const {colors} = useTheme();
-  const {t} = useTranslation();
+  // const {t} = useTranslation();
   const [index, setIndex] = useState(0);
   const [routes] = useState([
     {key: 'general', title: t('general')},

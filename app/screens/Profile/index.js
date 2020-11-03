@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {View, ScrollView, TouchableOpacity} from 'react-native';
-import {useDispatch} from 'react-redux';
-import {AuthActions} from '@actions';
+import {useDispatch, useSelector} from 'react-redux';
 import {BaseStyle, useTheme} from '@config';
 import {
   Header,
@@ -15,7 +14,7 @@ import {
 import styles from './styles';
 import {UserData} from '@data';
 import {useTranslation} from 'react-i18next';
-
+import {Logout} from '../../redux/auth/actions';
 export default function Profile({navigation}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
@@ -23,7 +22,11 @@ export default function Profile({navigation}) {
   const [loading, setLoading] = useState(false);
   const [userData] = useState(UserData[0]);
   const dispatch = useDispatch();
-
+  const authentication = useSelector((state) => state.auth.isAuthenticated);
+  console.log('AUTHENTICATION: ', authentication);
+  if (!authentication) {
+    navigation.navigate('SignIn');
+  }
   /**
    * @description Simple logout with Redux
    * @author Passion UI <passionui.com>
@@ -31,7 +34,8 @@ export default function Profile({navigation}) {
    */
   const onLogOut = () => {
     setLoading(true);
-    dispatch(AuthActions.authentication(false, response => {}));
+    console.log('DISPATCH LOGOUT');
+    dispatch(Logout());
   };
 
   return (

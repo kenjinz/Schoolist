@@ -22,6 +22,9 @@ import styles from './styles';
 import {TopSchoolData, SchoolData} from '@data';
 import {useTranslation} from 'react-i18next';
 
+//Using for check AsyncStorage
+import AsyncStorage from '@react-native-community/async-storage';
+
 export default function Home({navigation}) {
   const {t} = useTranslation();
   const {colors} = useTheme();
