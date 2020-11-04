@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   ScrollView,
@@ -21,11 +21,12 @@ import * as Utils from '@utils';
 import styles from './styles';
 import {TopSchoolData, SchoolData} from '@data';
 import {useTranslation} from 'react-i18next';
-
-//Using for check AsyncStorage
+import {getListUniversity, setQuery} from '../../redux/university/actions';
+import {useDispatch, useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
+  AsyncStorage.removeItem('persist:root');
   const {t} = useTranslation();
   const {colors} = useTheme();
   const [icons] = useState([
@@ -46,7 +47,7 @@ export default function Home({navigation}) {
     },
   ]);
   const [topSchool] = useState(TopSchoolData);
-
+  const dispatch = useDispatch();
   const [schools] = useState(SchoolData);
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
@@ -80,7 +81,20 @@ export default function Home({navigation}) {
   };
   const heightImageBanner = Utils.scaleWithPixel(140);
   const marginTopBanner = heightImageBanner - heightHeader;
-
+  const universities = useSelector((state) => state.university.universities);
+  const [page, setPage] = useState(3);
+  const [limit] = useState(5);
+  useEffect(() => {
+    dispatch(getListUniversity({page: 1, limit}));
+    dispatch(getListUniversity({page: 2, limit}));
+    dispatch(getListUniversity({page: 3, limit}));
+  }, []);
+  console.log('aaaaa', universities);
+  const handleLoadMore = () => {
+    setPage(page + 1);
+    console.log('page', page);
+    //dispatch(getListUniversity({page, limit}));
+  };
   return (
     <View style={{flex: 1}}>
       <Animated.Image
@@ -187,13 +201,13 @@ export default function Home({navigation}) {
           <FlatList
             columnWrapperStyle={{paddingLeft: 5, paddingRight: 20}}
             numColumns={2}
-            data={schools}
-            maxToRenderPerBatch={5}
+            data={universities}
+            initialNumToRender={limit}
             keyExtractor={(item, index) => item.id}
             renderItem={({item, index}) => (
               <SchoolItem
                 grid
-                image={item.image}
+                image={{uri: item.mainImage.link.thumbnail}}
                 name={t(item.name)}
                 location={t(item.location)}
                 // available={item.available}
@@ -205,6 +219,8 @@ export default function Home({navigation}) {
                 onPress={() => navigation.navigate('HotelDetail')}
               />
             )}
+            onEndReachedThreshold={handleLoadMore}
+            onEndThreshold={0.5}
           />
         </ScrollView>
       </SafeAreaView>

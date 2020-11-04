@@ -32,7 +32,7 @@ export default function SignIn({navigation}) {
    * call when action login
    *
    */
-  //console.log('success: ', success);
+  console.log('success: ', success);
   if (success) {
     navigation.navigate('Home');
   }

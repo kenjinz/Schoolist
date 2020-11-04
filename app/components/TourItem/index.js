@@ -112,11 +112,7 @@ export default function TourItem(props) {
               marginTop: 5,
             }}>
             <View style={styles.listContentIcon}>
-              <Icon
-                name="map-marker-alt"
-                color={BaseColor.grayColor}
-                size={14}
-              />
+              <Icon name="map-marker-alt" color={colors.primary} size={14} />
               <Text
                 caption1
                 grayColor
@@ -124,7 +120,26 @@ export default function TourItem(props) {
                   fontSize: 13,
                   marginLeft: 5,
                 }}>
-                {location}
+                {typeof location === 'object'
+                  ? location.length < 3
+                    ? location.map((value) => {
+                        return value.length > 25
+                          ? `${value.substring(0, 25)}... \n`
+                          : `${value} \n`;
+                      })
+                    : location
+                        .filter((value, index) => {
+                          return index < 3;
+                        })
+                        .concat(`And ${location.length - 3} more`)
+                        .map((value) => {
+                          return value.length > 25
+                            ? `${value.substring(0, 25)}... \n`
+                            : `${value} \n`;
+                        })
+                  : location.length > 25
+                  ? `${location.substring(0, 25)}...`
+                  : location}
               </Text>
             </View>
           </View>

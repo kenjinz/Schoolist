@@ -11,7 +11,8 @@ import rootReducer from '../redux/reducers';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  timeout: 100000,
+  timeout: 10000,
+  blacklist: ['universities'],
 };
 
 let middleware = [thunk];
