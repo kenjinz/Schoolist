@@ -83,18 +83,16 @@ export default function Home({navigation}) {
   const marginTopBanner = heightImageBanner - heightHeader;
   const universities = useSelector((state) => state.university.universities);
   const [page, setPage] = useState(3);
-  const [limit] = useState(5);
+  const [limit] = useState(4);
   useEffect(() => {
     dispatch(getListUniversity({page: 1, limit}));
-    dispatch(getListUniversity({page: 2, limit}));
-    dispatch(getListUniversity({page: 3, limit}));
   }, []);
-  console.log('aaaaa', universities);
-  const handleLoadMore = () => {
-    setPage(page + 1);
+  //console.log('aaaaa', universities);
+  function handleLoadMore() {
+    // setPage(page + 1);
     console.log('page', page);
     //dispatch(getListUniversity({page, limit}));
-  };
+  }
   return (
     <View style={{flex: 1}}>
       <Animated.Image
@@ -219,8 +217,8 @@ export default function Home({navigation}) {
                 onPress={() => navigation.navigate('HotelDetail')}
               />
             )}
-            onEndReachedThreshold={handleLoadMore}
-            onEndThreshold={0.5}
+            onEndReachedThreshold={0.5}
+            onEndReached={() => handleLoadMore()}
           />
         </ScrollView>
       </SafeAreaView>
