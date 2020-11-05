@@ -21,12 +21,12 @@ export function getListUniversityAttempt() {
     type: universityActionTypes.GET_LIST_UNIVERSITY_ATTEMPT,
   };
 }
-export function getListUniversitySuccess(data, page) {
+export function getListUniversitySuccess(data, page, total) {
   return {
     type: universityActionTypes.GET_LIST_UNIVERSITY_SUCCESS,
     data,
     page,
-    // total,
+    total,
     // limit,
     // page,
     // pageCount,
@@ -88,14 +88,12 @@ export function getListUniversity(query) {
     })
       .then((response) => response.json())
       .then((json) => {
-        //console.log('DATA ', json);
-
-        dispatch(getListUniversitySuccess(json.data, query.page));
-
-        // else{
-
-        // }
+        console.log('DATA ', json.total);
+        dispatch(getListUniversitySuccess(json.data, query.page, json.total));
       })
-      .catch((error) => dispatch(getListUniversityFailure(error)));
+      .catch((error) => {
+        console.log(error);
+        dispatch(getListUniversityFailure(error));
+      });
   };
 }

@@ -12,7 +12,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   timeout: 10000,
-  blacklist: ['universities'],
+  whitelist: ['auth'],
 };
 
 let middleware = [thunk];

@@ -6,7 +6,7 @@ export const initialState = {
   //   limit: 10,
   //   page: 1,
   // },
-  total: null,
+  total: 0,
   //pageCount: null,
   loading: false,
   listUniversitySuccess: undefined,
@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
           action.page === 1
             ? action.data
             : [...state.universities, ...action.data],
-        // total: action.total,
+        total: action.total,
         // limit: action.limit,
         // page: action.page,
         //offset: action.offset,

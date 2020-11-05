@@ -14,25 +14,25 @@ import {useTranslation} from 'react-i18next';
 import {TopSchoolData} from '@data';
 import {Text} from '@components';
 
-const URL = 'https://api.schoolist.org/universities/top';
-export default function TopSchool({navigation}) {
+export default function TopSchool({navigation, route}) {
   const [loading, setLoading] = useState(true);
-  const [topSchoolsData, setTopSchoolsData] = useState([]);
-  useEffect(() => {
-    fetch(URL, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        setTopSchoolsData(json.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+  console.log('TopSchoolData: ', route.params.topSchoolsData);
+  const [topSchoolsData] = useState(route.params.topSchoolsData);
+  // useEffect(() => {
+  //   fetch(URL, {
+  //     method: 'GET',
+  //   })
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setTopSchoolsData(json.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, []);
   const {t} = useTranslation();
 
   const scrollAnim = new Animated.Value(0);
@@ -167,7 +167,8 @@ export default function TopSchool({navigation}) {
           navigation.navigate('SearchHistory');
         }}
       />
-      {loading ? <ActivityIndicator /> : renderContent()}
+      {/* {loading ? <ActivityIndicator /> : renderContent()} */}
+      {renderContent()}
     </SafeAreaView>
   );
 }
