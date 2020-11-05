@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   ScrollView,
   Animated,
   TouchableOpacity,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import {
   Image,
@@ -21,11 +22,12 @@ import * as Utils from '@utils';
 import styles from './styles';
 import {TopSchoolData, SchoolData} from '@data';
 import {useTranslation} from 'react-i18next';
-
-//Using for check AsyncStorage
+import {getListUniversity, setQuery} from '../../redux/university/actions';
+import {useDispatch, useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
+  AsyncStorage.removeItem('persist:root');
   const {t} = useTranslation();
   const {colors} = useTheme();
   const [icons] = useState([
@@ -45,12 +47,25 @@ export default function Home({navigation}) {
       route: 'More',
     },
   ]);
-  const [topSchool] = useState(TopSchoolData);
-
+  //const [topSchool] = useState(TopSchoolData);
+  const dispatch = useDispatch();
   const [schools] = useState(SchoolData);
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
-
+  const [topSchoolsData, setTopSchoolsData] = useState([]);
+  const URL = 'https://api.schoolist.org/universities/top';
+  useEffect(() => {
+    fetch(URL, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        setTopSchoolsData(json.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
   const renderIconService = () => {
     return (
       <FlatList
@@ -63,7 +78,11 @@ export default function Home({navigation}) {
               style={styles.itemService}
               activeOpacity={0.9}
               onPress={() => {
-                navigation.navigate(item.route);
+                if (item.route === 'TopSchool') {
+                  navigation.navigate(item.route, {topSchoolsData});
+                } else {
+                  navigation.navigate(item.route);
+                }
               }}>
               <View
                 style={[styles.iconContent, {backgroundColor: colors.card}]}>
@@ -80,8 +99,16 @@ export default function Home({navigation}) {
   };
   const heightImageBanner = Utils.scaleWithPixel(140);
   const marginTopBanner = heightImageBanner - heightHeader;
+  const universities = useSelector((state) => state.university.universities);
+  const total = useSelector((state) => state.university.total);
+  const [page, setPage] = useState(1);
+  const [limit] = useState(20);
+  useEffect(() => {
+    dispatch(getListUniversity({page: 1, limit}));
+  }, []);
+  //console.log('aaaaa', universities);
 
-  return (
+  const HeaderScrollView = () => (
     <View style={{flex: 1}}>
       <Animated.Image
         source={Images.trip3}
@@ -148,7 +175,7 @@ export default function Home({navigation}) {
               contentContainerStyle={{paddingLeft: 5, paddingRight: 20}}
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              data={topSchool}
+              data={topSchoolsData}
               keyExtractor={(item, index) => item.id}
               renderItem={({item, index}) => (
                 <Card
@@ -184,30 +211,51 @@ export default function Home({navigation}) {
             <Image source={Images.banner1} style={styles.promotionBanner} />
             <View style={[styles.line, {backgroundColor: colors.border}]} />
           </View>
-          <FlatList
-            columnWrapperStyle={{paddingLeft: 5, paddingRight: 20}}
-            numColumns={2}
-            data={schools}
-            maxToRenderPerBatch={5}
-            keyExtractor={(item, index) => item.id}
-            renderItem={({item, index}) => (
-              <SchoolItem
-                grid
-                image={item.image}
-                name={t(item.name)}
-                location={t(item.location)}
-                // available={item.available}
-                rate={item.rate}
-                rateStatus={item.rateStatus}
-                numReviews={item.numReviews}
-                services={item.services}
-                style={{marginLeft: 15, marginBottom: 15}}
-                onPress={() => navigation.navigate('HotelDetail')}
-              />
-            )}
-          />
         </ScrollView>
       </SafeAreaView>
     </View>
+  );
+  const FooterScrollView = () => {
+    //console.log(total, universities.length);
+    return universities.length < total ? (
+      <ActivityIndicator size="large" color="red" />
+    ) : null;
+    //</View>
+  };
+  function handleLoadMore() {
+    if (universities.length < total) {
+      setPage(page + 1);
+      console.log('page', page);
+      dispatch(getListUniversity({page, limit}));
+      console.log('University', universities);
+    }
+  }
+  return (
+    <FlatList
+      ListHeaderComponent={HeaderScrollView}
+      columnWrapperStyle={{paddingLeft: 5, paddingRight: 20}}
+      numColumns={2}
+      data={universities}
+      initialNumToRender={limit}
+      keyExtractor={(item, index) => item.id}
+      renderItem={({item, index}) => (
+        <SchoolItem
+          grid
+          image={{uri: item.mainImage.link.thumbnail}}
+          name={t(item.name)}
+          location={t(item.location)}
+          // available={item.available}
+          rate={item.rate}
+          rateStatus={item.rateStatus}
+          numReviews={item.numReviews}
+          services={item.services}
+          style={{marginLeft: 15, marginBottom: 15}}
+          onPress={() => navigation.navigate('HotelDetail')}
+        />
+      )}
+      onEndReachedThreshold={0.1}
+      onEndReached={handleLoadMore}
+      ListFooterComponent={FooterScrollView}
+    />
   );
 }

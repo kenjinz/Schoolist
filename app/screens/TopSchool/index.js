@@ -1,5 +1,11 @@
-import React, {useState} from 'react';
-import {RefreshControl, Animated, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  RefreshControl,
+  Animated,
+  View,
+  ActivityIndicator,
+  Image,
+} from 'react-native';
 import {BaseStyle, useTheme} from '@config';
 import {Header, SafeAreaView, Icon, TourItem, FilterSort} from '@components';
 import styles from './styles';
@@ -8,29 +14,47 @@ import {useTranslation} from 'react-i18next';
 import {TopSchoolData} from '@data';
 import {Text} from '@components';
 
-export default function TopSchool({navigation}) {
+export default function TopSchool({navigation, route}) {
+  const [loading, setLoading] = useState(true);
+  console.log('TopSchoolData: ', route.params.topSchoolsData);
+  const [topSchoolsData] = useState(route.params.topSchoolsData);
+  // useEffect(() => {
+  //   fetch(URL, {
+  //     method: 'GET',
+  //   })
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setTopSchoolsData(json.data);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, []);
   const {t} = useTranslation();
+
   const scrollAnim = new Animated.Value(0);
   const offsetAnim = new Animated.Value(0);
-  const clampedScroll = Animated.diffClamp(
-    Animated.add(
-      scrollAnim.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, 1],
-        extrapolateLeft: 'clamp',
-      }),
-      offsetAnim,
-    ),
-    0,
-    40,
-  );
+  // const clampedScroll = Animated.diffClamp(
+  //   Animated.add(
+  //     scrollAnim.interpolate({
+  //       inputRange: [0, 1],
+  //       outputRange: [0, 1],
+  //       extrapolateLeft: 'clamp',
+  //     }),
+  //     offsetAnim,
+  //   ),
+  //   0,
+  //   40,
+  // );
   const {colors} = useTheme();
 
   const [refreshing] = useState(false);
   const [topSchools] = useState(TopSchoolData);
-
   const onChangeSort = () => {};
-
+  const image = {uri: 'https://picsum.photos/200/300'};
   /**
    * @description Render container view
    * @author Passion UI <passionui.com>
@@ -81,21 +105,28 @@ export default function TopSchool({navigation}) {
             ],
             {useNativeDriver: true},
           )}
-          data={topSchools}
+          data={topSchoolsData}
           key={'list'}
-          keyExtractor={(item, index) => item.id}
+          keyExtractor={(item, index) => item.id.toString()}
           renderItem={({item, index}) => (
             <TourItem
               list
-              image={item.image}
+              image={{
+                uri: item.mainImage.link.thumbnail,
+              }}
               name={t(item.name)}
-              location={t(item.location)}
+              //location={item.locations.address}
+              location={
+                item.locations.length > 1
+                  ? item.locations.map((add) => add.address)
+                  : item.locations[0].address
+              }
               price={item.price}
-              rate={item.rate}
-              rateCount={item.rateCount}
-              numReviews={item.numReviews}
-              author={item.author}
-              services={item.services}
+              //rate={item.rate}
+              //durationrateCount={item.rateCount}
+              //durationnumReviews={item.numReviews}
+              //durationauthor={item.author}
+              //services={item.services}
               style={{
                 marginBottom: 20,
               }}
@@ -136,6 +167,7 @@ export default function TopSchool({navigation}) {
           navigation.navigate('SearchHistory');
         }}
       />
+      {/* {loading ? <ActivityIndicator /> : renderContent()} */}
       {renderContent()}
     </SafeAreaView>
   );

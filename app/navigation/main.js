@@ -62,13 +62,14 @@ function logCurrentStorage() {
 }
 // ****************************TAB NAVIGATOR ***************************************************
 function BottomTabNavigator() {
-  console.log('BEFORE LOG STORAGE: ');
-  logCurrentStorage();
+  // console.log('BEFORE LOG STORAGE: ');
+  // logCurrentStorage();
+
   const {t} = useTranslation();
   const {colors} = useTheme();
   const font = useFont();
   const auth = useSelector((state) => state.auth);
-  console.log('AUTH:', auth);
+  //console.log('AUTH:', auth);
   const login = auth.isAuthenticated;
   return (
     <BottomTab.Navigator
@@ -111,7 +112,7 @@ function BottomTabNavigator() {
         options={{
           title: t('message'),
           tabBarIcon: ({color}) => {
-            return <Icon solid color={color} name="envelope" size={20} solid />;
+            return <Icon solid color={color} name="envelope" size={20} />;
           },
         }}
       />
