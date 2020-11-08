@@ -49,7 +49,6 @@ export default function Home({navigation}) {
   ]);
   //const [topSchool] = useState(TopSchoolData);
   const dispatch = useDispatch();
-  const [schools] = useState(SchoolData);
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
   const [topSchoolsData, setTopSchoolsData] = useState([]);
@@ -102,7 +101,7 @@ export default function Home({navigation}) {
   const universities = useSelector((state) => state.university.universities);
   const total = useSelector((state) => state.university.total);
   const [page, setPage] = useState(1);
-  const [limit] = useState(20);
+  const [limit] = useState(1);
   useEffect(() => {
     dispatch(getListUniversity({page: 1, limit}));
   }, []);
@@ -180,19 +179,19 @@ export default function Home({navigation}) {
               renderItem={({item, index}) => (
                 <Card
                   style={[styles.promotionItem, {marginLeft: 15}]}
-                  image={item.image}
-                  onPress={() => navigation.navigate('EventDetail')}>
+                  image={{uri: item.mainImage.link.medium}}
+                  onPress={() => navigation.navigate('SchoolDetail', {item})}>
                   <Text subhead whiteColor>
-                    {t(item.title1)}
+                    {t(item.name)}
                   </Text>
                   <Text title2 whiteColor semibold>
-                    {t(item.title2)}
+                    {t(item.locations[0].address.match(/Đà Nẵng/gi))}
                   </Text>
                   <View style={styles.contentCartPromotion}>
                     <Button
                       style={styles.btnPromotion}
                       onPress={() => {
-                        navigation.navigate('TourDetail');
+                        navigation.navigate('SchoolDetail');
                       }}>
                       <Text body2 semibold whiteColor>
                         {t('see_school')}
@@ -243,7 +242,7 @@ export default function Home({navigation}) {
           grid
           image={{uri: item.mainImage.link.thumbnail}}
           name={t(item.name)}
-          location={t(item.location)}
+          location={item.locations[0].address.match(/Đà Nẵng/gi)}
           // available={item.available}
           rate={item.rate}
           rateStatus={item.rateStatus}

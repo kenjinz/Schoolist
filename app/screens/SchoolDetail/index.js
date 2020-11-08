@@ -25,13 +25,15 @@ import {useTranslation} from 'react-i18next';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import * as Utils from '@utils';
 import styles from './styles';
-
-export default function EventDetail({navigation}) {
+import HTML from 'react-native-render-html';
+export default function SchoolDetail({navigation, route}) {
   const deltaY = new Animated.Value(0);
   const heightImageBanner = Utils.scaleWithPixel(250, 1);
   const {colors} = useTheme();
-  // const {t} = useTranslation();
+  const {t} = useTranslation();
   const [index, setIndex] = useState(0);
+  const universityDetail = route.params.item;
+  console.log(universityDetail.description);
   const [routes] = useState([
     {key: 'general', title: t('general')},
     {key: 'ratings', title: t('ratings')},
@@ -47,6 +49,7 @@ export default function EventDetail({navigation}) {
     {key: '7', title: 'Thông số 7', point: 7, textRating: 'Good'},
     {key: '8', title: 'Thông số 8', point: 8, textRating: 'Good'},
     {key: '9', title: 'Thông số 9', point: 9, textRating: 'Excellent'},
+    {key: '10', title: 'Thông số 9', point: 9, textRating: 'Excellent'},
   ]);
   //const [userData] = useState(UserData[0]);
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
@@ -115,29 +118,7 @@ export default function EventDetail({navigation}) {
             <Text body2 semibold style={{marginTop: 20, marginBottom: 10}}>
               {t('description')}
             </Text>
-            <Text body2 grayColor lineHeight={20}>
-              Desertscene, in association with X-Ray Touring, proudly presents:
-              The return of TRUCKFIGHETERS Playing 'Gravity X' from finish to
-              start. Plus special guests Swan Valley Heights Desertscene, in
-              association with X-Ray Touring, proudly presents: The return of
-              TRUCKFIGHETERS Playing 'Gravity X' from finish to start. Plus
-              special guests Swan Valley Heights Desertscene, in association
-              with X-Ray Touring, proudly presents: The return of TRUCKFIGHETERS
-              Playing 'Gravity X' from finish to start. Plus special guests Swan
-              Valley Heights Desertscene, in association with X-Ray Touring,
-              proudly presents: The return of TRUCKFIGHETERS Playing 'Gravity X'
-              from finish to start. Plus special guests Swan Valley Heights
-              Desertscene, in association with X-Ray Touring, proudly presents:
-              The return of TRUCKFIGHETERS Playing 'Gravity X' from finish to
-              start. Plus spudly presents: The return of TRUCKFIGHETERS Playing
-              'Gravity X' from finish to start. Plus special guests Swan Valley
-              Heights Desertscene, in association with X-Ray Touring, proudly
-              presents: The return of TRUCKFIGHETERS Playing 'Gravity X' from
-              finish to start. Plus special guests Swan Valley Heights
-              Desertscene, in association with X-Ray Touring, proudly presents:
-              The return of TRUCKFIGHETERS Playing 'Gravity X' from finish to
-              start. Plus special guests Swan Valley Heights
-            </Text>
+            <HTML html={universityDetail.description} />
           </View>
         );
       case 'ratings':
@@ -169,7 +150,10 @@ export default function EventDetail({navigation}) {
             }),
           },
         ]}>
-        <Image source={Images.event1} style={{flex: 1}} />
+        <Image
+          source={{uri: universityDetail.mainImage.link.origin}}
+          style={{flex: 1}}
+        />
         <Animated.View
           style={{
             position: 'absolute',
@@ -191,7 +175,7 @@ export default function EventDetail({navigation}) {
           <View style={styles.rowBanner}>
             <View style={{alignItems: 'flex-start'}}>
               <Text headline semibold whiteColor>
-                Trường đại học bách khoa
+                {universityDetail.name}
               </Text>
               <Text footnote whiteColor>
                 {`123 ${t('people_like_this')}`}
@@ -242,7 +226,7 @@ export default function EventDetail({navigation}) {
               paddingHorizontal: 20,
             }}>
             <Text title1 semibold numberOfLines={2} style={{marginBottom: 10}}>
-              Trường Đại học bách khoa Đà Nẵng
+              {universityDetail.name}
             </Text>
             <ProfileGroup
               name={`123 ${t('people_like_this')}`}
@@ -253,8 +237,9 @@ export default function EventDetail({navigation}) {
               ]}
             />
           </View>
-          <View style={{flex: 1}}>
+          <View>
             <TabView
+              scrollEnabled={true}
               lazy
               navigationState={{ratings, index, routes}}
               renderScene={renderScene}
@@ -263,7 +248,6 @@ export default function EventDetail({navigation}) {
             />
           </View>
         </ScrollView>
-        {/* Pricing & Booking Process */}
       </SafeAreaView>
     </View>
   );

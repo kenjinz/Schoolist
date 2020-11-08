@@ -8,6 +8,8 @@ target 'FelixPro' do
   config = use_native_modules!
   use_react_native!(:path => config["reactNativePath"])
   use_flipper!
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   post_install do |installer|
     flipper_post_install(installer)
   end
