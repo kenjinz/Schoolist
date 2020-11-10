@@ -1,6 +1,5 @@
 import qs from 'qs';
-import {initialState} from './reducer';
-const URL_getAPI_university = 'https://api.schoolist.org/universities';
+
 export const universityActionTypes = {
   GET_LIST_UNIVERSITY_ATTEMPT: 'GET_LIST_UNIVERSITY_ATTEMPT',
   GET_LIST_UNIVERSITY_SUCCESS: 'GET_LIST_UNIVERSITY_SUCCESS',

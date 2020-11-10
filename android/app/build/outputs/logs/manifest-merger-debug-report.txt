@@ -22,6 +22,7 @@ MERGED from [:react-native-safe-area-context] F:\Bach Khoa\Do an Cong nghe phan 
 MERGED from [:react-native-screens] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:react-native-vector-icons] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
 MERGED from [:rn-range-slider] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\rn-range-slider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\96b8fba13527eb0917d6ea4e2e878ae1\swiperefreshlayout-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -119,6 +120,8 @@ MERGED from [:react-native-dark-mode] F:\Bach Khoa\Do an Cong nghe phan mem\Temp
 MERGED from [:react-native-dark-mode] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-dark-mode\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-20
 MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-12:19
 MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-12:19
+MERGED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\6ff9aa3a504cc9b0d6634a1ac1c5c1fd\material-1.1.0\AndroidManifest.xml:22:5-20
@@ -237,6 +240,8 @@ MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\
 MERGED from [:react-native-splash-screen] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-splash-screen\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:rn-range-slider] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\rn-range-slider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:rn-range-slider] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\rn-range-slider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\a91f5f8b3436801ac583e656d007460e\jetified-react-native-0.63.2\AndroidManifest.xml:7:5-9:41
@@ -375,6 +380,22 @@ uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-81
 	android:name
 		ADDED from [:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-78
+provider#com.reactnativecommunity.webview.RNCWebViewFileProvider
+ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-64
+	android:exported
+		ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-83
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:63
+	android:resource
+		ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-60
+	android:name
+		ADDED from [:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 	android:name

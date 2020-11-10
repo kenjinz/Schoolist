@@ -27,7 +27,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
-  AsyncStorage.removeItem('persist:root');
+  //AsyncStorage.removeItem('persist:root');
   const {t} = useTranslation();
   const {colors} = useTheme();
   const [icons] = useState([
@@ -59,6 +59,7 @@ export default function Home({navigation}) {
     })
       .then((response) => response.json())
       .then((json) => {
+        //console.log('aeaoeaoeao: ', json.data);
         setTopSchoolsData(json.data);
       })
       .catch((err) => {

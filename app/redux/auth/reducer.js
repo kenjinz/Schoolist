@@ -7,11 +7,18 @@ const _INITIAL_STATE_ = {
     // id: AsyncStorage.getItem('id'),
     // name: AsyncStorage.getItem('name'),
     // email: AsyncStorage.getItem('email'),
-    id: '',
+    token: '',
+    id: 0,
     name: '',
+    profile: {
+      id: 0,
+      phoneNumber: '',
+      gender: false,
+      age: 0,
+    },
     email: '',
+    role: '',
   },
-  role: '',
   isLoading: false,
   loginError: false,
   loginSuccess: false,
@@ -28,8 +35,7 @@ export default function (state = _INITIAL_STATE_, action) {
         ...state,
         isAuthenticated: true,
         data: action.data,
-        role: action.data.role.name,
-        isLoading: true,
+        isLoading: false,
         loginSuccess: true,
         loginError: false,
       };
@@ -46,6 +52,8 @@ export default function (state = _INITIAL_STATE_, action) {
         ...state,
         data: {},
         isAuthenticated: false,
+        loginError: false,
+        loginSuccess: false,
       };
     default:
       return state;

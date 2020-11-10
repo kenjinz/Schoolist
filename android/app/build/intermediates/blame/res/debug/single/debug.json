@@ -2612,6 +2612,10 @@
         "source": "C:\\Users\\KenCr\\.gradle\\caches\\transforms-2\\files-2.1\\50c2f1e9e238f6f3402c8c40d454356e\\appcompat-1.2.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
+        "merged": "F:\\Bach Khoa\\Do an Cong nghe phan mem\\TemplateApp\\source\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_file_provider_paths.xml.flat",
+        "source": "F:\\Bach Khoa\\Do an Cong nghe phan mem\\TemplateApp\\source\\node_modules\\react-native-webview\\android\\build\\intermediates\\packaged_res\\debug\\xml\\file_provider_paths.xml"
+    },
+    {
         "merged": "F:\\Bach Khoa\\Do an Cong nghe phan mem\\TemplateApp\\source\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\KenCr\\.gradle\\caches\\transforms-2\\files-2.1\\50c2f1e9e238f6f3402c8c40d454356e\\appcompat-1.2.0\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
     },

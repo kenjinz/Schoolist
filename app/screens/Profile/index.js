@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, ScrollView, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {BaseStyle, useTheme} from '@config';
@@ -15,6 +15,7 @@ import styles from './styles';
 import {UserData} from '@data';
 import {useTranslation} from 'react-i18next';
 import {Logout} from '../../redux/auth/actions';
+import {useAsyncStorage} from '@react-native-community/async-storage';
 export default function Profile({navigation}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
@@ -27,6 +28,17 @@ export default function Profile({navigation}) {
   if (!authentication) {
     navigation.navigate('SignIn');
   }
+  const [userProfile, setUserProfile] = useState();
+  const {getItem} = useAsyncStorage('persist:root');
+  const readItemFromStorage = async () => {
+    const item = await getItem();
+    setUserProfile(JSON.parse(item['persist:root']));
+  };
+  useEffect(() => {
+    readItemFromStorage();
+  }, []);
+  console.log('axj', userProfile);
+
   /**
    * @description Simple logout with Redux
    * @author Passion UI <passionui.com>

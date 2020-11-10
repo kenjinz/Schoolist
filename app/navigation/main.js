@@ -63,13 +63,13 @@ function logCurrentStorage() {
 // ****************************TAB NAVIGATOR ***************************************************
 function BottomTabNavigator() {
   // console.log('BEFORE LOG STORAGE: ');
-  // logCurrentStorage();
+  logCurrentStorage();
 
   const {t} = useTranslation();
   const {colors} = useTheme();
   const font = useFont();
   const auth = useSelector((state) => state.auth);
-  //console.log('AUTH:', auth);
+  console.log('AUTH:', auth);
   const login = auth.isAuthenticated;
   return (
     <BottomTab.Navigator

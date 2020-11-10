@@ -6,6 +6,7 @@ import {
   Animated,
   TouchableOpacity,
   RefreshControl,
+  useWindowDimensions,
 } from 'react-native';
 import {BaseColor, Images, useTheme} from '@config';
 import {
@@ -26,6 +27,7 @@ import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import * as Utils from '@utils';
 import styles from './styles';
 import HTML from 'react-native-render-html';
+import {Dimensions} from 'react-native';
 export default function SchoolDetail({navigation, route}) {
   const deltaY = new Animated.Value(0);
   const heightImageBanner = Utils.scaleWithPixel(250, 1);
@@ -61,6 +63,8 @@ export default function SchoolDetail({navigation, route}) {
   });
   const handleIndexChange = (index) => setIndex(index);
 
+  const regex1 = /max-height: 400px;/gi;
+  const regex2 = /--aspect-ratio:16\/9;/gi;
   // Customize UI tab bar
   const renderTabBar = (props) => (
     <TabBar
@@ -100,7 +104,7 @@ export default function SchoolDetail({navigation, route}) {
             </Text>
             <View
               style={{
-                height: 180,
+                height: 200,
               }}>
               <MapView
                 provider={PROVIDER_GOOGLE}
@@ -115,10 +119,25 @@ export default function SchoolDetail({navigation, route}) {
                 />
               </MapView>
             </View>
-            <Text body2 semibold style={{marginTop: 20, marginBottom: 10}}>
-              {t('description')}
-            </Text>
-            <HTML html={universityDetail.description} />
+            <View>
+              <Text body2 semibold style={{marginTop: 20, marginBottom: 10}}>
+                {t('description')}
+              </Text>
+              <View>
+                <HTML
+                  html={universityDetail.description
+                    .replace(regex1, '')
+                    .replace(regex2, '')}
+                  imagesMaxWidth={Dimensions.get('window').width}
+                />
+                {/* <HTML
+                  html={universityDetail.description
+                    .replace(regex1, '')
+                    .replace(regex2, '')}
+                  imagesMaxWidth={Dimensions.get('window').width}
+                /> */}
+              </View>
+            </View>
           </View>
         );
       case 'ratings':
@@ -209,6 +228,7 @@ export default function SchoolDetail({navigation, route}) {
           }}
         />
         <ScrollView
+          style={{flex: 1}}
           onScroll={Animated.event([
             {
               nativeEvent: {
@@ -239,7 +259,6 @@ export default function SchoolDetail({navigation, route}) {
           </View>
           <View>
             <TabView
-              scrollEnabled={true}
               lazy
               navigationState={{ratings, index, routes}}
               renderScene={renderScene}
