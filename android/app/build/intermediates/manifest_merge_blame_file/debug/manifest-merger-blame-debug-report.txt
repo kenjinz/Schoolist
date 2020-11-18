@@ -17,8 +17,8 @@
 12-->F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:5:5-77
 12-->F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:5:22-75
 13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-13-->[com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:16:5-76
-13-->[com.facebook.flipper:flipper:0.37.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\57d493f6a247db847293bd270f514a38\flipper-0.37.0\AndroidManifest.xml:16:22-73
+13-->[com.facebook.flipper:flipper:0.54.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b1cf2e1d632226a57db1853d209db66f\flipper-0.54.0\AndroidManifest.xml:16:5-76
+13-->[com.facebook.flipper:flipper:0.54.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\b1cf2e1d632226a57db1853d209db66f\flipper-0.54.0\AndroidManifest.xml:16:22-73
 14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include required permissions for Google Maps API to run. -->
 14-->[:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-81
 14-->[:react-native-maps] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-78
@@ -83,35 +83,52 @@
 46        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 46-->F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:28:7-84
 46-->F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\src\main\AndroidManifest.xml:28:17-81
-47        <!-- Needs to be explicitly declared on P+ -->
-48        <uses-library
-48-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-49            android:name="org.apache.http.legacy"
-49-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-50            android:required="false" />
-50-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-51
-52        <activity
-52-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-53            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-53-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-54            android:exported="false"
-54-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-55            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-55-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-56
-57        <meta-data
-57-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:11:9-13:43
-58            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
-58-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:12:13-84
-59            android:value="GlideModule" />
-59-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:13:13-40
-60        <meta-data
-60-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-61            android:name="com.google.android.gms.version"
-61-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-62            android:value="@integer/google_play_services_version" />
-62-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-63    </application>
-64
-65</manifest>
+47
+48        <provider
+48-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+49            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+49-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-83
+50            android:authorities="com.felixpro.fileprovider"
+50-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-64
+51            android:exported="false"
+51-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+52            android:grantUriPermissions="true" >
+52-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+53            <meta-data
+53-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:63
+54                android:name="android.support.FILE_PROVIDER_PATHS"
+54-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
+55                android:resource="@xml/file_provider_paths" />
+55-->[:react-native-webview] F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-60
+56        </provider> <!-- Needs to be explicitly declared on P+ -->
+57        <uses-library
+57-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+58            android:name="org.apache.http.legacy"
+58-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+59            android:required="false" />
+59-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\8497ff5b2149d5b46e1d9e309e84e898\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+60
+61        <activity
+61-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+62            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+62-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+63            android:exported="false"
+63-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+64            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+64-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\3302d5b9a2b6006726f814022b3f5ec7\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+65
+66        <meta-data
+66-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:11:9-13:43
+67            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+67-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:12:13-84
+68            android:value="GlideModule" />
+68-->[com.github.bumptech.glide:okhttp3-integration:4.11.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\32a04650dcb9b15a8af7ab5a2550362f\okhttp3-integration-4.11.0\AndroidManifest.xml:13:13-40
+69        <meta-data
+69-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+70            android:name="com.google.android.gms.version"
+70-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+71            android:value="@integer/google_play_services_version" />
+71-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\KenCr\.gradle\caches\transforms-2\files-2.1\f1b98aa49c5264ec141ae8b2354ab59a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+72    </application>
+73
+74</manifest>

@@ -1,47 +1,76 @@
-import React, {useState} from 'react';
-import {RefreshControl, FlatList} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {RefreshControl, FlatList, ActivityIndicator} from 'react-native';
 import {BaseStyle, useTheme} from '@config';
 import {Header, SafeAreaView, PostItem, ProfileAuthor} from '@components';
 import styles from './styles';
 import {PostData} from '@data';
 import {useTranslation} from 'react-i18next';
+import {useDispatch, useSelector} from 'react-redux';
+import {getListPost} from '../../redux/posts/actions';
 
 export default function Post({navigation}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
-
+  const dispatch = useDispatch();
   const [refreshing] = useState(false);
-  const [posts] = useState(PostData);
+  const posts = useSelector((state) => state.post.posts);
+  const loading = useSelector((state) => state.post.loading);
+  const total = useSelector((state) => state.post.total);
+  //const [posts] = useState(PostData);
+  //const [loading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [limit] = useState(4);
+  const FooterView = () => {
+    return posts.length < total ? (
+      <ActivityIndicator size="large" color="red" />
+    ) : null;
+  };
+  function handleLoadMore() {
+    if (posts.length < total) {
+      setPage(page + 1);
 
+      dispatch(getListPost({page, limit}));
+    }
+  }
+  useEffect(() => {
+    dispatch(getListPost({page, limit}));
+  }, []);
   return (
     <SafeAreaView style={BaseStyle.safeAreaView} forceInset={{top: 'always'}}>
       <Header title={t('post')} />
-      <FlatList
-        refreshControl={
-          <RefreshControl
-            colors={[colors.primary]}
-            tintColor={colors.primary}
-            refreshing={refreshing}
-            onRefresh={() => {}}
-          />
-        }
-        data={posts}
-        keyExtractor={(item, index) => item.id}
-        renderItem={({item, index}) => (
-          <PostItem
-            image={item.image}
-            title={item.title}
-            description={item.description}
-            onPress={() => navigation.navigate('PostDetail')}>
-            <ProfileAuthor
-              image={item.authorImage}
-              name={item.name}
-              description={item.detail}
-              style={{paddingHorizontal: 20}}
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          refreshControl={
+            <RefreshControl
+              colors={[colors.primary]}
+              tintColor={colors.primary}
+              refreshing={refreshing}
+              onRefresh={() => {}}
             />
-          </PostItem>
-        )}
-      />
+          }
+          data={posts}
+          keyExtractor={(item, index) => item.id}
+          renderItem={({item, index}) => (
+            <PostItem
+              image={{uri: item.mainImage.link.origin}}
+              title={item.title}
+              description={item.description}
+              onPress={() => navigation.navigate('PostDetail', {id: item.id})}>
+              {/* <ProfileAuthor
+                image={item.authorImage}
+                name={item.name}
+                description={item.detail}
+                style={{paddingHorizontal: 20}}
+              /> */}
+            </PostItem>
+          )}
+          onEndReachedThreshold={0.1}
+          onEndReached={handleLoadMore}
+          ListFooterComponent={FooterView}
+        />
+      )}
     </SafeAreaView>
   );
 }

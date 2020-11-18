@@ -11,7 +11,7 @@ import rootReducer from '../redux/reducers';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  timeout: 10000,
+  timeout: 10000000,
   whitelist: ['auth'],
 };
 

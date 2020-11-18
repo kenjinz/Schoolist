@@ -4,14 +4,23 @@ import {authActionTypes} from './actions';
 const _INITIAL_STATE_ = {
   isAuthenticated: false,
   data: {
-    // id: AsyncStorage.getItem('id'),
-    // name: AsyncStorage.getItem('name'),
-    // email: AsyncStorage.getItem('email'),
-    id: '',
+    //token: '',
+    fullName: '',
+    id: 0,
     name: '',
+    profile: {
+      id: 0,
+      phoneNumber: '',
+      gender: false,
+      age: 0,
+    },
     email: '',
+    role: {
+      id: 0,
+      name: '',
+      acessLevel: 0,
+    },
   },
-  role: '',
   isLoading: false,
   loginError: false,
   loginSuccess: false,
@@ -28,8 +37,7 @@ export default function (state = _INITIAL_STATE_, action) {
         ...state,
         isAuthenticated: true,
         data: action.data,
-        role: action.data.role.name,
-        isLoading: true,
+        isLoading: false,
         loginSuccess: true,
         loginError: false,
       };
@@ -46,6 +54,8 @@ export default function (state = _INITIAL_STATE_, action) {
         ...state,
         data: {},
         isAuthenticated: false,
+        loginError: false,
+        loginSuccess: false,
       };
     default:
       return state;

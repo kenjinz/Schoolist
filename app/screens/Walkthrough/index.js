@@ -28,7 +28,7 @@ export default function Walkthrough({navigation}) {
    */
   const authentication = () => {
     setLoading(true);
-    dispatch(AuthActions.authentication(true, response => {}));
+    dispatch(AuthActions.authentication(true, (response) => {}));
   };
 
   return (
@@ -80,12 +80,10 @@ export default function Walkthrough({navigation}) {
             {t('sign_in')}
           </Button>
           <View style={styles.contentActionBottom}>
+            <Text body1 grayColor>
+              {t('not_have_account')}
+            </Text>
             <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-              <Text body1 grayColor>
-                {t('not_have_account')}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => authentication()}>
               <Text body1 primaryColor>
                 {t('join_now')}
               </Text>

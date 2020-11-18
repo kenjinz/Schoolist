@@ -32,26 +32,11 @@ export default function SignIn({navigation}) {
    * call when action login
    *
    */
-  console.log('success: ', success);
+  //console.log('success: ', success);
   if (success) {
     navigation.navigate('Home');
   }
   const onLogin = () => {
-    // if (email === '' || password === '') {
-    //   setSuccess({
-    //     ...success,
-    //     id: false,
-    //     password: false,
-    //   });
-    // } else {
-    //   //setLoading(true);
-    //   // dispatch(
-    //   //   AuthActions.authentication(true, (response) => {
-    //   //     setLoading(false);
-    //   //     navigation.goBack();
-    //   //   }),
-    //   // );
-    //
     dispatch(Login({email, password}));
   };
 

@@ -2,8 +2,8 @@
  * Basic Setting Variables Define
  */
 export const BaseSetting = {
-  name: 'FelixPro',
-  displayName: 'FelixPro',
+  name: 'Schoolist',
+  displayName: 'Schoolist',
   appVersion: '1.0.9',
   defaultLanguage: 'en',
   languageSupport: [

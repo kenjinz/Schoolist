@@ -18,6 +18,7 @@ export default function ProfileDetail(props) {
     point,
     textSecond,
     textThird,
+    textFourth,
     icon,
   } = props;
   return (
@@ -49,6 +50,9 @@ export default function ProfileDetail(props) {
           </Text>
           <Text footnote grayColor numberOfLines={1}>
             {textThird}
+          </Text>
+          <Text footnote grayColor numberOfLines={1}>
+            {textFourth}
           </Text>
         </View>
       </View>

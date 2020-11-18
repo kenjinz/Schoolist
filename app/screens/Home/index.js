@@ -20,14 +20,13 @@ import {
 import {BaseStyle, Images, useTheme} from '@config';
 import * as Utils from '@utils';
 import styles from './styles';
-import {TopSchoolData, SchoolData} from '@data';
 import {useTranslation} from 'react-i18next';
-import {getListUniversity, setQuery} from '../../redux/university/actions';
+import {getListUniversity} from '../../redux/university/actions';
 import {useDispatch, useSelector} from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
+//import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
-  AsyncStorage.removeItem('persist:root');
+  //AsyncStorage.removeItem('persist:root');
   const {t} = useTranslation();
   const {colors} = useTheme();
   const [icons] = useState([
@@ -47,9 +46,7 @@ export default function Home({navigation}) {
       route: 'More',
     },
   ]);
-  //const [topSchool] = useState(TopSchoolData);
   const dispatch = useDispatch();
-  const [schools] = useState(SchoolData);
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
   const [topSchoolsData, setTopSchoolsData] = useState([]);
@@ -60,6 +57,7 @@ export default function Home({navigation}) {
     })
       .then((response) => response.json())
       .then((json) => {
+        //console.log('aeaoeaoeao: ', json.data);
         setTopSchoolsData(json.data);
       })
       .catch((err) => {
@@ -102,7 +100,7 @@ export default function Home({navigation}) {
   const universities = useSelector((state) => state.university.universities);
   const total = useSelector((state) => state.university.total);
   const [page, setPage] = useState(1);
-  const [limit] = useState(20);
+  const [limit] = useState(4);
   useEffect(() => {
     dispatch(getListUniversity({page: 1, limit}));
   }, []);
@@ -180,19 +178,21 @@ export default function Home({navigation}) {
               renderItem={({item, index}) => (
                 <Card
                   style={[styles.promotionItem, {marginLeft: 15}]}
-                  image={item.image}
-                  onPress={() => navigation.navigate('EventDetail')}>
+                  image={{uri: item.mainImage.link.medium}}
+                  onPress={() =>
+                    navigation.navigate('SchoolDetail', {id: item.id})
+                  }>
                   <Text subhead whiteColor>
-                    {t(item.title1)}
+                    {t(item.name)}
                   </Text>
                   <Text title2 whiteColor semibold>
-                    {t(item.title2)}
+                    {t(item.locations[0].address.match(/Đà Nẵng/gi))}
                   </Text>
                   <View style={styles.contentCartPromotion}>
                     <Button
                       style={styles.btnPromotion}
                       onPress={() => {
-                        navigation.navigate('TourDetail');
+                        navigation.navigate('SchoolDetail');
                       }}>
                       <Text body2 semibold whiteColor>
                         {t('see_school')}
@@ -243,14 +243,14 @@ export default function Home({navigation}) {
           grid
           image={{uri: item.mainImage.link.thumbnail}}
           name={t(item.name)}
-          location={t(item.location)}
+          location={item.locations[0].address.match(/Đà Nẵng/gi)}
           // available={item.available}
           rate={item.rate}
           rateStatus={item.rateStatus}
           numReviews={item.numReviews}
           services={item.services}
           style={{marginLeft: 15, marginBottom: 15}}
-          onPress={() => navigation.navigate('HotelDetail')}
+          onPress={() => navigation.navigate('SchoolDetail', {id: item.id})}
         />
       )}
       onEndReachedThreshold={0.1}

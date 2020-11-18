@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   ScrollView,
@@ -6,6 +6,8 @@ import {
   Animated,
   TouchableOpacity,
   RefreshControl,
+  useWindowDimensions,
+  ActivityIndicator,
 } from 'react-native';
 import {BaseColor, Images, useTheme} from '@config';
 import {
@@ -25,13 +27,33 @@ import {useTranslation} from 'react-i18next';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import * as Utils from '@utils';
 import styles from './styles';
-
-export default function EventDetail({navigation}) {
+import HTML from 'react-native-render-html';
+import {Dimensions} from 'react-native';
+export default function SchoolDetail({navigation, route}) {
   const deltaY = new Animated.Value(0);
   const heightImageBanner = Utils.scaleWithPixel(250, 1);
   const {colors} = useTheme();
-  // const {t} = useTranslation();
+  const {t} = useTranslation();
   const [index, setIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [universityDetail, setUniversityDetail] = useState();
+  const regex1 = /max-height: 400px;/gi;
+  const regex2 = /--aspect-ratio:16\/9;/gi;
+  const id = route.params.id;
+  useEffect(() => {
+    fetch(`https://api.schoolist.org/universities/${id}`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log('aeaoeaoeao: ', json);
+        setUniversityDetail(json);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
+  }, []);
   const [routes] = useState([
     {key: 'general', title: t('general')},
     {key: 'ratings', title: t('ratings')},
@@ -47,6 +69,7 @@ export default function EventDetail({navigation}) {
     {key: '7', title: 'Thông số 7', point: 7, textRating: 'Good'},
     {key: '8', title: 'Thông số 8', point: 8, textRating: 'Good'},
     {key: '9', title: 'Thông số 9', point: 9, textRating: 'Excellent'},
+    {key: '10', title: 'Thông số 9', point: 9, textRating: 'Excellent'},
   ]);
   //const [userData] = useState(UserData[0]);
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
@@ -83,62 +106,13 @@ export default function EventDetail({navigation}) {
     switch (route.key) {
       case 'general':
         return (
-          <View
-            style={{
-              paddingHorizontal: 20,
-              marginBottom: 20,
-            }}>
-            <Text
-              title3
-              semibold
-              grayColor
-              style={{marginTop: 10, marginBottom: 10}}>
-              {t('place')}
-            </Text>
-            <View
-              style={{
-                height: 180,
-              }}>
-              <MapView
-                provider={PROVIDER_GOOGLE}
-                style={styles.map}
-                region={region}
-                onRegionChange={() => {}}>
-                <Marker
-                  coordinate={{
-                    latitude: 1.352083,
-                    longitude: 103.819839,
-                  }}
-                />
-              </MapView>
-            </View>
-            <Text body2 semibold style={{marginTop: 20, marginBottom: 10}}>
-              {t('description')}
-            </Text>
-            <Text body2 grayColor lineHeight={20}>
-              Desertscene, in association with X-Ray Touring, proudly presents:
-              The return of TRUCKFIGHETERS Playing 'Gravity X' from finish to
-              start. Plus special guests Swan Valley Heights Desertscene, in
-              association with X-Ray Touring, proudly presents: The return of
-              TRUCKFIGHETERS Playing 'Gravity X' from finish to start. Plus
-              special guests Swan Valley Heights Desertscene, in association
-              with X-Ray Touring, proudly presents: The return of TRUCKFIGHETERS
-              Playing 'Gravity X' from finish to start. Plus special guests Swan
-              Valley Heights Desertscene, in association with X-Ray Touring,
-              proudly presents: The return of TRUCKFIGHETERS Playing 'Gravity X'
-              from finish to start. Plus special guests Swan Valley Heights
-              Desertscene, in association with X-Ray Touring, proudly presents:
-              The return of TRUCKFIGHETERS Playing 'Gravity X' from finish to
-              start. Plus spudly presents: The return of TRUCKFIGHETERS Playing
-              'Gravity X' from finish to start. Plus special guests Swan Valley
-              Heights Desertscene, in association with X-Ray Touring, proudly
-              presents: The return of TRUCKFIGHETERS Playing 'Gravity X' from
-              finish to start. Plus special guests Swan Valley Heights
-              Desertscene, in association with X-Ray Touring, proudly presents:
-              The return of TRUCKFIGHETERS Playing 'Gravity X' from finish to
-              start. Plus special guests Swan Valley Heights
-            </Text>
-          </View>
+          <GeneralTab
+            t={t}
+            region={region}
+            universityDetail={universityDetail}
+            jumpTo={jumpTo}
+            navigation={navigation}
+          />
         );
       case 'ratings':
         return (
@@ -153,7 +127,9 @@ export default function EventDetail({navigation}) {
     }
   };
 
-  return (
+  return loading ? (
+    <ActivityIndicator />
+  ) : (
     <View style={{flex: 1}}>
       <Animated.View
         style={[
@@ -169,7 +145,10 @@ export default function EventDetail({navigation}) {
             }),
           },
         ]}>
-        <Image source={Images.event1} style={{flex: 1}} />
+        <Image
+          source={{uri: universityDetail.mainImage.link.origin}}
+          style={{flex: 1}}
+        />
         <Animated.View
           style={{
             position: 'absolute',
@@ -191,7 +170,7 @@ export default function EventDetail({navigation}) {
           <View style={styles.rowBanner}>
             <View style={{alignItems: 'flex-start'}}>
               <Text headline semibold whiteColor>
-                Trường đại học bách khoa
+                {universityDetail.name}
               </Text>
               <Text footnote whiteColor>
                 {`123 ${t('people_like_this')}`}
@@ -225,6 +204,7 @@ export default function EventDetail({navigation}) {
           }}
         />
         <ScrollView
+          style={{flex: 1}}
           onScroll={Animated.event([
             {
               nativeEvent: {
@@ -242,7 +222,7 @@ export default function EventDetail({navigation}) {
               paddingHorizontal: 20,
             }}>
             <Text title1 semibold numberOfLines={2} style={{marginBottom: 10}}>
-              Trường Đại học bách khoa Đà Nẵng
+              {universityDetail.name}
             </Text>
             <ProfileGroup
               name={`123 ${t('people_like_this')}`}
@@ -253,18 +233,68 @@ export default function EventDetail({navigation}) {
               ]}
             />
           </View>
-          <View style={{flex: 1}}>
+          <View>
             <TabView
               lazy
-              navigationState={{ratings, index, routes}}
+              navigationState={{
+                ratings,
+                region,
+                universityDetail,
+                index,
+                routes,
+              }}
               renderScene={renderScene}
               renderTabBar={renderTabBar}
               onIndexChange={handleIndexChange}
             />
           </View>
         </ScrollView>
-        {/* Pricing & Booking Process */}
       </SafeAreaView>
+    </View>
+  );
+}
+function GeneralTab({t, region, universityDetail}) {
+  const regex1 = /max-height: 400px;/gi;
+  const regex2 = /--aspect-ratio:16\/9;/gi;
+  return (
+    <View
+      style={{
+        paddingHorizontal: 20,
+        marginBottom: 20,
+      }}>
+      <Text title3 semibold grayColor style={{marginTop: 10, marginBottom: 10}}>
+        {t('place')}
+      </Text>
+      <View
+        style={{
+          height: 200,
+        }}>
+        <MapView
+          provider={PROVIDER_GOOGLE}
+          style={styles.map}
+          region={region}
+          onRegionChange={() => {}}>
+          <Marker
+            coordinate={{
+              latitude: 1.352083,
+              longitude: 103.819839,
+            }}
+          />
+        </MapView>
+      </View>
+      <View>
+        <Text body2 semibold style={{marginTop: 20, marginBottom: 10}}>
+          {t('description')}
+        </Text>
+        <View>
+          <HTML
+            html={universityDetail.description
+              .replace(regex1, '')
+              .replace(regex2, '')}
+            imagesMaxWidth={Dimensions.get('window').width}
+          />
+        </View>
+      </View>
     </View>
   );
 }
