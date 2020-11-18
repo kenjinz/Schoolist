@@ -1,11 +1,11 @@
 import AsyncStorage from '@react-native-community/async-storage';
+import {rootURL} from '../common/rootURL';
 export const authActionTypes = {
   LOGIN_ATTEMPT: 'LOGIN_ATTEMPT',
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
   LOGIN_FAIL: 'LOGIN_FAIL',
   LOGOUT: 'LOGOUT',
 };
-const URL = 'https://api.schoolist.org/auth/login';
 export function LoginLoading() {
   return {
     type: authActionTypes.LOGIN_ATTEMPT,
@@ -32,7 +32,7 @@ export function Login(userValues) {
   return (dispatch) => {
     dispatch(LoginLoading());
     console.log('REQUEST API ');
-    return fetch(URL, {
+    return fetch(`${rootURL}/auth/login`, {
       method: 'POST',
       headers: {
         // these could be different for your API call

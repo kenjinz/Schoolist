@@ -4,10 +4,8 @@ import {authActionTypes} from './actions';
 const _INITIAL_STATE_ = {
   isAuthenticated: false,
   data: {
-    // id: AsyncStorage.getItem('id'),
-    // name: AsyncStorage.getItem('name'),
-    // email: AsyncStorage.getItem('email'),
-    token: '',
+    //token: '',
+    fullName: '',
     id: 0,
     name: '',
     profile: {
@@ -17,7 +15,11 @@ const _INITIAL_STATE_ = {
       age: 0,
     },
     email: '',
-    role: '',
+    role: {
+      id: 0,
+      name: '',
+      acessLevel: 0,
+    },
   },
   isLoading: false,
   loginError: false,

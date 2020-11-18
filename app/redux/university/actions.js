@@ -1,5 +1,5 @@
 import qs from 'qs';
-
+import {rootURL} from '../common/rootURL';
 export const universityActionTypes = {
   GET_LIST_UNIVERSITY_ATTEMPT: 'GET_LIST_UNIVERSITY_ATTEMPT',
   GET_LIST_UNIVERSITY_SUCCESS: 'GET_LIST_UNIVERSITY_SUCCESS',
@@ -82,7 +82,7 @@ export function getListUniversity(query) {
   const queryString = qs.stringify(query);
   console.log(queryString);
   return (dispatch) => {
-    return fetch(`https://api.schoolist.org/universities?${queryString}`, {
+    return fetch(`${rootURL}/universities?${queryString}`, {
       method: 'GET',
     })
       .then((response) => response.json())

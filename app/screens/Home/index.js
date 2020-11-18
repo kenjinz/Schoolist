@@ -20,11 +20,10 @@ import {
 import {BaseStyle, Images, useTheme} from '@config';
 import * as Utils from '@utils';
 import styles from './styles';
-import {TopSchoolData, SchoolData} from '@data';
 import {useTranslation} from 'react-i18next';
-import {getListUniversity, setQuery} from '../../redux/university/actions';
+import {getListUniversity} from '../../redux/university/actions';
 import {useDispatch, useSelector} from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
+//import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
   //AsyncStorage.removeItem('persist:root');
@@ -47,7 +46,6 @@ export default function Home({navigation}) {
       route: 'More',
     },
   ]);
-  //const [topSchool] = useState(TopSchoolData);
   const dispatch = useDispatch();
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
@@ -102,7 +100,7 @@ export default function Home({navigation}) {
   const universities = useSelector((state) => state.university.universities);
   const total = useSelector((state) => state.university.total);
   const [page, setPage] = useState(1);
-  const [limit] = useState(1);
+  const [limit] = useState(4);
   useEffect(() => {
     dispatch(getListUniversity({page: 1, limit}));
   }, []);
@@ -181,7 +179,9 @@ export default function Home({navigation}) {
                 <Card
                   style={[styles.promotionItem, {marginLeft: 15}]}
                   image={{uri: item.mainImage.link.medium}}
-                  onPress={() => navigation.navigate('SchoolDetail', {item})}>
+                  onPress={() =>
+                    navigation.navigate('SchoolDetail', {id: item.id})
+                  }>
                   <Text subhead whiteColor>
                     {t(item.name)}
                   </Text>
@@ -250,7 +250,7 @@ export default function Home({navigation}) {
           numReviews={item.numReviews}
           services={item.services}
           style={{marginLeft: 15, marginBottom: 15}}
-          onPress={() => navigation.navigate('HotelDetail')}
+          onPress={() => navigation.navigate('SchoolDetail', {id: item.id})}
         />
       )}
       onEndReachedThreshold={0.1}

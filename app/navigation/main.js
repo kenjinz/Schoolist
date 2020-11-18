@@ -21,7 +21,7 @@ import ChangeLanguage from '@screens/ChangeLanguage';
 import HotelDetail from '@screens/HotelDetail';
 import TopSchool from '@screens/TopSchool';
 import TourDetail from '@screens/TourDetail';
-import EventDetail1 from '@screens/EventDetail1';
+import PostDetail from '@screens/PostDetail';
 import AsyncStorage from '@react-native-community/async-storage';
 import SchoolDetail from '@screens/SchoolDetail';
 
@@ -46,7 +46,7 @@ export default function Main() {
       <MainStack.Screen name="ChangeLanguage" component={ChangeLanguage} />
       <MainStack.Screen name="TourDetail" component={TourDetail} />
       <MainStack.Screen name="SchoolDetail" component={SchoolDetail} />
-      <MainStack.Screen name="EventDetail1" component={EventDetail1} />
+      <MainStack.Screen name="PostDetail" component={PostDetail} />
     </MainStack.Navigator>
   );
 }

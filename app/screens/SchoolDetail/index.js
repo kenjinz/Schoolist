@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   ScrollView,
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   RefreshControl,
   useWindowDimensions,
+  ActivityIndicator,
 } from 'react-native';
 import {BaseColor, Images, useTheme} from '@config';
 import {
@@ -34,8 +35,25 @@ export default function SchoolDetail({navigation, route}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
   const [index, setIndex] = useState(0);
-  const universityDetail = route.params.item;
-  console.log(universityDetail.description);
+  const [loading, setLoading] = useState(true);
+  const [universityDetail, setUniversityDetail] = useState();
+  const regex1 = /max-height: 400px;/gi;
+  const regex2 = /--aspect-ratio:16\/9;/gi;
+  const id = route.params.id;
+  useEffect(() => {
+    fetch(`https://api.schoolist.org/universities/${id}`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log('aeaoeaoeao: ', json);
+        setUniversityDetail(json);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
+  }, []);
   const [routes] = useState([
     {key: 'general', title: t('general')},
     {key: 'ratings', title: t('ratings')},
@@ -63,8 +81,6 @@ export default function SchoolDetail({navigation, route}) {
   });
   const handleIndexChange = (index) => setIndex(index);
 
-  const regex1 = /max-height: 400px;/gi;
-  const regex2 = /--aspect-ratio:16\/9;/gi;
   // Customize UI tab bar
   const renderTabBar = (props) => (
     <TabBar
@@ -90,55 +106,13 @@ export default function SchoolDetail({navigation, route}) {
     switch (route.key) {
       case 'general':
         return (
-          <View
-            style={{
-              paddingHorizontal: 20,
-              marginBottom: 20,
-            }}>
-            <Text
-              title3
-              semibold
-              grayColor
-              style={{marginTop: 10, marginBottom: 10}}>
-              {t('place')}
-            </Text>
-            <View
-              style={{
-                height: 200,
-              }}>
-              <MapView
-                provider={PROVIDER_GOOGLE}
-                style={styles.map}
-                region={region}
-                onRegionChange={() => {}}>
-                <Marker
-                  coordinate={{
-                    latitude: 1.352083,
-                    longitude: 103.819839,
-                  }}
-                />
-              </MapView>
-            </View>
-            <View>
-              <Text body2 semibold style={{marginTop: 20, marginBottom: 10}}>
-                {t('description')}
-              </Text>
-              <View>
-                <HTML
-                  html={universityDetail.description
-                    .replace(regex1, '')
-                    .replace(regex2, '')}
-                  imagesMaxWidth={Dimensions.get('window').width}
-                />
-                {/* <HTML
-                  html={universityDetail.description
-                    .replace(regex1, '')
-                    .replace(regex2, '')}
-                  imagesMaxWidth={Dimensions.get('window').width}
-                /> */}
-              </View>
-            </View>
-          </View>
+          <GeneralTab
+            t={t}
+            region={region}
+            universityDetail={universityDetail}
+            jumpTo={jumpTo}
+            navigation={navigation}
+          />
         );
       case 'ratings':
         return (
@@ -153,7 +127,9 @@ export default function SchoolDetail({navigation, route}) {
     }
   };
 
-  return (
+  return loading ? (
+    <ActivityIndicator />
+  ) : (
     <View style={{flex: 1}}>
       <Animated.View
         style={[
@@ -260,7 +236,13 @@ export default function SchoolDetail({navigation, route}) {
           <View>
             <TabView
               lazy
-              navigationState={{ratings, index, routes}}
+              navigationState={{
+                ratings,
+                region,
+                universityDetail,
+                index,
+                routes,
+              }}
               renderScene={renderScene}
               renderTabBar={renderTabBar}
               onIndexChange={handleIndexChange}
@@ -268,6 +250,51 @@ export default function SchoolDetail({navigation, route}) {
           </View>
         </ScrollView>
       </SafeAreaView>
+    </View>
+  );
+}
+function GeneralTab({t, region, universityDetail}) {
+  const regex1 = /max-height: 400px;/gi;
+  const regex2 = /--aspect-ratio:16\/9;/gi;
+  return (
+    <View
+      style={{
+        paddingHorizontal: 20,
+        marginBottom: 20,
+      }}>
+      <Text title3 semibold grayColor style={{marginTop: 10, marginBottom: 10}}>
+        {t('place')}
+      </Text>
+      <View
+        style={{
+          height: 200,
+        }}>
+        <MapView
+          provider={PROVIDER_GOOGLE}
+          style={styles.map}
+          region={region}
+          onRegionChange={() => {}}>
+          <Marker
+            coordinate={{
+              latitude: 1.352083,
+              longitude: 103.819839,
+            }}
+          />
+        </MapView>
+      </View>
+      <View>
+        <Text body2 semibold style={{marginTop: 20, marginBottom: 10}}>
+          {t('description')}
+        </Text>
+        <View>
+          <HTML
+            html={universityDetail.description
+              .replace(regex1, '')
+              .replace(regex2, '')}
+            imagesMaxWidth={Dimensions.get('window').width}
+          />
+        </View>
+      </View>
     </View>
   );
 }

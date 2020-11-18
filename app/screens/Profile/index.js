@@ -28,17 +28,7 @@ export default function Profile({navigation}) {
   if (!authentication) {
     navigation.navigate('SignIn');
   }
-  const [userProfile, setUserProfile] = useState();
-  const {getItem} = useAsyncStorage('persist:root');
-  const readItemFromStorage = async () => {
-    const item = await getItem();
-    setUserProfile(JSON.parse(item['persist:root']));
-  };
-  useEffect(() => {
-    readItemFromStorage();
-  }, []);
-  console.log('axj', userProfile);
-
+  const userProfile = useSelector((state) => state.auth.data);
   /**
    * @description Simple logout with Redux
    * @author Passion UI <passionui.com>
@@ -65,16 +55,17 @@ export default function Profile({navigation}) {
         <View style={styles.contain}>
           <ProfileDetail
             image={userData.image}
-            textFirst={userData.name}
-            point={userData.point}
-            textSecond={userData.address}
-            textThird={userData.id}
+            textFirst={userProfile.fullName}
+            point={parseInt(userProfile.id, 10)}
+            textSecond={userProfile.email}
+            textThird={`Age: ${userProfile.profile.age}`}
+            textFourth={`Phone: ${userProfile.profile.phoneNumber}`}
             onPress={() => navigation.navigate('ProfileExanple')}
           />
-          <ProfilePerformance
+          {/* <ProfilePerformance
             data={userData.performance}
             style={{marginTop: 20, marginBottom: 20}}
-          />
+          /> */}
           <TouchableOpacity
             style={[
               styles.profileItem,
@@ -109,32 +100,7 @@ export default function Profile({navigation}) {
               enableRTL={true}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.profileItem,
-              {borderBottomColor: colors.border, borderBottomWidth: 1},
-            ]}
-            onPress={() => {
-              navigation.navigate('Currency');
-            }}>
-            <Text body1>{t('currency')}</Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
-              <Text body1 grayColor>
-                USD
-              </Text>
-              <Icon
-                name="angle-right"
-                size={18}
-                color={colors.primary}
-                style={{marginLeft: 5}}
-                enableRTL={true}
-              />
-            </View>
-          </TouchableOpacity>
+
           <TouchableOpacity
             style={[
               styles.profileItem,

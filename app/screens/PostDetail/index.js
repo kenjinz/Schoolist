@@ -15,7 +15,8 @@ import * as Utils from '@utils';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
 
-export default function PostDetail({navigation}) {
+export default function PostDetail({navigation, route}) {
+  const id = route.params.id;
   const {t} = useTranslation();
 
   const deltaY = new Animated.Value(0);
