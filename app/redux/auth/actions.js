@@ -31,7 +31,7 @@ export function LogoutSuccess() {
 export function Login(userValues) {
   return (dispatch) => {
     dispatch(LoginLoading());
-    console.log('REQUEST API ');
+    //console.log('REQUEST API ');
     return fetch(`${rootURL}/auth/login`, {
       method: 'POST',
       headers: {
@@ -43,19 +43,19 @@ export function Login(userValues) {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('JSON', json);
+        //console.log('JSON', json);
         const res = json;
         if (res.token) {
           // response success checking logic could differ
-          console.log('SUCCESSFULLY');
+          //console.log('SUCCESSFULLY');
           dispatch(LoginSuccess(res)); // our action is called here
         } else {
-          console.log('FAIL');
+          //console.log('FAIL');
           dispatch(LoginFailure(res));
         }
       })
       .catch((err) => {
-        console.log('ABC', err);
+        //console.log('ABC', err);
         dispatch(LoginFailure(err));
       });
   };

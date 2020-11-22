@@ -50,7 +50,7 @@ export default function Home({navigation}) {
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
   const [topSchoolsData, setTopSchoolsData] = useState([]);
-  const URL = 'https://api.schoolist.org/universities/top';
+  const URL = 'http://35.222.23.128/universities/top';
   useEffect(() => {
     fetch(URL, {
       method: 'GET',

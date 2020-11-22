@@ -32,7 +32,7 @@ export default function Index(props) {
           paddingTop: 5,
           paddingBottom: 5,
         }}
-        onChangeText={text => onChangeText(text)}
+        onChangeText={(text) => onChangeText(text)}
         onFocus={() => onFocus()}
         autoCorrect={false}
         placeholder={placeholder}
@@ -63,11 +63,12 @@ Index.propTypes = {
   textAlignVertical: PropTypes.string,
   icon: PropTypes.node,
   onSubmitEditing: PropTypes.func,
+  editable: PropTypes.bool,
 };
 
 Index.defaultProps = {
   style: {},
-  onChangeText: text => {},
+  onChangeText: (text) => {},
   onFocus: () => {},
   placeholder: 'Placeholder',
   value: '',
