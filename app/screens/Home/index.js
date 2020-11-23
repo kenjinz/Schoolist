@@ -23,6 +23,7 @@ import styles from './styles';
 import {useTranslation} from 'react-i18next';
 import {getListUniversity} from '../../redux/university/actions';
 import {useDispatch, useSelector} from 'react-redux';
+import {rootURL} from '../../redux/common/rootURL';
 //import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
@@ -50,7 +51,7 @@ export default function Home({navigation}) {
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
   const [topSchoolsData, setTopSchoolsData] = useState([]);
-  const URL = 'http://35.222.23.128/universities/top';
+  const URL = `${rootURL}/universities/top`;
   useEffect(() => {
     fetch(URL, {
       method: 'GET',
@@ -231,7 +232,7 @@ export default function Home({navigation}) {
     }
   }
   return (
-    <FlatList
+    <Animated.FlatList
       ListHeaderComponent={HeaderScrollView}
       columnWrapperStyle={{paddingLeft: 5, paddingRight: 20}}
       numColumns={2}

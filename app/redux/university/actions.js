@@ -12,6 +12,10 @@ export const universityActionTypes = {
   UPDATE_ONE_UNIVERSITY_ATTEMPT: 'UPDATE_ONE_UNIVERSITY_ATTEMPT',
   UPDATE_ONE_UNIVERSITY_SUCCESS: 'UPDATE_ONE_UNIVERSITY_SUCCESS',
   UPDATE_ONE_UNIVERSITY_FAILURE: 'UPDATE_ONE_UNIVERSITY_FAILURE',
+
+  SEARCH_HISTORY_UNIVERSITY_ATTEMPT: 'SEARCH_HISTORY_UNIVERSITY_ATTEMPT',
+  SEARCH_HISTORY_UNIVERSITY_SUCCESS: 'SEARCH_HISTORY_UNIVERSITY_SUCCESS',
+  SEARCH_HISTORY_UNIVERSITY_FAILURE: 'SEARCH_HISTORY_UNIVERSITY_FAILURE',
 };
 
 // GET LIST UNIVERSITY
@@ -71,6 +75,26 @@ export function updateUniversityFailure(updateError) {
     updateError,
   };
 }
+
+// SEARCH UNIVERSITY
+export function searchUniversityAttempt() {
+  return {
+    type: universityActionTypes.SEARCH_HISTORY_UNIVERSITY_ATTEMPT,
+  };
+}
+export function searchUniversitySuccess(data) {
+  return {
+    type: universityActionTypes.SEARCH_HISTORY_UNIVERSITY_SUCCESS,
+    data,
+  };
+}
+export function searchUniversityFailure(searchError) {
+  return {
+    type: universityActionTypes.SEARCH_HISTORY_UNIVERSITY_FAILURE,
+    searchError,
+  };
+}
+// THUNK :
 export function getListUniversity(query) {
   if (query.limit === undefined) {
     query.limit = 10;
@@ -94,5 +118,15 @@ export function getListUniversity(query) {
         console.log(error);
         dispatch(getListUniversityFailure(error));
       });
+  };
+}
+export function addSearchHistoryUniversity(data) {
+  console.log('ACTION:', data);
+  return (dispatch) => {
+    try {
+      dispatch(searchUniversitySuccess(data));
+    } catch (error) {
+      dispatch(searchUniversityFailure(error));
+    }
   };
 }

@@ -53,7 +53,7 @@ export default function Walkthrough({navigation}) {
                 <View style={styles.slide} key={item.key}>
                   <Image source={item.image} style={styles.img} />
                   <Text body1 style={styles.textSlide}>
-                    {t('pick_your_destication')}
+                    Pick your favorite University
                   </Text>
                 </View>
               );
@@ -61,7 +61,7 @@ export default function Walkthrough({navigation}) {
           </Swiper>
         </View>
         <View style={{width: '100%'}}>
-          <Button
+          {/* <Button
             full
             style={{
               backgroundColor: BaseColor.navyBlue,
@@ -71,7 +71,7 @@ export default function Walkthrough({navigation}) {
               authentication();
             }}>
             {t('login_facebook')}
-          </Button>
+          </Button> */}
           <Button
             full
             style={{marginTop: 20}}
