@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   RefreshControl,
   Animated,
@@ -18,13 +18,20 @@ import Modal from 'react-native-modal';
 export default function ListSchool({navigation, route}) {
   const [loading, setLoading] = useState(true);
   //console.log('TopSchoolData: ', route.params.topSchoolsData);
+  //const searchString = route.params.keyword || '';
+
+  const s = route.params ? {name: {$contL: route.params.keyword}} : {};
+
+  console.log('PARAMS', route.params);
   const dispatch = useDispatch();
   const universities = useSelector((state) => state.university.universities);
   const [page, setPage] = useState(1);
   const [limit] = useState(10);
+
+  console.log('S: ', s);
   useEffect(() => {
-    dispatch(getListUniversity({page, limit}));
-  }, []);
+    dispatch(getListUniversity({page, limit, s}));
+  }, [dispatch]);
   const {t} = useTranslation();
 
   const scrollAnim = new Animated.Value(0);
@@ -90,7 +97,9 @@ export default function ListSchool({navigation, route}) {
               colors={[colors.primary]}
               tintColor={colors.primary}
               refreshing={refreshing}
-              onRefresh={() => {}}
+              onRefresh={() => {
+                dispatch(getListUniversity({page, limit, s}));
+              }}
             />
           }
           scrollEventThrottle={1}

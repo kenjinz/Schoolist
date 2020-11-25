@@ -11,6 +11,7 @@ export default StyleSheet.create({
     height: '100%',
   },
   rowTitle: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

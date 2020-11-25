@@ -218,7 +218,8 @@ export default function Home({navigation}) {
   );
   const FooterScrollView = () => {
     //console.log(total, universities.length);
-    return universities.length < total ? (
+    const length = universities ? universities.length : 0;
+    return length < total ? (
       <ActivityIndicator size="large" color="red" />
     ) : null;
     //</View>

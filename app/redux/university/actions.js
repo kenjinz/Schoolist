@@ -102,16 +102,16 @@ export function getListUniversity(query) {
   if (query.page === undefined) {
     query.page = 1;
   }
-  console.log('query objject: ', query);
+  console.log('query object: ', query);
   const queryString = qs.stringify(query);
-  console.log(queryString);
+  console.log('QUERY STRING', queryString);
   return (dispatch) => {
     return fetch(`${rootURL}/universities?${queryString}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('DATA ', json.total);
+        console.log('DATA ', json.data);
         dispatch(getListUniversitySuccess(json.data, query.page, json.total));
       })
       .catch((error) => {

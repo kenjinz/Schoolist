@@ -102,7 +102,7 @@ export default function (state = initialState, action) {
           ...state.searchHistory,
           {
             id: action.data.id,
-            keyword: action.data.name,
+            keyword: action.data.keyword,
           },
         ],
         searchHistoryUniversitySuccess: true,

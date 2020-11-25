@@ -14,50 +14,38 @@ import styles from './styles';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import {addSearchHistoryUniversity} from '../../redux/university/actions';
-import {rootURL} from '../../redux/common/rootURL';
 
 export default function SearchHistory({navigation}) {
+  const dispatch = useDispatch();
   const {colors} = useTheme();
   const {t} = useTranslation();
+  const [loading, setLoading] = useState(false);
+  const [hints, setHints] = useState([
+    {id: '1', keyword: 'Trường Đại Học Kiến Trúc Đà Nẵng'},
+    {id: '2', keyword: 'Đại học Mỹ tại Việt Nam'},
+    {id: '3', keyword: 'Trường Cao Đẳng Lạc Việt - Đà Nẵng'},
+    {id: '4', keyword: 'Trường Đại học Sư phạm - Đại học Đà Nẵng'},
+    {id: '5', keyword: 'Trường Đại Học Bách Khoa Đà Nẵng'},
+  ]);
   const offsetKeyboard = Platform.select({
     ios: 0,
     android: 20,
   });
   const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(false);
-  // const [searchHistory, setSearchHistory] = useState([
-  //   {id: '1', keyword: 'Trường Đại học bách khoa đại học Đà Nẵng'},
-  //   {id: '2', keyword: 'Tripple Room'},
-  //   {id: '3', keyword: 'Single Room'},
-  //   {id: '4', keyword: 'King Room'},
-  //   {id: '5', keyword: 'Lux Room'},
-  // ]);
   // True: SearchView
   // False: Search History View
   const [view, setView] = useState(false);
   const searchHistory = useSelector((state) => state.university.searchHistory);
+  console.log('SEARCH HISTORY: ', searchHistory);
   /**
    * call when search data
    * @param {*} keyword
    */
-  const onSearch = (keyword) => {
-    console.log(1);
-    // const found = searchHistory.some((item) => item.keyword == keyword);
-    // let searchData = [];
-    // if (found) {
-    //   searchData = searchHistory.map((item) => {
-    //     return {
-    //       ...item,
-    //       checked: item.keyword == keyword,
-    //     };
-    //   });
-    // } else {
-    //   searchData = searchHistory.concat({
-    //     keyword: search,
-    //   });
-    // }
-    // setLoading(true);
-    // setTimeout(() => navigation.goBack(), 1000);
+  const onSearch = (id, keyword) => {
+    navigation.navigate('Universities', {keyword});
+    console.log('ID : ', id);
+    console.log('Keyword: ', keyword);
+    dispatch(addSearchHistoryUniversity({id, keyword}));
   };
   const SearchHistoryView = () => (
     <View style={{paddingTop: 20}}>
@@ -85,7 +73,7 @@ export default function SearchHistory({navigation}) {
                   }
                 : {},
             ]}
-            onPress={() => onSearch(item.keyword)}
+            onPress={() => onSearch(item.id, item.keyword)}
             key={'search' + index}>
             <Text
               caption2
@@ -105,19 +93,34 @@ export default function SearchHistory({navigation}) {
   );
   const SearchView = () => (
     <View style={{paddingTop: 20, marginLeft: 10}}>
-      <View style={styles.rowTitle}>
-        <View style={{flexGrow: 0.1, justifyContent: 'flex-start'}}>
-          <Icon name="search" size={20} color={colors.primary} />
+      {hints.map((hint, index) => (
+        <View style={styles.rowTitle}>
+          <TouchableOpacity
+            key={index}
+            style={{flexDirection: 'row'}}
+            onPress={() => onSearch(hint.id, hint.keyword)}>
+            <View style={{justifyContent: 'flex-start', marginRight: 5}}>
+              <Icon name="search" size={20} color={colors.primary} />
+            </View>
+            <View
+              style={{
+                justifyContent: 'flex-start',
+                flexGrow: 1,
+              }}>
+              <Text body1 medium>
+                {hint.keyword.length > 30
+                  ? `${hint.keyword.slice(0, 30)}...`
+                  : hint.keyword}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <View style={{alignItems: 'flex-end'}}>
+              <Icon name="times" size={20} color={colors.primary} />
+            </View>
+          </TouchableOpacity>
         </View>
-        <View style={{flexGrow: 0.8}}>
-          <Text body1 medium>
-            ABC
-          </Text>
-        </View>
-        <View style={{flexGrow: 0.1, alignItems: 'flex-end'}}>
-          <Icon name="times" size={20} color={colors.primary} />
-        </View>
-      </View>
+      ))}
     </View>
   );
   return (
@@ -161,7 +164,7 @@ export default function SearchHistory({navigation}) {
             //   </TouchableOpacity>
             // }
           />
-          {view ? <SearchHistoryView /> : <SearchView />}
+          {view ? <SearchView /> : <SearchHistoryView />}
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
