@@ -1,6 +1,7 @@
 import React, {useEffect}from 'react';
 import {View, ScrollView, Animated, TouchableOpacity} from 'react-native';
 import {BaseColor, Images} from '@config';
+import Config from "react-native-config";
 import {
   Header,
   SafeAreaView,
@@ -24,9 +25,9 @@ export default function PostDetail({navigation, route}) {
   const heightImageBanner = Utils.scaleWithPixel(250);
   const marginTopBanner = heightImageBanner - heightHeader - 30;
   useEffect(() => {
-    const URL = process.env.API_URL;
-    console.log('[URL]', URL);
-    console.log('[id]', id);
+    const URL = Config.API_URL;
+    // console.log('[URL]', URL);
+    // console.log('[id]', id);
   }, []);
   return (
     <View style={{flex: 1}}>
