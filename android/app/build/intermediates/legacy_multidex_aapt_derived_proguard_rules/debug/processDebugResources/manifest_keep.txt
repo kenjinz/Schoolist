@@ -1,4 +1,4 @@
-# Referenced at F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:21
+# Referenced at E:\ky1nam4\DACNPM\software-technology-app\android\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:21
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at F:\Bach Khoa\Do an Cong nghe phan mem\TemplateApp\source\android\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:21
+# Referenced at E:\ky1nam4\DACNPM\software-technology-app\android\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:21
 -keep class com.felixpro.MainApplication { <init>(); }
