@@ -116,7 +116,7 @@ class MapScreen extends Component{
           source={{ uri: item?.image }}
           width={102}
           height={102}
-          // sharp
+          sharp
           style={{
             // zIndex: 99,
             borderTopLeftRadius: 10,

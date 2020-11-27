@@ -141,6 +141,24 @@ export default function PostDetail({navigation, route}) {
                 {image: Images.profile4},
               ]}
             />
+            {/* 
+            <Text
+              headline
+              semibold
+              style={{
+                marginTop: 20,
+              }}>
+              {t('user_following')}
+            </Text>
+            <ProfileGroup
+              name="Steve, Lincoln, Harry"
+              detail="and 15 people like this"
+              users={[
+                {image: Images.profile1},
+                {image: Images.profile3},
+                {image: Images.profile4},
+              ]}
+            />
             <View
               style={{
                 flexDirection: 'row',
@@ -156,7 +174,7 @@ export default function PostDetail({navigation, route}) {
                 </Text>
               </TouchableOpacity>
             </View>
-            {/* Image gallery */}
+            
             <View style={styles.contentImageFollowing}>
               <View style={{flex: 4, marginRight: 10}}>
                 <Card image={Images.trip7}>
@@ -196,7 +214,6 @@ export default function PostDetail({navigation, route}) {
                 </View>
               </View>
             </View>
-            {/* Featured Posts */}
             <Text
               headline
               semibold
@@ -222,7 +239,7 @@ export default function PostDetail({navigation, route}) {
               onPress={() => {
                 navigation.navigate('Post');
               }}
-            />
+            /> */}
           </View>
         </ScrollView>
       </SafeAreaView>
