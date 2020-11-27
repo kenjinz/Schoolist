@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import {
 //   QuickView, Button,
 // } from '@components';
 import {QuickView, Button} from '../../components';
 import MapView, { Callout, Marker } from 'react-native-maps';
-// import Carousel from 'react-native-snap-carousel';
+import Carousel from 'react-native-snap-carousel';
 import { Dimensions, StyleSheet, Text, Image} from 'react-native';
 // import { Color } from '@themes/Theme';
 // import { convertPrice, vndPriceFormat } from '@utils/functions';
@@ -17,52 +17,75 @@ const LATITUDE = 16.06375;
 const LONGITUDE = 108.17969;
 const coordinates = [
   {
-    name: 'Burger',
-    latitude: LATITUDE,
-    longitude: LONGITUDE,
-    image: 'https://picsum.photos/500/500',
+    name: 'Đại học Bách Khoa',
+    code: 'DUT',
+    address: '54 Nguyễn Lương Bằng',
+    latitude: 16.0738064,
+    longitude: 108.1477255,
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Logo_dhbkdn.jpg',
     price: 550000,
   },
   {
-    name: 'Pizza',
-    latitude: LATITUDE + 0.004,
-    longitude: LONGITUDE - 0.003,
+    name: 'Đại học Kinh Tế',
+    code: 'DUE',
+    address: '71 Ngũ Hành Sơn',
+    latitude: 16.0479858,
+    longitude: 108.2370301,
     image: 'https://picsum.photos/500/500',
     price: 750000,
   },
   {
-    name: 'Soup',
-    latitude: LATITUDE + 0.002,
-    longitude: LONGITUDE - 0.006,
+    name: 'Đại học Sư Phạm',
+    code: 'UED',
+    address: '459 Tôn Đức Thắng',
+
+    latitude: 16.061839,
+    longitude: 108.1570242,
     image: 'https://picsum.photos/500/500',
     price: 850000,
   },
   {
-    name: 'Sushi',
-    latitude: LATITUDE - 0.004,
-    longitude: LONGITUDE - 0.004,
+    name: 'Đại học Duy Tân',
+    code: 'DTU',
+    address: '254 Nguyễn Văn Linh',
+
+    latitude: 16.0602096,
+    longitude: 108.2105274,
     image: 'https://picsum.photos/500/500',
     price: 1550000,
   },
   {
-    name: 'Curry',
-    latitude: LATITUDE - 0.008,
-    longitude: LONGITUDE - 0.004,
+    name: 'Đại học Đông á',
+    code: 'DAD',
+    address: '33 Xô Viết Nghệ Tĩnh',
+
+    latitude: 16.032034,
+    longitude: 108.2191138,
+    image: 'https://picsum.photos/500/500',
+    price: 950000,
+  },
+  {
+    name: 'Viện Nghiên cứu và Đào tạo Việt - Anh',
+    code: 'VNUK',
+    address: '158A Lê Lợi',
+
+    latitude: 16.0710393,
+    longitude: 108.2180645,
     image: 'https://picsum.photos/500/500',
     price: 950000,
   },
 ];
-interface Props {}
-interface State {
-  markers: any;
-  propertyIndex: number;
-}
-class MapScreen extends PureComponent<Props, State> {
-  carousel: any;
+// interface Props {}
+// interface State {
+//   markers: any;
+//   propertyIndex: number;
+// }
+class MapScreen extends Component{
+  // carousel: any;
 
-  map: any;
+  // map: any;
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     this.state = {
       markers: [],
@@ -70,37 +93,7 @@ class MapScreen extends PureComponent<Props, State> {
     };
   }
 
-  renderCarouselItem = ({ item }: { item: any}) => (
-    // <QuickView style={{
-    //   backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    //   height: 150,
-    //   width: 300,
-    //   padding: 24,
-    //   borderRadius: 24,
-    // }}
-    // >
-    //   <Text style={{
-    //     color: 'white',
-    //     fontSize: 22,
-    //     alignSelf: 'center',
-    //   }}
-    //   >
-    //     {item.name}
-
-    //   </Text>
-    //   <Image
-    //     style={{
-    //       height: 120,
-    //       width: 300,
-    //       bottom: 0,
-    //       position: 'absolute',
-    //       borderBottomLeftRadius: 24,
-    //       borderBottomRightRadius: 24,
-    //     }}
-    //     source={{ uri: item.image }}
-    //   />
-    // </QuickView>
-
+  renderCarouselItem = ({ item }) => (
     <QuickView
       key={item?.id}
       row
@@ -120,14 +113,15 @@ class MapScreen extends PureComponent<Props, State> {
     >
       <QuickView width={102}>
         <Image
+          source={{ uri: item?.image }}
           width={102}
           height={102}
           sharp
           style={{
+            // zIndex: 99,
             borderTopLeftRadius: 10,
             borderBottomLeftRadius: 10,
           }}
-          source={{ uri: item?.image }}
         />
       </QuickView>
       <QuickView flex={7} height={102}>
@@ -149,18 +143,18 @@ class MapScreen extends PureComponent<Props, State> {
           height={46}
         >
           <QuickView flex={3} center>
-            <Text fontSize={12}>Số lượng</Text>
+            <Text fontSize={12}>Đánh giá</Text>
             <Text fontSize={12} bold>
-              {item?.sectionCount}
+              ... sao
             </Text>
           </QuickView>
           <QuickView flex={3} center>
-            <Text fontSize={12}>Giá</Text>
+            <Text fontSize={12}>Học phí</Text>
             <Text fontSize={20} bold>
-              BKĐN
+              {item?.price}
             </Text>
           </QuickView>
-          <QuickView flex={3} center>
+          {/* <QuickView flex={3} center>
             <Button
               onPress={() => {}}
               clear
@@ -172,13 +166,13 @@ class MapScreen extends PureComponent<Props, State> {
               }}
               titlePaddingVertical={0}
             />
-          </QuickView>
+          </QuickView> */}
         </QuickView>
       </QuickView>
     </QuickView>
   );
 
-  onCarouselItemChange = (index: number) => {
+  onCarouselItemChange = (index) => {
     const { markers } = this.state;
     this.setState({ propertyIndex: index });
     const location = coordinates[index];
@@ -193,7 +187,7 @@ class MapScreen extends PureComponent<Props, State> {
     markers[index].showCallout();
   };
 
-  onMarkerPressed = (location: any, index: number) => {
+  onMarkerPressed = (location, index) => {
     this.map.animateToRegion({
       latitude: location.latitude,
       longitude: location.longitude,
@@ -205,6 +199,7 @@ class MapScreen extends PureComponent<Props, State> {
 
   render() {
     const { markers, propertyIndex } = this.state;
+    // markers = this.state.markers;
     return (
 
       <QuickView style={{ ...StyleSheet.absoluteFillObject }}>
@@ -247,15 +242,15 @@ class MapScreen extends PureComponent<Props, State> {
                 // backgroundColor={propertyIndex === index ? lightPrimaryColor : Color.white}
               >
                 {/* <Text bold color={propertyIndex === index ? Color.white : lightPrimaryColor}>{`${convertPrice(marker.price, ',')} ₫`}</Text> */}
-                <Text>BKĐN</Text>
+              <Text>{marker.code}</Text>
               </QuickView>
-              {/* <Callout>
+              <Callout>
                 <Text>{marker.price}</Text>
-              </Callout> */}
+              </Callout>
             </Marker>
           ))}
         </MapView>
-        {/* <Carousel
+        <Carousel
           ref={(c) => {
             this.carousel = c;
           }}
@@ -270,18 +265,18 @@ class MapScreen extends PureComponent<Props, State> {
           itemWidth={Dimensions.get('window').width - 40}
           removeClippedSubviews={false}
           onSnapToItem={(index) => this.onCarouselItemChange(index)}
-        /> */}
+        />
       </QuickView>
 
     );
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state) => ({
 
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch) => ({
 
 });
 
