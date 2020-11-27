@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -9,118 +9,115 @@ import {
   Platform,
 } from 'react-native';
 import {BaseStyle, BaseColor, Images, useTheme} from '@config';
-import {Header, SafeAreaView, TextInput, Icon, Text, Card} from '@components';
+import {Header, SafeAreaView, TextInput, Icon, Text, Button} from '@components';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
-import {addSearchHistoryUniversity} from '../../redux/university/actions';
-
-export default function SearchHistory({navigation}) {
-  const dispatch = useDispatch();
+import Modal from 'react-native-modal';
+export default function SearchHistory({navigation, route}) {
+  const setSearchCallBack = route.params.setSearch;
   const {colors} = useTheme();
   const {t} = useTranslation();
-  const [loading, setLoading] = useState(false);
-  const [hints, setHints] = useState([
-    {id: '1', keyword: 'Trường Đại Học Kiến Trúc Đà Nẵng'},
-    {id: '2', keyword: 'Đại học Mỹ tại Việt Nam'},
-    {id: '3', keyword: 'Trường Cao Đẳng Lạc Việt - Đà Nẵng'},
-    {id: '4', keyword: 'Trường Đại học Sư phạm - Đại học Đà Nẵng'},
-    {id: '5', keyword: 'Trường Đại Học Bách Khoa Đà Nẵng'},
-  ]);
   const offsetKeyboard = Platform.select({
     ios: 0,
     android: 20,
   });
+  const [gender, setGender] = useState(true);
+  const [majorModalVisible, setMajorModalVisible] = useState(false);
+  const [criteriaModalVisible, setCriteriaModalVisible] = useState(false);
   const [search, setSearch] = useState('');
-  // True: SearchView
-  // False: Search History View
-  const [view, setView] = useState(false);
-  const searchHistory = useSelector((state) => state.university.searchHistory);
-  console.log('SEARCH HISTORY: ', searchHistory);
+  const [loading, setLoading] = useState(false);
+  const [textMajor, setTextMajor] = useState('Choose your Major');
+  const [majors] = useState([
+    'Công nghệ thông tin',
+    'Điện tử viễn thôg',
+    'Học máy',
+    'Trí tuệ nhân tạo',
+    ,
+  ]);
+  const [textCriteria, setTextCriteria] = useState('Choose your Criteria');
+  const [criteria] = useState([
+    'Wifi',
+    'Quán Net',
+    'Tiền học',
+    'Chất lượng đào tạo',
+    ,
+  ]);
+  //Handling Increase or Decrease text:
+  const [filterCriteria, setFilterCriteria] = useState(true);
+  const [filterFee, setFilterFee] = useState(true);
+  const [filterRating, setFilterRating] = useState(true);
   /**
    * call when search data
    * @param {*} keyword
    */
-  const onSearch = (id, keyword) => {
-    navigation.navigate('Universities', {keyword});
-    console.log('ID : ', id);
-    console.log('Keyword: ', keyword);
-    dispatch(addSearchHistoryUniversity({id, keyword}));
+  const onSearch = (keyword) => {
+    setSearchCallBack(keyword);
+    navigation.navigate('ListSchool');
   };
-  const SearchHistoryView = () => (
-    <View style={{paddingTop: 20}}>
-      <View style={styles.rowTitle}>
-        <Text headline>{t('search_history').toUpperCase()}</Text>
-        <TouchableOpacity>
-          <Text caption1 accentColor>
-            {t('clear')}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        }}>
-        {searchHistory.map((item, index) => (
-          <TouchableOpacity
-            style={[
-              styles.itemHistory,
-              {backgroundColor: colors.card},
-              item.checked
-                ? {
-                    backgroundColor: colors.primary,
-                  }
-                : {},
-            ]}
-            onPress={() => onSearch(item.id, item.keyword)}
-            key={'search' + index}>
-            <Text
-              caption2
-              style={
-                item.checked
-                  ? {
-                      color: BaseColor.whiteColor,
-                    }
-                  : {}
-              }>
-              {item.keyword}
-            </Text>
-          </TouchableOpacity>
+  const MajorModal = () => (
+    <View>
+      <Modal
+        testID={'modal'}
+        isVisible={majorModalVisible}
+        backdropOpacity={0.2}
+        onBackdropPress={() => setMajorModalVisible(false)}
+        // swipeDirection={['up', 'left', 'right', 'down']}
+        style={styles.view}>
+        {majors.map((major) => (
+          <View style={styles.majorModalWrapper}>
+            <TouchableOpacity
+              onPress={() => {
+                setTextMajor(major);
+                setMajorModalVisible(false);
+              }}>
+              <View style={styles.majorModal}>
+                <Text
+                  title3
+                  style={{
+                    borderBottomWidth: 1,
+                    paddingBottom: 10,
+                    borderBottomColor: colors.border,
+                  }}>
+                  {major}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         ))}
-      </View>
+      </Modal>
     </View>
   );
-  const SearchView = () => (
-    <View style={{paddingTop: 20, marginLeft: 10}}>
-      {hints.map((hint, index) => (
-        <View style={styles.rowTitle}>
-          <TouchableOpacity
-            key={index}
-            style={{flexDirection: 'row'}}
-            onPress={() => onSearch(hint.id, hint.keyword)}>
-            <View style={{justifyContent: 'flex-start', marginRight: 5}}>
-              <Icon name="search" size={20} color={colors.primary} />
-            </View>
-            <View
-              style={{
-                justifyContent: 'flex-start',
-                flexGrow: 1,
+  const CriteriaModal = () => (
+    <View>
+      <Modal
+        testID={'modal'}
+        isVisible={criteriaModalVisible}
+        backdropOpacity={0.2}
+        onBackdropPress={() => setCriteriaModalVisible(false)}
+        // swipeDirection={['up', 'left', 'right', 'down']}
+        style={styles.view}>
+        {criteria.map((cri) => (
+          <View style={styles.majorModalWrapper}>
+            <TouchableOpacity
+              onPress={() => {
+                setTextCriteria(cri);
+                setCriteriaModalVisible(false);
               }}>
-              <Text body1 medium>
-                {hint.keyword.length > 30
-                  ? `${hint.keyword.slice(0, 30)}...`
-                  : hint.keyword}
-              </Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <View style={{alignItems: 'flex-end'}}>
-              <Icon name="times" size={20} color={colors.primary} />
-            </View>
-          </TouchableOpacity>
-        </View>
-      ))}
+              <View style={styles.majorModal}>
+                <Text
+                  title3
+                  style={{
+                    borderBottomWidth: 1,
+                    paddingBottom: 10,
+                    borderBottomColor: colors.border,
+                  }}>
+                  {cri}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </Modal>
     </View>
   );
   return (
@@ -143,28 +140,133 @@ export default function SearchHistory({navigation}) {
         behavior={Platform.OS === 'android' ? 'height' : 'padding'}
         keyboardVerticalOffset={offsetKeyboard}
         style={{flex: 1}}>
-        <ScrollView contentContainerStyle={{padding: 20}}>
+        <ScrollView contentContainerStyle={{flex: 1, padding: 20}}>
+          <Text regular body1 style={{marginBottom: 10}}>
+            Tìm Kiếm
+          </Text>
           <TextInput
-            onChangeText={(text) => {
-              text === '' ? setView(false) : setView(true);
-              setSearch(text);
-            }}
-            placeholder={t('search')}
+            onChangeText={(text) => setSearch(text)}
+            placeholder="Nhập tên trường muốn tìm"
             value={search}
-            onSubmitEditing={() => {
-              onSearch(search);
-            }}
-            // icon={
-            //   <TouchableOpacity
-            //     onPress={() => {
-            //       setSearch('');
-            //     }}
-            //     style={styles.btnClearSearch}>
-            //     <Icon name="times" size={18} color={BaseColor.grayColor} />
-            //   </TouchableOpacity>
-            // }
+            icon={
+              <TouchableOpacity
+                onPress={() => {
+                  setSearch('');
+                }}
+                style={styles.btnClearSearch}>
+                <Icon name="times" size={18} color={BaseColor.grayColor} />
+              </TouchableOpacity>
+            }
           />
-          {view ? <SearchView /> : <SearchHistoryView />}
+          <View style={{paddingTop: 20}}>
+            <Text regular body1 style={{marginBottom: 10}}>
+              Lọc theo chuyên ngành
+            </Text>
+            <TouchableOpacity
+              onPress={() => setMajorModalVisible(true)}
+              style={{width: '100%'}}>
+              <View
+                style={[
+                  BaseStyle.textInput,
+                  {backgroundColor: colors.card},
+                  styles.gender,
+                ]}>
+                <Text grayColor style={{marginLeft: 5}}>
+                  {textMajor}
+                </Text>
+              </View>
+            </TouchableOpacity>
+            <MajorModal />
+          </View>
+          <View style={{paddingTop: 20}}>
+            <Text regular body1 style={{marginBottom: 10}}>
+              Lọc theo tiêu chí
+            </Text>
+            <View style={{flexDirection: 'row'}}>
+              <TouchableOpacity
+                onPress={() => setCriteriaModalVisible(true)}
+                style={{width: '70%'}}>
+                <View
+                  style={[
+                    BaseStyle.textInput,
+                    {backgroundColor: colors.card},
+                    styles.gender,
+                  ]}>
+                  <Text grayColor style={{marginLeft: 5}}>
+                    {textCriteria}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                onPress={() => setFilterCriteria(!filterCriteria)}>
+                <Text
+                  style={{
+                    textDecorationLine: 'underline',
+                    color: colors.primary,
+                  }}>
+                  {filterCriteria ? 'Tăng dần' : 'Giảm dần'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <CriteriaModal />
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              paddingTop: 20,
+              justifyContent: 'space-between',
+            }}>
+            <View style={{flex: 1.2}}>
+              <Text regular body1>
+                Sắp xếp theo học phí
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              onPress={() => setFilterFee(!filterFee)}>
+              <Text
+                style={{
+                  textDecorationLine: 'underline',
+                  color: colors.primary,
+                }}>
+                {filterFee ? 'Tăng dần' : 'Giảm dần'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{flexDirection: 'row', paddingTop: 20}}>
+            <View style={{flex: 1.2}}>
+              <Text regular body1>
+                Sắp xếp theo thứ hạng
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              onPress={() => setFilterRating(!filterRating)}>
+              <Text
+                style={{
+                  textDecorationLine: 'underline',
+                  color: colors.primary,
+                }}>
+                {filterRating ? 'Tăng dần' : 'Giảm dần'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{flex: 1, justifyContent: 'center'}}>
+            <Button onPress={() => onSearch(search)}>Tìm kiếm</Button>
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
