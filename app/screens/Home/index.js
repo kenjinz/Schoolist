@@ -21,7 +21,7 @@ import {BaseStyle, Images, useTheme} from '@config';
 import * as Utils from '@utils';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
-import {getListUniversity} from '../../redux/university/actions';
+import {getListUniversityHome} from '../../redux/university_home/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import {rootURL} from '../../redux/common/rootURL';
 //import AsyncStorage from '@react-native-community/async-storage';
@@ -98,14 +98,16 @@ export default function Home({navigation}) {
   };
   const heightImageBanner = Utils.scaleWithPixel(140);
   const marginTopBanner = heightImageBanner - heightHeader;
-  const universities = useSelector((state) => state.university.universities);
-  const total = useSelector((state) => state.university.total);
+  const universities = useSelector(
+    (state) => state.universityHome.universities_Home,
+  );
+  const total = useSelector((state) => state.universityHome.total_home);
   const [page, setPage] = useState(1);
   const [limit] = useState(4);
   useEffect(() => {
-    dispatch(getListUniversity({page: 1, limit}));
+    dispatch(getListUniversityHome({page: 1, limit}));
   }, []);
-  //console.log('aaaaa', universities);
+  console.log('aaaaa', universities);
 
   const HeaderScrollView = () => (
     <View style={{flex: 1}}>
@@ -228,7 +230,7 @@ export default function Home({navigation}) {
     if (universities.length < total) {
       setPage(page + 1);
       console.log('page', page);
-      dispatch(getListUniversity({page, limit}));
+      dispatch(getListUniversityHome({page, limit}));
       console.log('University', universities);
     }
   }
