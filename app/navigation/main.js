@@ -22,7 +22,7 @@ import HotelDetail from '@screens/HotelDetail';
 import TopSchool from '@screens/TopSchool';
 import TourDetail from '@screens/TourDetail';
 import PostDetail from '@screens/PostDetail';
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
 import SchoolDetail from '@screens/SchoolDetail';
 import ListSchool from '../screens/ListSchool';
 import Map from '../screens/ListSchool/map';
@@ -112,7 +112,7 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Universities"
+        name="ListSchool"
         component={ListSchool}
         options={{
           title: 'Universities',

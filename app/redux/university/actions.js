@@ -102,6 +102,7 @@ export function getListUniversity(query) {
   if (query.page === undefined) {
     query.page = 1;
   }
+
   console.log('query object: ', query);
   const queryString = qs.stringify(query);
   console.log('QUERY STRING', queryString);

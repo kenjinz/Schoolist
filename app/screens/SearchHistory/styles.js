@@ -24,4 +24,24 @@ export default StyleSheet.create({
     padding: 5,
     marginRight: 10,
   },
+  view: {
+    justifyContent: 'flex-end',
+    margin: 0,
+  },
+  majorModalWrapper: {
+    alignSelf: 'center',
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 7,
+  },
+  majorModal: {
+    alignItems: 'center',
+    padding: 10,
+  },
+  gender: {
+    marginTop: 10,
+    fontFamily: 'Raleway',
+    paddingTop: 5,
+    paddingBottom: 5,
+  },
 });
