@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState}from 'react';
 import {View, ScrollView, Animated, TouchableOpacity} from 'react-native';
 import {BaseColor, Images} from '@config';
+import Config from "react-native-config";
 import {
   Header,
   SafeAreaView,
@@ -14,20 +15,42 @@ import {
 import * as Utils from '@utils';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
+import moment from 'moment';
 
 export default function PostDetail({navigation, route}) {
   const id = route.params.id;
   const {t} = useTranslation();
-
+  const [loading, setLoading] = useState(true);
   const deltaY = new Animated.Value(0);
   const heightHeader = Utils.heightHeader();
   const heightImageBanner = Utils.scaleWithPixel(250);
   const marginTopBanner = heightImageBanner - heightHeader - 30;
-
+  const [universityDetail, setUniversityDetail] = useState();
+  useEffect(() => {
+    const URL = Config.API_URL;
+    const query = `${URL}posts/${id}`;
+    console.log('[query]', query);
+    fetch(`${URL}posts/${id}`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log('HERE: ', json);
+        setUniversityDetail(json);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
+    // console.log('[HERE]', response);
+    // console.log('[URL]', URL);
+    // console.log('[id]', id);
+  }, []);
   return (
     <View style={{flex: 1}}>
       <Animated.Image
-        source={Images.room6}
+        source={{uri: universityDetail?.mainImage.link.medium}}
+        // source={Images.room6}
         style={[
           styles.imgBanner,
           {
@@ -89,23 +112,17 @@ export default function PostDetail({navigation, route}) {
               {t('post_title')}
             </Text>
             <ProfileAuthor
-              image={Images.profile2}
-              name="Steve Garrett"
-              description="5 hours ago | 100k views"
-              textRight="Jun 2018"
+              // image={Images.profile2}
+              name={universityDetail?.title}
+              description={moment(universityDetail?.updatedAt).fromNow()}
+              textRight={`Lượt Xem: ${universityDetail?.viewCount}`}
               style={{
+                marginLeft: -50,
                 marginTop: 20,
               }}
             />
             <Text body2>
-              Depression after trips like study abroad, volunteering, or
-              interning overseas can range from mild post vacation sadness to
-              full-blown post trip depression. Each person reacts differently to
-              returning from abroad. If it seems that your friend has easily
-              slipped back into college life while you’re struggling to get to
-              class, don’t panic. Just like you got through all the challenges
-              of living abroad, you can also get through the post abroad
-              depression you’re feeling now.
+              {universityDetail?.content}
             </Text>
             <Text
               headline

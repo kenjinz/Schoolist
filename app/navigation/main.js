@@ -25,6 +25,7 @@ import PostDetail from '@screens/PostDetail';
 // import AsyncStorage from '@react-native-community/async-storage';
 import SchoolDetail from '@screens/SchoolDetail';
 import ListSchool from '../screens/ListSchool';
+import Map from '../screens/ListSchool/map';
 import SearchHistory from '../screens/SearchHistory';
 
 const MainStack = createStackNavigator();
@@ -48,6 +49,7 @@ export default function Main() {
       <MainStack.Screen name="ChangeLanguage" component={ChangeLanguage} />
       <MainStack.Screen name="TourDetail" component={TourDetail} />
       <MainStack.Screen name="SchoolDetail" component={SchoolDetail} />
+      <MainStack.Screen name="Map" component={Map} />
       <MainStack.Screen name="PostDetail" component={PostDetail} />
       <MainStack.Screen name="SearchHistory" component={SearchHistory} />
     </MainStack.Navigator>

@@ -64,6 +64,14 @@ export default function ListSchool({navigation, route}) {
   const renderContent = () => {
     return (
       <View style={{flex: 1}}>
+        <Button
+            full
+            style={{marginTop: 40, marginBottom: 20}}
+            onPress={() =>
+              navigation.navigate('Map')
+            }>
+            MAP
+          </Button>
         <View
           style={{
             marginTop: 10,

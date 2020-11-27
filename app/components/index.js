@@ -42,6 +42,7 @@ import BusPlan from './BusPlan';
 import EventItem from './EventItem';
 import EventCard from './EventCard';
 import TextInput from './TextInput';
+import QuickView from './QuickView';
 
 export {
   BusPlan,
@@ -88,4 +89,5 @@ export {
   ProfileGroupSmall,
   EventCard,
   TextInput,
+  QuickView,
 };
