@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
           action.page === 1
             ? action.data
             : [...state.universities_Home, ...action.data],
-        total: action.total,
+        total_home: action.total,
         // limit: action.limit,
         // page: action.page,
         //offset: action.offset,

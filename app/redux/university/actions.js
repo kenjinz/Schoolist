@@ -118,6 +118,7 @@ export function getListUniversity(query) {
   };
 }
 export function setSearchText(text) {
+  console.log('TTT', text);
   return (dispatch) => {
     try {
       dispatch(setSearchTextSuccess(text));

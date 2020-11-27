@@ -7,7 +7,7 @@ export const initialState = {
   //   page: 1,
   // },
   total: 0,
-  searchText: '',
+  searchText: {},
   //pageCount: null,
   loading: false,
   listUniversitySuccess: undefined,
@@ -93,7 +93,9 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loading: false,
-        searchHistory: action.text,
+        searchText: {
+          name: {$contL: action.text},
+        },
         setSearchTextSuccess: true,
         setSearchTextFailure: false,
       };
