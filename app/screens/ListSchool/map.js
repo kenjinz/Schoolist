@@ -31,7 +31,7 @@ const coordinates = [
     address: '71 Ngũ Hành Sơn',
     latitude: 16.0479858,
     longitude: 108.2370301,
-    image: 'https://picsum.photos/500/500',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_Kinh_t%E1%BA%BF_%C4%90%C3%A0_N%E1%BA%B5ng.jpg',
     price: 750000,
   },
   {
@@ -41,7 +41,7 @@ const coordinates = [
 
     latitude: 16.061839,
     longitude: 108.1570242,
-    image: 'https://picsum.photos/500/500',
+    image: 'https://upload.wikimedia.org/wikipedia/vi/thumb/4/4e/Dai_hoc_Su_pham_Da_Nang.PNG/150px-Dai_hoc_Su_pham_Da_Nang.PNG',
     price: 850000,
   },
   {
@@ -51,7 +51,7 @@ const coordinates = [
 
     latitude: 16.0602096,
     longitude: 108.2105274,
-    image: 'https://picsum.photos/500/500',
+    image: 'https://pbs.twimg.com/profile_images/1211688669/logoDT-png_400x400.png',
     price: 1550000,
   },
   {
@@ -61,7 +61,7 @@ const coordinates = [
 
     latitude: 16.032034,
     longitude: 108.2191138,
-    image: 'https://picsum.photos/500/500',
+    image: 'https://d3av3o1z276gfa.cloudfront.net/images/place/kG7itIy2OB9EbxOW4GvdRnAnGxMDFwN8.jpeg',
     price: 950000,
   },
   {
@@ -71,7 +71,7 @@ const coordinates = [
 
     latitude: 16.0710393,
     longitude: 108.2180645,
-    image: 'https://picsum.photos/500/500',
+    image: 'https://tuyensinhvnuk.edu.vn/wp-content/uploads/2019/03/cropped-VNUK-header-2.png',
     price: 950000,
   },
 ];
@@ -114,16 +114,31 @@ class MapScreen extends Component{
       <QuickView width={102}>
         <Image
           source={{ uri: item?.image }}
-          width={102}
-          height={102}
+          // source={"../../assets/images/avata-02.jpeg"}
+         
           sharp
           style={{
+            width:102,
+            height:102,
             // zIndex: 99,
             borderTopLeftRadius: 10,
             borderBottomLeftRadius: 10,
           }}
         />
       </QuickView>
+      {/* <Image
+          source={{ uri: item?.image }}
+          // source={"../../assets/images/avata-02.jpeg"}
+          width={102}
+          height={102}
+          sharp
+          style={{
+            width:102,
+            height:102,
+            borderTopLeftRadius: 10,
+            borderBottomLeftRadius: 10,
+          }}
+        /> */}
       <QuickView flex={7} height={102}>
         <QuickView marginHorizontal={20} marginTop={10}>
           <Text numberOfLines={1} fontSize={16} bold>
@@ -242,7 +257,7 @@ class MapScreen extends Component{
                 // backgroundColor={propertyIndex === index ? lightPrimaryColor : Color.white}
               >
                 {/* <Text bold color={propertyIndex === index ? Color.white : lightPrimaryColor}>{`${convertPrice(marker.price, ',')} ₫`}</Text> */}
-              <Text>{marker.code}</Text>
+              <Text bold fontSize={20}>{marker.code}</Text>
               </QuickView>
               <Callout>
                 <Text>{marker.price}</Text>
