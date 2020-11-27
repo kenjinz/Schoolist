@@ -115,7 +115,7 @@ export default function PostDetail({navigation, route}) {
               // image={Images.profile2}
               name={universityDetail?.title}
               description={moment(universityDetail?.updatedAt).fromNow()}
-              textRight={`Lượt Xem: ${universityDetail.viewCount}`}
+              textRight={`Lượt Xem: ${universityDetail?.viewCount}`}
               style={{
                 marginLeft: -50,
                 marginTop: 20,
