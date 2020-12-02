@@ -55,9 +55,12 @@ export function getListUniversityHome(query) {
   const queryString = qs.stringify(query);
   console.log('QUERY STRING', queryString);
   return (dispatch) => {
-    return fetch(`${rootURL}/universities?${queryString}`, {
-      method: 'GET',
-    })
+    return fetch(
+      `${process.env.REACT_APP_API_URL}/universities?${queryString}`,
+      {
+        method: 'GET',
+      },
+    )
       .then((response) => response.json())
       .then((json) => {
         console.log('DATA ', json.data);

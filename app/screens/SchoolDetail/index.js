@@ -29,7 +29,11 @@ import * as Utils from '@utils';
 import styles from './styles';
 import HTML from 'react-native-render-html';
 import {Dimensions} from 'react-native';
+// import {rootURL} from '../../redux/common/rootURL';
+import {useDispatch, useSelector} from 'react-redux';
+import {getListCriteria} from '../../redux/criteria/actions';
 export default function SchoolDetail({navigation, route}) {
+  const dispatch = useDispatch();
   const deltaY = new Animated.Value(0);
   const heightImageBanner = Utils.scaleWithPixel(250, 1);
   const {colors} = useTheme();
@@ -37,23 +41,22 @@ export default function SchoolDetail({navigation, route}) {
   const [index, setIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [universityDetail, setUniversityDetail] = useState();
-  const regex1 = /max-height: 400px;/gi;
-  const regex2 = /--aspect-ratio:16\/9;/gi;
+  const criteria = useSelector((state) => state.criteria.criterions);
   const id = route.params.id;
   useEffect(() => {
-    fetch(`http://35.222.23.128/universities/${id}`, {
+    fetch(`${process.env.API_URL}/universities/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('aeaoeaoeao: ', json);
         setUniversityDetail(json);
       })
       .catch((err) => {
         console.error(err);
       })
       .finally(() => setLoading(false));
-  }, []);
+    dispatch(getListCriteria());
+  }, [dispatch]);
   const [routes] = useState([
     {key: 'general', title: t('general')},
     {key: 'ratings', title: t('ratings')},
@@ -298,7 +301,7 @@ function GeneralTab({t, region, universityDetail}) {
     </View>
   );
 }
-function RatingTab({ratings}) {
+function RatingTab({ratings, navigation}) {
   const {t} = useTranslation();
   const {colors} = useTheme();
   // Check SimpleView or GeneralView - True: Simple
@@ -308,20 +311,58 @@ function RatingTab({ratings}) {
       <View style={{paddingHorizontal: 30, marginTop: 20}}>
         <View
           style={{
+            flex: 1,
+            height: 35,
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <Tag primary style={{width: 110}}>
-            <Icon
-              name={'filter'}
-              size={15}
-              color={BaseColor.whiteColor}
-              solid
-            />
-            {t('filteringRating')}
-          </Tag>
+          <View
+            style={{
+              width: '40%',
+              flexDirection: 'row',
+            }}>
+            <Tag primary style={{flex: 1}}>
+              <View style={{flexDirection: 'row'}}>
+                <Icon
+                  name={'filter'}
+                  size={15}
+                  color={BaseColor.whiteColor}
+                  solid
+                  style={{alignItems: 'flex-start'}}
+                />
+                <Text whiteColor semibold style={{marginLeft: 5}}>
+                  {t('filteringRating')}
+                </Text>
+              </View>
+            </Tag>
+          </View>
+          <View
+            style={{
+              width: '40%',
+              flexDirection: 'row',
+            }}>
+            <Tag
+              primary
+              style={{flex: 1}}
+              onPress={() => navigation.navigate('ReviewSchool')}>
+              <View style={{flexDirection: 'row'}}>
+                <Icon
+                  name={'star'}
+                  size={15}
+                  color={BaseColor.whiteColor}
+                  solid
+                  style={{alignItems: 'flex-start'}}
+                />
+                <Text whiteColor semibold style={{marginLeft: 5}}>
+                  Review
+                </Text>
+              </View>
+            </Tag>
+          </View>
+        </View>
+        <View style={{marginTop: 20, alignItems: 'center'}}>
           <TouchableOpacity onPress={() => setCheckView(!checkView)}>
-            <Text footnote grayColor style={{textDecorationLine: 'underline'}}>
+            <Text body1 semibold style={{textDecorationLine: 'underline'}}>
               Simple View
             </Text>
           </TouchableOpacity>
@@ -363,21 +404,59 @@ function RatingTab({ratings}) {
       <View style={{paddingHorizontal: 30, marginTop: 20}}>
         <View
           style={{
+            flex: 1,
+            height: 35,
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <Tag primary style={{width: 110}}>
-            <Icon
-              name={'filter'}
-              size={15}
-              color={BaseColor.whiteColor}
-              solid
-            />
-            {t('filteringRating')}
-          </Tag>
+          <View
+            style={{
+              width: '40%',
+              flexDirection: 'row',
+            }}>
+            <Tag primary style={{flex: 1}}>
+              <View style={{flexDirection: 'row'}}>
+                <Icon
+                  name={'filter'}
+                  size={15}
+                  color={BaseColor.whiteColor}
+                  solid
+                  style={{alignItems: 'flex-start'}}
+                />
+                <Text whiteColor semibold style={{marginLeft: 5}}>
+                  {t('filteringRating')}
+                </Text>
+              </View>
+            </Tag>
+          </View>
+          <View
+            style={{
+              width: '40%',
+              flexDirection: 'row',
+            }}>
+            <Tag
+              primary
+              style={{flex: 1}}
+              onPress={() => navigation.navigate('ReviewSchool')}>
+              <View style={{flexDirection: 'row'}}>
+                <Icon
+                  name={'star'}
+                  size={15}
+                  color={BaseColor.whiteColor}
+                  solid
+                  style={{alignItems: 'flex-start'}}
+                />
+                <Text whiteColor semibold style={{marginLeft: 5}}>
+                  Review
+                </Text>
+              </View>
+            </Tag>
+          </View>
+        </View>
+        <View style={{marginTop: 20, alignItems: 'center'}}>
           <TouchableOpacity onPress={() => setCheckView(!checkView)}>
-            <Text footnote grayColor style={{textDecorationLine: 'underline'}}>
-              General View
+            <Text body1 semibold style={{textDecorationLine: 'underline'}}>
+              GeneralView
             </Text>
           </TouchableOpacity>
         </View>

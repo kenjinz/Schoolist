@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// @react-native-community/slider
+import com.reactnativecommunity.slider.ReactSliderPackage;
 // @react-native-community/viewpager
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
 // react-native-dark-mode
@@ -88,6 +90,7 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
       new RNCMaskedViewPackage(),
+      new ReactSliderPackage(),
       new RNCViewPagerPackage(),
       new DarkModePackage(),
       new FastImageViewPackage(),

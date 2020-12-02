@@ -34,7 +34,6 @@ export default function ListSchool({navigation, route}) {
   const offsetAnim = new Animated.Value(0);
 
   const {colors} = useTheme();
-  const [visible, setVisible] = useState(false);
   const [refreshing] = useState(false);
 
   const clampedScroll = Animated.diffClamp(
@@ -169,14 +168,6 @@ export default function ListSchool({navigation, route}) {
       />
       {/* {loading ? <ActivityIndicator /> : renderContent()} */}
       {renderContent()}
-      <Modal backdropOpacity={0} isVisible={visible}>
-        <View style={{borderWidth: 1}}>
-          <Button
-            style={styles.searchButton}
-            onPress={() => setVisible(false)}
-          />
-        </View>
-      </Modal>
     </SafeAreaView>
   );
 }

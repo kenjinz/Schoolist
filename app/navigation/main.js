@@ -22,10 +22,12 @@ import HotelDetail from '@screens/HotelDetail';
 import TopSchool from '@screens/TopSchool';
 import TourDetail from '@screens/TourDetail';
 import PostDetail from '@screens/PostDetail';
+
 // import AsyncStorage from '@react-native-community/async-storage';
 import SchoolDetail from '@screens/SchoolDetail';
-import ListSchool from '../screens/ListSchool';
-import SearchHistory from '../screens/SearchHistory';
+import ListSchool from '@screens/ListSchool';
+import SearchHistory from '@screens/SearchHistory';
+import ReviewSchool from '@screens/ReviewSchool';
 
 const MainStack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -50,6 +52,8 @@ export default function Main() {
       <MainStack.Screen name="SchoolDetail" component={SchoolDetail} />
       <MainStack.Screen name="PostDetail" component={PostDetail} />
       <MainStack.Screen name="SearchHistory" component={SearchHistory} />
+
+      <MainStack.Screen name="ReviewSchool" component={ReviewSchool} />
     </MainStack.Navigator>
   );
 }

@@ -107,7 +107,7 @@ export default function Home({navigation}) {
   useEffect(() => {
     dispatch(getListUniversityHome({page: 1, limit}));
   }, []);
-  console.log('aaaaa', universities);
+  console.log('aaaaa', process.env.REACT_APP_API_URL);
 
   const HeaderScrollView = () => (
     <View style={{flex: 1}}>
