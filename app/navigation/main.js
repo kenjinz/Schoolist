@@ -28,8 +28,8 @@ import SchoolDetail from '@screens/SchoolDetail';
 import ListSchool from '@screens/ListSchool';
 import SearchHistory from '@screens/SearchHistory';
 import ReviewSchool from '@screens/ReviewSchool';
-import Map from '../screens/ListSchool/map';
-
+import Map from '@screens/ListSchool/map';
+import CriteriaComments from '@screens/CriteriaComments';
 const MainStack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
@@ -54,6 +54,7 @@ export default function Main() {
       <MainStack.Screen name="Map" component={Map} />
       <MainStack.Screen name="PostDetail" component={PostDetail} />
       <MainStack.Screen name="SearchHistory" component={SearchHistory} />
+      <MainStack.Screen name="CriteriaComments" component={CriteriaComments} />
 
       <MainStack.Screen name="ReviewSchool" component={ReviewSchool} />
     </MainStack.Navigator>

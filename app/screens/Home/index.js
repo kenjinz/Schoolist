@@ -107,7 +107,6 @@ export default function Home({navigation}) {
   useEffect(() => {
     dispatch(getListUniversityHome({page: 1, limit}));
   }, []);
-  console.log('aaaaa', process.env);
 
   const HeaderScrollView = () => (
     <View style={{flex: 1}}>
@@ -195,7 +194,7 @@ export default function Home({navigation}) {
                     <Button
                       style={styles.btnPromotion}
                       onPress={() => {
-                        navigation.navigate('SchoolDetail');
+                        navigation.navigate('SchoolDetail', {id: item.id});
                       }}>
                       <Text body2 semibold whiteColor>
                         {t('see_school')}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   FlatList,
   RefreshControl,
@@ -21,30 +21,19 @@ import styles from './styles';
 import Slider from '@react-native-community/slider';
 import {ReviewData} from '@data';
 import {useTranslation} from 'react-i18next';
+import {useDispatch, useSelector} from 'react-redux';
+import {getListCriteria} from '../../redux/criteria/actions';
 
-export default function ReviewSchool({navigation}) {
+export default function ReviewSchool({navigation, route}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
-
+  const dispatch = useDispatch();
   const [refreshing] = useState(false);
-  const [rateDetail] = useState({
-    point: 4.7,
-    maxPoint: 5,
-    totalRating: 25,
-    data: ['5%', '5%', '35%', '40%', '10%'],
-  });
-  const [criteria, setCriteria] = useState([
-    {id: 1, name: 'Wifi', point: 8},
-    {id: 2, name: 'Wifi1', point: 8},
-    {id: 3, name: 'Wifi2', point: 8},
-    {id: 4, name: 'Wifi3', point: 8},
-    {id: 5, name: 'Wifi4', point: 8},
-    {id: 6, name: 'Wifi5', point: 8},
-    {id: 7, name: 'Wifi6', point: 8},
-    {id: 8, name: 'Wifi7', point: 8},
-    {id: 9, name: 'Wifi8', point: 8},
-  ]);
-
+  const {universityId} = route.params;
+  const criteria = useSelector((state) => state.criteria.criterions);
+  useEffect(() => {
+    dispatch(getListCriteria());
+  }, [dispatch]);
   return (
     <SafeAreaView style={BaseStyle.safeAreaView} forceInset={{top: 'always'}}>
       <Header
@@ -104,6 +93,7 @@ export default function ReviewSchool({navigation}) {
   );
 }
 const ReviewSchoolComponent = ({criteria}) => {
+  const [value, setValue] = useState(0);
   const {colors} = useTheme();
   const [reviewWifi, setTextReviewWifi] = useState('');
   return (
@@ -114,17 +104,27 @@ const ReviewSchoolComponent = ({criteria}) => {
           justifyContent: 'space-between',
           marginBottom: 20,
         }}>
-        <Text regular body1>
-          {`${criteria.name} (${criteria.point}/10)`}
+        <Text regular body1 numberOfLines={2}>
+          {/* {`${
+            criteria.name.length > 15
+              ? `${criteria.name.slice(0, 15)}...`
+              : criteria.name
+          } (${value}/${criteria.max})`} */}
+          {criteria.name.length > 15
+            ? `${criteria.name} 
+          (${value}/${criteria.max})`
+            : `${criteria.name} (${value}/${criteria.max})`}
         </Text>
         <Slider
-          style={{width: '60%'}}
-          value={5}
+          style={{width: '50%'}}
+          value={value}
           minimumValue={0}
-          maximumValue={10}
+          maximumValue={criteria.max}
           minimumTrackTintColor={colors.primary}
           maximumTrackTintColor="#000000"
           thumbTintColor={colors.primary}
+          onSlidingComplete={(value) => setValue(value)}
+          step={0.5}
         />
       </View>
       <TextInput

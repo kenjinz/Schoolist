@@ -21,6 +21,7 @@ import {
   Image,
   CommentItem,
 } from '@components';
+import Modal from 'react-native-modal';
 import {ReviewData} from '@data';
 import {TabView, TabBar} from 'react-native-tab-view';
 import {useTranslation} from 'react-i18next';
@@ -30,10 +31,10 @@ import styles from './styles';
 import HTML from 'react-native-render-html';
 import {Dimensions} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {getListCriteria} from '../../redux/criteria/actions';
 import {Config} from 'react-native-config';
 export default function SchoolDetail({navigation, route}) {
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth.isAuthenticated);
   const deltaY = new Animated.Value(0);
   const heightImageBanner = Utils.scaleWithPixel(250, 1);
   const {colors} = useTheme();
@@ -41,40 +42,45 @@ export default function SchoolDetail({navigation, route}) {
   const [index, setIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [universityDetail, setUniversityDetail] = useState();
-  const criteria = useSelector((state) => state.criteria.criterions);
+  const [criteria, setCriteria] = useState([]);
+
   const id = route.params.id;
+  const getUniversities = async () => {
+    try {
+      const res = await fetch(`${Config.API_URL}/universities/${id}`, {
+        method: 'GET',
+      });
+      const universities = await res.json();
+      console.log('====================================');
+      console.log(universities);
+      console.log('====================================');
+      setUniversityDetail(universities);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const getCriteria = async () => {
+    try {
+      const res = await fetch(`${Config.API_URL}/universities/${id}/criteria`, {
+        method: 'GET',
+      });
+      const json = await res.json();
+      setCriteria(json.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   useEffect(() => {
-    fetch(`${Config.API_URL}/universities/${id}`, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        setUniversityDetail(json);
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => setLoading(false));
-    dispatch(getListCriteria());
-  }, [dispatch]);
+    getUniversities();
+    getCriteria();
+  }, []);
   const [routes] = useState([
     {key: 'general', title: t('general')},
     {key: 'ratings', title: t('ratings')},
     {key: 'comment', title: t('comment')},
   ]);
-  const [ratings] = useState([
-    {key: '1', title: 'Thông số 1', point: 1, textRating: 'Bad'},
-    {key: '2', title: 'Thông số 2', point: 2, textRating: 'Bad'},
-    {key: '3', title: 'Thông số 3', point: 3, textRating: 'Bad'},
-    {key: '4', title: 'Thông số 4', point: 4, textRating: 'Bad'},
-    {key: '5', title: 'Thông số 5', point: 5, textRating: 'Average'},
-    {key: '6', title: 'Thông số 6', point: 6, textRating: 'Average'},
-    {key: '7', title: 'Thông số 7', point: 7, textRating: 'Good'},
-    {key: '8', title: 'Thông số 8', point: 8, textRating: 'Good'},
-    {key: '9', title: 'Thông số 9', point: 9, textRating: 'Excellent'},
-    {key: '10', title: 'Thông số 9', point: 9, textRating: 'Excellent'},
-  ]);
-  //const [userData] = useState(UserData[0]);
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const [region] = useState({
     latitude: 1.352083,
@@ -120,7 +126,9 @@ export default function SchoolDetail({navigation, route}) {
       case 'ratings':
         return (
           <RatingTab
-            ratings={ratings}
+            auth={auth}
+            universityId={id}
+            criteria={criteria}
             jumpTo={jumpTo}
             navigation={navigation}
           />
@@ -240,7 +248,6 @@ export default function SchoolDetail({navigation, route}) {
             <TabView
               lazy
               navigationState={{
-                ratings,
                 region,
                 universityDetail,
                 index,
@@ -301,9 +308,10 @@ function GeneralTab({t, region, universityDetail}) {
     </View>
   );
 }
-function RatingTab({ratings, navigation}) {
-  const {t} = useTranslation();
+function RatingTab({universityId, criteria, navigation, auth}) {
   const {colors} = useTheme();
+  const [isVisible, setIsVisible] = useState(false);
+  const {t} = useTranslation();
   // Check SimpleView or GeneralView - True: Simple
   const [checkView, setCheckView] = useState(true);
   return checkView ? (
@@ -344,7 +352,13 @@ function RatingTab({ratings, navigation}) {
             <Tag
               primary
               style={{flex: 1}}
-              onPress={() => navigation.navigate('ReviewSchool')}>
+              onPress={() => {
+                if (auth) {
+                  navigation.navigate('ReviewSchool', {universityId});
+                } else {
+                  setIsVisible(true);
+                }
+              }}>
               <View style={{flexDirection: 'row'}}>
                 <Icon
                   name={'star'}
@@ -358,6 +372,27 @@ function RatingTab({ratings, navigation}) {
                 </Text>
               </View>
             </Tag>
+            <Modal
+              testID={'modal'}
+              isVisible={isVisible}
+              backdropOpacity={0.2}
+              onBackdropPress={() => setIsVisible(false)}
+              // swipeDirection={['up', 'left', 'right', 'down']}
+              style={styles.view}>
+              <View style={styles.majorModalWrapper}>
+                <View style={styles.majorModal}>
+                  <Text
+                    title3
+                    style={{
+                      borderBottomWidth: 1,
+                      paddingBottom: 10,
+                      borderBottomColor: colors.border,
+                    }}>
+                    Should Login Before Review
+                  </Text>
+                </View>
+              </View>
+            </Modal>
           </View>
         </View>
         <View style={{marginTop: 20, alignItems: 'center'}}>
@@ -367,31 +402,84 @@ function RatingTab({ratings, navigation}) {
             </Text>
           </TouchableOpacity>
         </View>
-        {ratings.length > 0
-          ? ratings.map((rating) => {
+        {criteria.length > 0
+          ? criteria.map((cri) => {
+              const rating = cri.average;
+              // Bad (< 0.4) - Average (0.4 - 0.55) - Good (0.55 - 0.85) - Excellent(> 0.85)
+              let ratingAttr = {
+                backgroundColor: '',
+                text: '',
+              };
+              if (rating < 0.4) {
+                if (rating < 0.08) {
+                  ratingAttr = {
+                    backgroundColor: 'red',
+                    text: '',
+                  };
+                } else {
+                  ratingAttr = {
+                    backgroundColor: 'red',
+                    text: 'Bad',
+                  };
+                }
+              } else if (rating < 0.55) {
+                ratingAttr = {
+                  backgroundColor: 'orange',
+                  text: 'Average',
+                };
+              } else if (rating < 0.85) {
+                ratingAttr = {
+                  backgroundColor: 'green',
+                  text: 'Good',
+                };
+              } else {
+                ratingAttr = {
+                  backgroundColor: 'blue',
+                  text: 'Excellent',
+                };
+              }
               return (
                 <View>
                   <Text headline semibold style={{marginTop: 20}}>
-                    {rating.title}
+                    {cri.name}
                   </Text>
-                  <View style={styles.wrapRating}>
-                    <View
-                      style={[
-                        styles.fillRating,
-                        {flex: rating.point, backgroundColor: colors.primary},
-                      ]}>
-                      <Text
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('CriteriaComments', {
+                        universityId,
+                        criteria_id: cri.id,
+                        name: cri.name,
+                        maxPoint: cri.max,
+                        point: cri.average * cri.max,
+                      })
+                    }>
+                    <View style={styles.wrapRating}>
+                      <View
+                        style={[
+                          styles.fillRating,
+                          {
+                            flex: rating,
+                            backgroundColor: ratingAttr.backgroundColor,
+                          },
+                        ]}>
+                        <Text
+                          style={{
+                            color: 'white',
+                            textAlignVertical: 'center',
+                            textAlign: 'center',
+                            fontSize: 15,
+                          }}>
+                          {ratingAttr.text}
+                        </Text>
+                      </View>
+                      <View
                         style={{
-                          color: 'white',
-                          textAlignVertical: 'center',
-                          textAlign: 'center',
-                          fontSize: 15,
-                        }}>
-                        {rating.textRating}
-                      </Text>
+                          backgroundColor: 'transparent',
+                          flex: 1 - rating,
+                        }}
+                      />
                     </View>
-                    <View style={{backgroundColor: 'transparent', flex: 1}} />
-                  </View>
+                  </TouchableOpacity>
                 </View>
               );
             })
@@ -460,8 +548,8 @@ function RatingTab({ratings, navigation}) {
             </Text>
           </TouchableOpacity>
         </View>
-        {ratings.length > 0
-          ? ratings.map((rating) => {
+        {criteria.length > 0
+          ? criteria.map((cri) => {
               return (
                 <View
                   style={{
@@ -469,10 +557,10 @@ function RatingTab({ratings, navigation}) {
                     justifyContent: 'space-between',
                   }}>
                   <Text headline semibold grayColor style={{marginTop: 20}}>
-                    {rating.title}
+                    {cri.name}
                   </Text>
                   <Text headline semibold grayColor style={{marginTop: 20}}>
-                    {rating.point}/10
+                    {Math.round(cri.average * cri.max * 100) / 100}/{cri.max}
                   </Text>
                 </View>
               );

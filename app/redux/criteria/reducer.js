@@ -1,6 +1,6 @@
 import {criteriaActionTypes} from './actions';
 export const initialState = {
-  criterias: [],
+  criterions: [],
   // query: {
   //   //offset: 0, // offset = (page - 1) * limit;
   //   limit: 10,

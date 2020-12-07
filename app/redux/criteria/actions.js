@@ -1,4 +1,5 @@
 // import qs from 'qs';
+import {Config} from 'react-native-config';
 export const criteriaActionTypes = {
   GET_LIST_CRITERIA_ATTEMPT: 'GET_LIST_CRITERIA_ATTEMPT',
   GET_LIST_CRITERIA_SUCCESS: 'GET_LIST_CRITERIA_SUCCESS',
@@ -29,9 +30,8 @@ export function getListCriteriaFailure(getError) {
 }
 // THUNK :
 export function getListCriteria() {
-  console.log('URL', process.env.API_URL);
   return (dispatch) => {
-    return fetch(`${process.env.API_URL}/criteria`, {
+    return fetch(`${Config.API_URL}/criteria`, {
       method: 'GET',
     })
       .then((response) => response.json())
