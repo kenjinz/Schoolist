@@ -28,7 +28,7 @@ export default function PostDetail({navigation, route}) {
   const [universityDetail, setUniversityDetail] = useState();
   useEffect(() => {
     const URL = Config.API_URL;
-    const query = `${URL}posts/${id}`;
+    const query = `${URL}/posts/${id}`;
     console.log('[query]', query);
     fetch(`${URL}posts/${id}`, {
       method: 'GET',

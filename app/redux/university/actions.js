@@ -103,7 +103,7 @@ export function getListUniversity(query) {
   const queryString = qs.stringify(query);
   console.log('QUERY STRING', queryString);
   return (dispatch) => {
-    return fetch(`${rootURL}/universities?${queryString}`, {
+    return fetch(`${Config.API_URL}/universities?${queryString}`, {
       method: 'GET',
     })
       .then((response) => response.json())

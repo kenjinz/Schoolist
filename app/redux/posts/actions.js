@@ -1,5 +1,5 @@
 import qs from 'qs';
-import {rootURL} from '../common/rootURL';
+import {Config} from 'react-native-config';
 export const postActionTypes = {
   GET_LIST_POST_ATTEMPT: 'GET_LIST_POST_ATTEMPT',
   GET_LIST_POST_SUCCESS: 'GET_LIST_POST_SUCCESS',
@@ -82,7 +82,7 @@ export function getListPost(query) {
   const queryString = qs.stringify(query);
   console.log(queryString);
   return (dispatch) => {
-    return fetch(`${rootURL}/posts?${queryString}`, {
+    return fetch(`${Config.API_URL}/posts?${queryString}`, {
       method: 'GET',
     })
       .then((response) => response.json())

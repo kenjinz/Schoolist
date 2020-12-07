@@ -23,7 +23,7 @@ import styles from './styles';
 import {useTranslation} from 'react-i18next';
 import {getListUniversityHome} from '../../redux/university_home/actions';
 import {useDispatch, useSelector} from 'react-redux';
-import {rootURL} from '../../redux/common/rootURL';
+import {Config} from 'react-native-config';
 //import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
@@ -51,14 +51,14 @@ export default function Home({navigation}) {
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
   const [topSchoolsData, setTopSchoolsData] = useState([]);
-  const URL = `${rootURL}/universities/top`;
+  const URL = `${Config.API_URL}/universities/top`;
+  console.log(URL);
   useEffect(() => {
     fetch(URL, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        //console.log('aeaoeaoeao: ', json.data);
         setTopSchoolsData(json.data);
       })
       .catch((err) => {

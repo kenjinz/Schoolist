@@ -10,8 +10,7 @@ import {Text, Header, SafeAreaView, Icon, Button, TextInput} from '@components';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
 import Modal from 'react-native-modal';
-import {rootURL} from '../../redux/common/rootURL';
-
+import {Config} from 'react-native-config';
 export default function SignUp({navigation}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
@@ -45,7 +44,7 @@ export default function SignUp({navigation}) {
   const onSignUp = () => {
     setLoading(true);
     const userValues = {email, fullName, password, phoneNumber, gender, age};
-    return fetch(`${rootURL}/auth/register`, {
+    return fetch(`${Config.API_URL}/auth/register`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

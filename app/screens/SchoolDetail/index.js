@@ -29,9 +29,9 @@ import * as Utils from '@utils';
 import styles from './styles';
 import HTML from 'react-native-render-html';
 import {Dimensions} from 'react-native';
-// import {rootURL} from '../../redux/common/rootURL';
 import {useDispatch, useSelector} from 'react-redux';
 import {getListCriteria} from '../../redux/criteria/actions';
+import {Config} from 'react-native-config';
 export default function SchoolDetail({navigation, route}) {
   const dispatch = useDispatch();
   const deltaY = new Animated.Value(0);
@@ -44,7 +44,7 @@ export default function SchoolDetail({navigation, route}) {
   const criteria = useSelector((state) => state.criteria.criterions);
   const id = route.params.id;
   useEffect(() => {
-    fetch(`${process.env.API_URL}/universities/${id}`, {
+    fetch(`${Config.API_URL}/universities/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())
