@@ -12,7 +12,7 @@ import Modal from 'react-native-modal';
 export default function ListSchool({navigation, route}) {
   const s = useSelector((state) => state.university.searchText);
   // const s = route.params ? {name: {$contL: route.params.keyword}} : {};
-  console.log('PARAMS', route.params);
+
   const dispatch = useDispatch();
   const universities = useSelector((state) => state.university.universities);
   const [page, setPage] = useState(1);
@@ -23,7 +23,7 @@ export default function ListSchool({navigation, route}) {
   //   },
   //   [s],
   // );
-  console.log('S: ', s);
+
   useEffect(() => {
     dispatch(getListUniversity({page, limit, s}));
   }, [dispatch, s]);

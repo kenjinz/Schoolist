@@ -38,7 +38,6 @@ export default function CriteriaComments({navigation, route}) {
       );
       const json = await res.json();
       setComments(json);
-      console.log(json);
     } catch (err) {
       console.error(err);
     } finally {

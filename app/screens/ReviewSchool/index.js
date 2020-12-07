@@ -23,6 +23,7 @@ import {ReviewData} from '@data';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import {getListCriteria} from '../../redux/criteria/actions';
+import Config from 'react-native-config';
 
 export default function ReviewSchool({navigation, route}) {
   const {colors} = useTheme();
@@ -31,6 +32,10 @@ export default function ReviewSchool({navigation, route}) {
   const [refreshing] = useState(false);
   const {universityId} = route.params;
   const criteria = useSelector((state) => state.criteria.criterions);
+  const [reviewDetails, setReviewDetails] = useState([]);
+  const handleReview = async () => {
+    console.log(reviewDetails);
+  };
   useEffect(() => {
     dispatch(getListCriteria());
   }, [dispatch]);
@@ -77,25 +82,32 @@ export default function ReviewSchool({navigation, route}) {
         //   />
         // )}
         renderItem={({item}) => (
-          <ReviewSchoolComponent criteria={item} />
-          // <CommentItem
-          //   style={{marginTop: 10}}
-          //   image={item.source}
-          //   name={item.name}
-          //   rate={item.rate}
-          //   date={item.date}
-          //   title={item.title}
-          //   comment={item.comment}
-          // />
+          <ReviewSchoolComponent
+            criteria={item}
+            setReviewDetails={setReviewDetails}
+          />
+        )}
+        ListFooterComponent={() => (
+          <Button
+            style={{
+              flex: 1,
+              width: '100%',
+              alignSelf: 'center',
+              alignItems: 'center',
+            }}
+            onPress={() => handleReview()}>
+            Submit
+          </Button>
         )}
       />
     </SafeAreaView>
   );
 }
-const ReviewSchoolComponent = ({criteria}) => {
+const ReviewSchoolComponent = ({criteria, setReviewDetails}) => {
   const [value, setValue] = useState(0);
   const {colors} = useTheme();
-  const [reviewWifi, setTextReviewWifi] = useState('');
+  const [review, setTextReview] = useState('');
+  const [disabled, setDisabled] = useState(false);
   return (
     <View style={{marginBottom: 20}}>
       <View
@@ -105,11 +117,6 @@ const ReviewSchoolComponent = ({criteria}) => {
           marginBottom: 20,
         }}>
         <Text regular body1 numberOfLines={2}>
-          {/* {`${
-            criteria.name.length > 15
-              ? `${criteria.name.slice(0, 15)}...`
-              : criteria.name
-          } (${value}/${criteria.max})`} */}
           {criteria.name.length > 15
             ? `${criteria.name} 
           (${value}/${criteria.max})`
@@ -128,10 +135,10 @@ const ReviewSchoolComponent = ({criteria}) => {
         />
       </View>
       <TextInput
-        onChangeText={(text) => setTextReviewWifi(text)}
+        onChangeText={(text) => setTextReview(text)}
         multiline
         placeholder="Bạn có cảm nghĩ thế nào "
-        value={reviewWifi}
+        value={review}
         textAlignVertical="top"
         style={{width: '100%', height: 80, borderRadius: 10}}
       />
@@ -147,6 +154,11 @@ const ReviewSchoolComponent = ({criteria}) => {
             backgroundColor: '#9B9B9B',
             borderTopLeftRadius: 20,
             borderBottomLeftRadius: 20,
+          }}
+          onPress={() => {
+            setValue(0);
+            setTextReview('');
+            setDisabled(false);
           }}>
           <Text semibold style={{marginHorizontal: 20, marginVertical: 5}}>
             Hủy bỏ
@@ -157,7 +169,43 @@ const ReviewSchoolComponent = ({criteria}) => {
             backgroundColor: colors.primary,
             borderTopRightRadius: 20,
             borderBottomRightRadius: 20,
-          }}>
+          }}
+          onPress={() => {
+            setReviewDetails((prev) => {
+              if (prev.find((p) => p.criteriaId === criteria.id)) {
+                return prev.map((p) => {
+                  if (p.criteriaId === criteria.id) {
+                    const data = {
+                      criteriaId: criteria.id,
+                      rating: value,
+                      title:
+                        criteria.name.length > 15
+                          ? `${criteria.name} 
+                (${value}/${criteria.max})`
+                          : `${criteria.name} (${value}/${criteria.max})`,
+                      content: review,
+                    };
+                    return data;
+                  }
+                });
+              }
+              return [
+                ...prev,
+                {
+                  criteriaId: criteria.id,
+                  rating: value,
+                  title:
+                    criteria.name.length > 15
+                      ? `${criteria.name} 
+                (${value}/${criteria.max})`
+                      : `${criteria.name} (${value}/${criteria.max})`,
+                  content: review,
+                },
+              ];
+            });
+            setDisabled(true);
+          }}
+          disabled={disabled}>
           <Text
             semibold
             whiteColor

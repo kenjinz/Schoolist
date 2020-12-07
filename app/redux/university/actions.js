@@ -98,17 +98,15 @@ export function getListUniversity(query) {
     query.page = 1;
   }
 
-  console.log('query object: ', query);
   query.s = JSON.stringify(query.s);
   const queryString = qs.stringify(query);
-  console.log('QUERY STRING', queryString);
+
   return (dispatch) => {
     return fetch(`${Config.API_URL}/universities?${queryString}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('DATA ', json.data);
         dispatch(getListUniversitySuccess(json.data, query.page, json.total));
       })
       .catch((error) => {
@@ -118,7 +116,6 @@ export function getListUniversity(query) {
   };
 }
 export function setSearchText(text) {
-  console.log('TTT', text);
   return (dispatch) => {
     try {
       dispatch(setSearchTextSuccess(text));

@@ -51,9 +51,6 @@ export default function SchoolDetail({navigation, route}) {
         method: 'GET',
       });
       const universities = await res.json();
-      console.log('====================================');
-      console.log(universities);
-      console.log('====================================');
       setUniversityDetail(universities);
     } catch (err) {
       console.error(err);

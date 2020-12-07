@@ -64,8 +64,6 @@ export default function SignUp({navigation}) {
           throw new Error(json.message);
         } else {
           navigation.navigate('Home');
-          console.log('SUCCESSFULLY');
-          console.log('JSON: ', json);
         }
       })
       .catch((err) => {

@@ -50,8 +50,6 @@ export function getListUniversityHome(query) {
     query.page = 1;
   }
 
-  // console.log('query object: ', query);
-  //query.s = JSON.stringify(query.s);
   const queryString = qs.stringify(query);
   return (dispatch) => {
     return fetch(`${Config.API_URL}/universities?${queryString}`, {
@@ -59,13 +57,12 @@ export function getListUniversityHome(query) {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('DATA ', json.data);
         dispatch(
           getListUniversityHomeSuccess(json.data, query.page, json.total),
         );
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         dispatch(getListUniversityHomeFailure(error));
       });
   };

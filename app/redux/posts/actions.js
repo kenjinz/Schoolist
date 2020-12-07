@@ -78,16 +78,15 @@ export function getListPost(query) {
   if (query.page === undefined) {
     query.page = 1;
   }
-  console.log('query objject: ', query);
+
   const queryString = qs.stringify(query);
-  console.log(queryString);
+
   return (dispatch) => {
     return fetch(`${Config.API_URL}/posts?${queryString}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('DATA ', json.total);
         dispatch(getListPostSuccess(json.data, query.page, json.total));
       })
       .catch((error) => {

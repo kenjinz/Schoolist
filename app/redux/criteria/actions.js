@@ -36,7 +36,6 @@ export function getListCriteria() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('DATA ', json.data);
         dispatch(getListCriteriaSuccess(json.data));
       })
       .catch((error) => {

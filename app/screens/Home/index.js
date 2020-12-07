@@ -52,7 +52,6 @@ export default function Home({navigation}) {
   const deltaY = new Animated.Value(0);
   const [topSchoolsData, setTopSchoolsData] = useState([]);
   const URL = `${Config.API_URL}/universities/top`;
-  console.log(URL);
   useEffect(() => {
     fetch(URL, {
       method: 'GET',
@@ -106,7 +105,7 @@ export default function Home({navigation}) {
   const [limit] = useState(4);
   useEffect(() => {
     dispatch(getListUniversityHome({page: 1, limit}));
-  }, []);
+  }, [dispatch]);
 
   const HeaderScrollView = () => (
     <View style={{flex: 1}}>
@@ -218,7 +217,6 @@ export default function Home({navigation}) {
     </View>
   );
   const FooterScrollView = () => {
-    //console.log(total, universities.length);
     const length = universities ? universities.length : 0;
     return length < total ? (
       <ActivityIndicator size="large" color="red" />
@@ -228,9 +226,8 @@ export default function Home({navigation}) {
   function handleLoadMore() {
     if (universities.length < total) {
       setPage(page + 1);
-      console.log('page', page);
+
       dispatch(getListUniversityHome({page, limit}));
-      console.log('University', universities);
     }
   }
   return (

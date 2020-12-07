@@ -29,22 +29,18 @@ export default function PostDetail({navigation, route}) {
   useEffect(() => {
     const URL = Config.API_URL;
     const query = `${URL}/posts/${id}`;
-    console.log('[query]', query);
+
     fetch(`${URL}posts/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('HERE: ', json);
         setUniversityDetail(json);
       })
       .catch((err) => {
         console.error(err);
       })
       .finally(() => setLoading(false));
-    // console.log('[HERE]', response);
-    // console.log('[URL]', URL);
-    // console.log('[id]', id);
   }, []);
   return (
     <View style={{flex: 1}}>
