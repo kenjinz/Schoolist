@@ -1,5 +1,5 @@
 import qs from 'qs';
-import {rootURL} from '../common/rootURL';
+import Config from 'react-native-config';
 export const universityActionTypes = {
   GET_LIST_UNIVERSITY_ATTEMPT: 'GET_LIST_UNIVERSITY_ATTEMPT',
   GET_LIST_UNIVERSITY_SUCCESS: 'GET_LIST_UNIVERSITY_SUCCESS',

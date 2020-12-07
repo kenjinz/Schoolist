@@ -19,6 +19,8 @@ import org.reactnative.maskedview.RNCMaskedViewPackage;
 import com.reactnativecommunity.slider.ReactSliderPackage;
 // @react-native-community/viewpager
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
+// react-native-config
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 // react-native-dark-mode
 import com.codemotionapps.reactnativedarkmode.DarkModePackage;
 // react-native-fast-image
@@ -92,6 +94,7 @@ public class PackageList {
       new RNCMaskedViewPackage(),
       new ReactSliderPackage(),
       new RNCViewPagerPackage(),
+      new ReactNativeConfigPackage(),
       new DarkModePackage(),
       new FastImageViewPackage(),
       new RNGestureHandlerPackage(),

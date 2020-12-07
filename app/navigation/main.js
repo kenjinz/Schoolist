@@ -28,6 +28,7 @@ import SchoolDetail from '@screens/SchoolDetail';
 import ListSchool from '@screens/ListSchool';
 import SearchHistory from '@screens/SearchHistory';
 import ReviewSchool from '@screens/ReviewSchool';
+import Map from '../screens/ListSchool/map';
 
 const MainStack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -50,6 +51,7 @@ export default function Main() {
       <MainStack.Screen name="ChangeLanguage" component={ChangeLanguage} />
       <MainStack.Screen name="TourDetail" component={TourDetail} />
       <MainStack.Screen name="SchoolDetail" component={SchoolDetail} />
+      <MainStack.Screen name="Map" component={Map} />
       <MainStack.Screen name="PostDetail" component={PostDetail} />
       <MainStack.Screen name="SearchHistory" component={SearchHistory} />
 

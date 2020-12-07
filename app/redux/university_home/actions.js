@@ -1,5 +1,5 @@
 import qs from 'qs';
-import {rootURL} from '../common/rootURL';
+import Config from 'react-native-config';
 export const universityHomeActionTypes = {
   GET_LIST_UNIVERSITY_ATTEMPT_HOME: 'GET_LIST_UNIVERSITY_ATTEMPT_HOME',
   GET_LIST_UNIVERSITY_SUCCESS_HOME: 'GET_LIST_UNIVERSITY_SUCCESS_HOME',
@@ -50,17 +50,13 @@ export function getListUniversityHome(query) {
     query.page = 1;
   }
 
-  console.log('query object: ', query);
+  // console.log('query object: ', query);
   //query.s = JSON.stringify(query.s);
   const queryString = qs.stringify(query);
-  console.log('QUERY STRING', queryString);
   return (dispatch) => {
-    return fetch(
-      `${process.env.REACT_APP_API_URL}/universities?${queryString}`,
-      {
-        method: 'GET',
-      },
-    )
+    return fetch(`${Config.API_URL}/universities?${queryString}`, {
+      method: 'GET',
+    })
       .then((response) => response.json())
       .then((json) => {
         console.log('DATA ', json.data);
