@@ -548,18 +548,29 @@ function RatingTab({universityId, criteria, navigation, auth}) {
         {criteria.length > 0
           ? criteria.map((cri) => {
               return (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <Text headline semibold grayColor style={{marginTop: 20}}>
-                    {cri.name}
-                  </Text>
-                  <Text headline semibold grayColor style={{marginTop: 20}}>
-                    {Math.round(cri.average * cri.max * 100) / 100}/{cri.max}
-                  </Text>
-                </View>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate('CriteriaComments', {
+                      universityId,
+                      criteria_id: cri.id,
+                      name: cri.name,
+                      maxPoint: cri.max,
+                      point: cri.average * cri.max,
+                    })
+                  }>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}>
+                    <Text headline semibold grayColor style={{marginTop: 20}}>
+                      {cri.name}
+                    </Text>
+                    <Text headline semibold grayColor style={{marginTop: 20}}>
+                      {Math.round(cri.average * cri.max * 100) / 100}/{cri.max}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               );
             })
           : null}

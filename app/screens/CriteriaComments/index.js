@@ -10,7 +10,6 @@ import {
   CommentItem,
 } from '@components';
 import styles from './styles';
-import {ReviewData} from '@data';
 import {useTranslation} from 'react-i18next';
 import {Config} from 'react-native-config';
 import {ActivityIndicator} from 'react-native-paper';
@@ -19,14 +18,8 @@ export default function CriteriaComments({navigation, route}) {
   const {t} = useTranslation();
   const {universityId, criteria_id, name, maxPoint, point} = route.params;
   const [refreshing] = useState(false);
-  const [rateDetail] = useState({
-    point: 4.7,
-    maxPoint: 5,
-    totalRating: 25,
-    data: ['5%', '5%', '35%', '40%', '10%'],
-  });
+
   const [loading, setLoading] = useState(true);
-  const [reviewList] = useState(ReviewData);
   const [comments, setComments] = useState([]);
   const getCommentCriteria = async () => {
     try {

@@ -33,8 +33,30 @@ export default function ReviewSchool({navigation, route}) {
   const {universityId} = route.params;
   const criteria = useSelector((state) => state.criteria.criterions);
   const [reviewDetails, setReviewDetails] = useState([]);
-  const handleReview = async () => {
-    console.log(reviewDetails);
+  const token = useSelector((state) => state.auth.data.token);
+  const [count, setCount] = useState(0);
+  const handleReview = async (universityId) => {
+    console.log(criteria.length);
+    const dataPost = {
+      universityId: universityId,
+      review_details: reviewDetails,
+    };
+    const setting = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(dataPost),
+    };
+    try {
+      const res = await fetch(`${Config.API_URL}/reviews`, setting);
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
   };
   useEffect(() => {
     dispatch(getListCriteria());
@@ -61,6 +83,9 @@ export default function ReviewSchool({navigation, route}) {
         }}
       />
       {/* Sample User Review List */}
+      <Text body2 medium style={{alignSelf: 'center', color: 'red'}}>
+        Remember Press the Button Review
+      </Text>
       <FlatList
         contentContainerStyle={{padding: 20}}
         refreshControl={
@@ -85,25 +110,28 @@ export default function ReviewSchool({navigation, route}) {
           <ReviewSchoolComponent
             criteria={item}
             setReviewDetails={setReviewDetails}
+            setCount={setCount}
           />
         )}
-        ListFooterComponent={() => (
-          <Button
-            style={{
-              flex: 1,
-              width: '100%',
-              alignSelf: 'center',
-              alignItems: 'center',
-            }}
-            onPress={() => handleReview()}>
-            Submit
-          </Button>
-        )}
+        ListFooterComponent={() => {
+          return count === criteria.length ? (
+            <Button
+              style={{
+                flex: 1,
+                width: '100%',
+                alignSelf: 'center',
+                alignItems: 'center',
+              }}
+              onPress={() => handleReview(universityId)}>
+              Submit
+            </Button>
+          ) : null;
+        }}
       />
     </SafeAreaView>
   );
 }
-const ReviewSchoolComponent = ({criteria, setReviewDetails}) => {
+const ReviewSchoolComponent = ({criteria, setReviewDetails, setCount}) => {
   const [value, setValue] = useState(0);
   const {colors} = useTheme();
   const [review, setTextReview] = useState('');
@@ -134,6 +162,7 @@ const ReviewSchoolComponent = ({criteria, setReviewDetails}) => {
           step={0.5}
         />
       </View>
+
       <TextInput
         onChangeText={(text) => setTextReview(text)}
         multiline
@@ -158,15 +187,20 @@ const ReviewSchoolComponent = ({criteria, setReviewDetails}) => {
           onPress={() => {
             setValue(0);
             setTextReview('');
+            setReviewDetails((prev) => {
+              return prev.filter((p) => p.criteriaId !== criteria.id);
+            });
+            setCount((c) => c - 1);
             setDisabled(false);
-          }}>
+          }}
+          disabled={!disabled}>
           <Text semibold style={{marginHorizontal: 20, marginVertical: 5}}>
             Hủy bỏ
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{
-            backgroundColor: colors.primary,
+            backgroundColor: !disabled ? colors.primary : colors.primaryDark,
             borderTopRightRadius: 20,
             borderBottomRightRadius: 20,
           }}
@@ -203,6 +237,7 @@ const ReviewSchoolComponent = ({criteria, setReviewDetails}) => {
                 },
               ];
             });
+            setCount((c) => c + 1);
             setDisabled(true);
           }}
           disabled={disabled}>
@@ -210,7 +245,7 @@ const ReviewSchoolComponent = ({criteria, setReviewDetails}) => {
             semibold
             whiteColor
             style={{marginHorizontal: 20, marginVertical: 5}}>
-            Đánh giá
+            {!disabled ? 'Đánh giá' : 'Đã đánh giá'}
           </Text>
         </TouchableOpacity>
       </View>
