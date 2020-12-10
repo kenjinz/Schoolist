@@ -124,6 +124,9 @@ export default function PostDetail({navigation, route}) {
             <Text body2>
               {universityDetail?.content}
             </Text>
+            <Text body2>
+              {universityDetail?.content}
+            </Text>
             <Text
               headline
               semibold
@@ -141,6 +144,60 @@ export default function PostDetail({navigation, route}) {
                 {image: Images.profile4},
               ]}
             />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 20,
+              }}>
+              <Text headline semibold>
+                Relative
+              </Text>
+              <TouchableOpacity onPress={() => navigation.navigate('Post')}>
+                <Text footnote grayColor>
+                  {t('show_more')}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.contentImageFollowing}>
+              <View style={{flex: 4, marginRight: 10}}>
+                <Card image={Images.trip7}>
+                  <Text headline semibold whiteColor>
+                    Dallas
+                  </Text>
+                </Card>
+              </View>
+              <View style={{flex: 6}}>
+                <View style={{flex: 1}}>
+                  <Card image={Images.trip3}>
+                    <Text headline semibold whiteColor>
+                      Warsaw
+                    </Text>
+                  </Card>
+                </View>
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    marginTop: 10,
+                  }}>
+                  <View style={{flex: 6, marginRight: 10}}>
+                    <Card image={Images.trip4}>
+                      <Text headline semibold whiteColor>
+                        Yokohama
+                      </Text>
+                    </Card>
+                  </View>
+                  <View style={{flex: 4}}>
+                    <Card image={Images.trip6}>
+                      <Text headline semibold whiteColor>
+                        10+
+                      </Text>
+                    </Card>
+                  </View>
+                </View>
+              </View>
+            </View>
             {/* 
             <Text
               headline

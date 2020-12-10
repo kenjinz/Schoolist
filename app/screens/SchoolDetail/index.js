@@ -41,7 +41,7 @@ export default function SchoolDetail({navigation, route}) {
   const regex2 = /--aspect-ratio:16\/9;/gi;
   const id = route.params.id;
   useEffect(() => {
-    fetch(`http://35.222.23.128/universities/${id}`, {
+    fetch(`http://34.69.22.101/universities/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())

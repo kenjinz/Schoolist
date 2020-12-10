@@ -102,12 +102,12 @@ function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name="Booking"
-        component={Booking}
+        name="Map"
+        component={Map}
         options={{
-          title: t('booking'),
+          title: t('Map'),
           tabBarIcon: ({color}) => {
-            return <Icon color={color} name="bookmark" size={20} solid />;
+            return <Icon color={color} name="map" size={20} solid />;
           },
         }}
       />
