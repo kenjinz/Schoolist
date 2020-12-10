@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 // import {
 //   QuickView, Button,
 // } from '@components';
+
 import {QuickView, Button} from '../../components';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
 import { Dimensions, StyleSheet, Text, Image} from 'react-native';
+import styles from '../SchoolDetail/styles';
 // import { Color } from '@themes/Theme';
 // import { convertPrice, vndPriceFormat } from '@utils/functions';
 // import NavigationService from '@utils/navigation';
@@ -68,7 +70,6 @@ const coordinates = [
     name: 'Viện Nghiên cứu và Đào tạo Việt - Anh',
     code: 'VNUK',
     address: '158A Lê Lợi',
-
     latitude: 16.0710393,
     longitude: 108.2180645,
     image: 'https://tuyensinhvnuk.edu.vn/wp-content/uploads/2019/03/cropped-VNUK-header-2.png',
@@ -164,7 +165,7 @@ class MapScreen extends Component{
             </Text>
           </QuickView>
           <QuickView flex={3} center>
-            <Text fontSize={12}>Học phí</Text>
+            <Text fontSize={12}>Học phí (tín chỉ)</Text>
             <Text fontSize={20} bold>
               {item?.price}
             </Text>
@@ -257,10 +258,15 @@ class MapScreen extends Component{
                 // backgroundColor={propertyIndex === index ? lightPrimaryColor : Color.white}
               >
                 {/* <Text bold color={propertyIndex === index ? Color.white : lightPrimaryColor}>{`${convertPrice(marker.price, ',')} ₫`}</Text> */}
-              <Text bold fontSize={20}>{marker.code}</Text>
+                <QuickView borderWidth={1} borderRadius={50} width={100} height={30} justifyContent="center" alignItems="center" backgroundColor="#E5634D" style={{borderColor: '#E5634D'}}
+>
+                  <Text bold fontSize={40} style={{color:"white", fontWeight:"600"}}>{marker.code}</Text>
+                </QuickView>
               </QuickView>
               <Callout>
-                <Text>{marker.price}</Text>
+                <QuickView justifyContent="center" alignItems="center" width={200} height={30}>
+                  <Text>{marker.address}</Text>
+                </QuickView>
               </Callout>
             </Marker>
           ))}
