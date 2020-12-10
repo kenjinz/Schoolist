@@ -104,7 +104,7 @@ export default function Home({navigation}) {
   const [page, setPage] = useState(1);
   const [limit] = useState(4);
   useEffect(() => {
-    dispatch(getListUniversityHome({page: 1, limit}));
+    dispatch(getListUniversityHome({page: page, limit}));
   }, [dispatch]);
 
   const HeaderScrollView = () => (
@@ -127,13 +127,16 @@ export default function Home({navigation}) {
       />
       <SafeAreaView style={{flex: 1}} forceInset={{top: 'always'}}>
         <ScrollView
-          onScroll={Animated.event([
-            {
-              nativeEvent: {
-                contentOffset: {y: deltaY},
+          onScroll={Animated.event(
+            [
+              {
+                nativeEvent: {
+                  contentOffset: {y: deltaY},
+                },
               },
-            },
-          ])}
+            ],
+            {useNativeDriver: true},
+          )}
           onContentSizeChange={() => setHeightHeader(Utils.heightHeader())}
           scrollEventThrottle={8}>
           <View style={{paddingHorizontal: 20}}>
@@ -160,12 +163,6 @@ export default function Home({navigation}) {
               {renderIconService()}
             </View>
           </View>
-          {/**
-           * Component Top School :
-           * Include Slide, Picture and Book Now
-           * Data from folder Data
-           * OnPress will navigate to some Details
-           */}
           <View>
             <Text title3 semibold style={styles.titleView}>
               {t('top_school_in_ur_city')}
@@ -225,9 +222,11 @@ export default function Home({navigation}) {
   };
   function handleLoadMore() {
     if (universities.length < total) {
-      setPage(page + 1);
-
-      dispatch(getListUniversityHome({page, limit}));
+      setPage((prevPage) => {
+        const newPage = prevPage + 1;
+        dispatch(getListUniversityHome({page: newPage, limit}));
+        return newPage;
+      });
     }
   }
   return (
