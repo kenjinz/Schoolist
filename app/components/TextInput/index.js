@@ -79,4 +79,5 @@ Index.defaultProps = {
   textAlignVertical: 'center',
   icon: null,
   onSubmitEditing: () => {},
+  editable: true,
 };

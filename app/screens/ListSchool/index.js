@@ -1,36 +1,29 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {
-  RefreshControl,
-  Animated,
-  View,
-  ActivityIndicator,
-  Image,
-} from 'react-native';
+import {RefreshControl, Animated, View} from 'react-native';
 import {BaseStyle, useTheme} from '@config';
 import {Header, SafeAreaView, Icon, TourItem, FilterSort} from '@components';
 import styles from './styles';
 import * as Utils from '@utils';
-import {useFocusEffect} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 import {Text, Button} from '@components';
 import {useDispatch, useSelector} from 'react-redux';
 import {getListUniversity} from '../../redux/university/actions';
 import Modal from 'react-native-modal';
 export default function ListSchool({navigation, route}) {
-  const [s, set] = useState({});
+  const s = useSelector((state) => state.university.searchText);
   // const s = route.params ? {name: {$contL: route.params.keyword}} : {};
-  console.log('PARAMS', route.params);
+
   const dispatch = useDispatch();
   const universities = useSelector((state) => state.university.universities);
   const [page, setPage] = useState(1);
   const [limit] = useState(10);
-  const setSearch = useCallback(
-    (keyword) => {
-      set({name: {$contL: keyword}});
-    },
-    [s],
-  );
-  console.log('S: ', s);
+  // const setSearch = useCallback(
+  //   (keyword) => {
+  //     set({name: {$contL: keyword}});
+  //   },
+  //   [s],
+  // );
+
   useEffect(() => {
     dispatch(getListUniversity({page, limit, s}));
   }, [dispatch, s]);
@@ -41,7 +34,6 @@ export default function ListSchool({navigation, route}) {
   const offsetAnim = new Animated.Value(0);
 
   const {colors} = useTheme();
-  const [visible, setVisible] = useState(false);
   const [refreshing] = useState(false);
 
   const clampedScroll = Animated.diffClamp(
@@ -65,13 +57,11 @@ export default function ListSchool({navigation, route}) {
     return (
       <View style={{flex: 1}}>
         <Button
-            full
-            style={{marginTop: 40, marginBottom: 20}}
-            onPress={() =>
-              navigation.navigate('Map')
-            }>
-            MAP
-          </Button>
+          full
+          style={{marginTop: 40, marginBottom: 20}}
+          onPress={() => navigation.navigate('Map')}>
+          MAP
+        </Button>
         <View
           style={{
             marginTop: 10,
@@ -179,19 +169,11 @@ export default function ListSchool({navigation, route}) {
           navigation.goBack();
         }}
         onPressRight={() => {
-          navigation.navigate('SearchHistory', {setSearch});
+          navigation.navigate('SearchHistory');
         }}
       />
       {/* {loading ? <ActivityIndicator /> : renderContent()} */}
       {renderContent()}
-      <Modal backdropOpacity={0} isVisible={visible}>
-        <View style={{borderWidth: 1}}>
-          <Button
-            style={styles.searchButton}
-            onPress={() => setVisible(false)}
-          />
-        </View>
-      </Modal>
     </SafeAreaView>
   );
 }

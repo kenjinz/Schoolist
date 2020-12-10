@@ -24,7 +24,7 @@ export default function Profile({navigation}) {
   const [userData] = useState(UserData[0]);
   const dispatch = useDispatch();
   const authentication = useSelector((state) => state.auth.isAuthenticated);
-  console.log('AUTHENTICATION: ', authentication);
+
   if (!authentication) {
     navigation.navigate('SignIn');
   }
@@ -36,7 +36,7 @@ export default function Profile({navigation}) {
    */
   const onLogOut = () => {
     setLoading(true);
-    console.log('DISPATCH LOGOUT');
+
     dispatch(Logout());
   };
 

@@ -1,7 +1,7 @@
-import React, {useEffect, useState}from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, ScrollView, Animated, TouchableOpacity} from 'react-native';
 import {BaseColor, Images} from '@config';
-import Config from "react-native-config";
+import Config from 'react-native-config';
 import {
   Header,
   SafeAreaView,
@@ -28,23 +28,19 @@ export default function PostDetail({navigation, route}) {
   const [universityDetail, setUniversityDetail] = useState();
   useEffect(() => {
     const URL = Config.API_URL;
-    const query = `${URL}posts/${id}`;
-    console.log('[query]', query);
+    const query = `${URL}/posts/${id}`;
+
     fetch(`${URL}posts/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('HERE: ', json);
         setUniversityDetail(json);
       })
       .catch((err) => {
         console.error(err);
       })
       .finally(() => setLoading(false));
-    // console.log('[HERE]', response);
-    // console.log('[URL]', URL);
-    // console.log('[id]', id);
   }, []);
   return (
     <View style={{flex: 1}}>
@@ -121,9 +117,7 @@ export default function PostDetail({navigation, route}) {
                 marginTop: 20,
               }}
             />
-            <Text body2>
-              {universityDetail?.content}
-            </Text>
+            <Text body2>{universityDetail?.content}</Text>
             <Text
               headline
               semibold
@@ -141,7 +135,7 @@ export default function PostDetail({navigation, route}) {
                 {image: Images.profile4},
               ]}
             />
-            {/* 
+            {/*
             <Text
               headline
               semibold
@@ -174,7 +168,7 @@ export default function PostDetail({navigation, route}) {
                 </Text>
               </TouchableOpacity>
             </View>
-            
+
             <View style={styles.contentImageFollowing}>
               <View style={{flex: 4, marginRight: 10}}>
                 <Card image={Images.trip7}>

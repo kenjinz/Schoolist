@@ -13,18 +13,21 @@ import {Header, SafeAreaView, TextInput, Icon, Text, Button} from '@components';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
 import Modal from 'react-native-modal';
+import {useDispatch, useSelector} from 'react-redux';
+import {setSearchText} from '../../redux/university/actions';
 export default function SearchHistory({navigation, route}) {
-  const setSearchCallBack = route.params.setSearch;
+  //const setSearchCallBack = route.params.setSearch;
+  const dispatch = useDispatch();
   const {colors} = useTheme();
   const {t} = useTranslation();
   const offsetKeyboard = Platform.select({
     ios: 0,
     android: 20,
   });
-  const [gender, setGender] = useState(true);
   const [majorModalVisible, setMajorModalVisible] = useState(false);
   const [criteriaModalVisible, setCriteriaModalVisible] = useState(false);
-  const [search, setSearch] = useState('');
+  const search = useSelector((state) => state.university.searchText);
+  const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const [textMajor, setTextMajor] = useState('Choose your Major');
   const [majors] = useState([
@@ -51,7 +54,7 @@ export default function SearchHistory({navigation, route}) {
    * @param {*} keyword
    */
   const onSearch = (keyword) => {
-    setSearchCallBack(keyword);
+    dispatch(setSearchText(keyword));
     navigation.navigate('ListSchool');
   };
   const MajorModal = () => (
@@ -145,13 +148,13 @@ export default function SearchHistory({navigation, route}) {
             Tìm Kiếm
           </Text>
           <TextInput
-            onChangeText={(text) => setSearch(text)}
+            onChangeText={(text) => setText(text)}
             placeholder="Nhập tên trường muốn tìm"
-            value={search}
+            value={text}
             icon={
               <TouchableOpacity
                 onPress={() => {
-                  setSearch('');
+                  setText('');
                 }}
                 style={styles.btnClearSearch}>
                 <Icon name="times" size={18} color={BaseColor.grayColor} />
@@ -265,7 +268,7 @@ export default function SearchHistory({navigation, route}) {
             </TouchableOpacity>
           </View>
           <View style={{flex: 1, justifyContent: 'center'}}>
-            <Button onPress={() => onSearch(search)}>Tìm kiếm</Button>
+            <Button onPress={() => onSearch(text)}>Tìm kiếm</Button>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
