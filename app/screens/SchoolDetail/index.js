@@ -43,7 +43,8 @@ export default function SchoolDetail({navigation, route}) {
   const [loading, setLoading] = useState(true);
   const [universityDetail, setUniversityDetail] = useState();
   const [criteria, setCriteria] = useState([]);
-
+  const token = useSelector((state) => state.auth.data.token);
+  const [reviewMe, setReviewMe] = useState();
   const id = route.params.id;
   const getUniversities = async () => {
     try {
@@ -69,9 +70,26 @@ export default function SchoolDetail({navigation, route}) {
       console.error(error);
     }
   };
+  const getReview = async () => {
+    const settings = {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const res = await fetch(
+      `${Config.API_URL}/universities/${id}/reviews/me`,
+      settings,
+    );
+    const json = await res.json();
+    setReviewMe(json);
+  };
   useEffect(() => {
     getUniversities();
     getCriteria();
+    getReview();
   }, []);
   const [routes] = useState([
     {key: 'general', title: t('general')},
@@ -128,6 +146,7 @@ export default function SchoolDetail({navigation, route}) {
             criteria={criteria}
             jumpTo={jumpTo}
             navigation={navigation}
+            reviewMe={reviewMe}
           />
         );
       case 'comment':
@@ -305,7 +324,7 @@ function GeneralTab({t, region, universityDetail}) {
     </View>
   );
 }
-function RatingTab({universityId, criteria, navigation, auth}) {
+function RatingTab({universityId, criteria, navigation, auth, reviewMe}) {
   const {colors} = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const {t} = useTranslation();
@@ -351,7 +370,13 @@ function RatingTab({universityId, criteria, navigation, auth}) {
               style={{flex: 1}}
               onPress={() => {
                 if (auth) {
-                  navigation.navigate('ReviewSchool', {universityId});
+                  console.log(reviewMe);
+                  // navigation.navigate('UpdateReviewSchool', {universityId});
+                  Object.entries(reviewMe).length === 0
+                    ? navigation.navigate('ReviewSchool', {universityId})
+                    : navigation.navigate('UpdateReviewSchool', {
+                        data: reviewMe.reviewDetails,
+                      });
                 } else {
                   setIsVisible(true);
                 }

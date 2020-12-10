@@ -49,21 +49,18 @@ export function getListUniversityHome(query) {
   if (query.page === undefined) {
     query.page = 1;
   }
-
   const queryString = qs.stringify(query);
-  return (dispatch) => {
-    return fetch(`${Config.API_URL}/universities?${queryString}`, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch(
-          getListUniversityHomeSuccess(json.data, query.page, json.total),
-        );
-      })
-      .catch((error) => {
-        console.error(error);
-        dispatch(getListUniversityHomeFailure(error));
+  console.log(queryString);
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${Config.API_URL}/universities?${queryString}`, {
+        method: 'GET',
       });
+      const json = await res.json();
+      dispatch(getListUniversityHomeSuccess(json.data, query.page, json.total));
+    } catch (error) {
+      console.error(error);
+      dispatch(getListUniversityHomeFailure(error));
+    }
   };
 }

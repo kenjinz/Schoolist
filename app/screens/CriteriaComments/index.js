@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, RefreshControl} from 'react-native';
+import {FlatList, RefreshControl, TouchableOpacity} from 'react-native';
 import {BaseStyle, useTheme} from '@config';
 import {
   Header,
@@ -13,12 +13,12 @@ import styles from './styles';
 import {useTranslation} from 'react-i18next';
 import {Config} from 'react-native-config';
 import {ActivityIndicator} from 'react-native-paper';
+import {View} from 'react-native-animatable';
 export default function CriteriaComments({navigation, route}) {
   const {colors} = useTheme();
   const {t} = useTranslation();
   const {universityId, criteria_id, name, maxPoint, point} = route.params;
   const [refreshing] = useState(false);
-
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const getCommentCriteria = async () => {
@@ -40,6 +40,7 @@ export default function CriteriaComments({navigation, route}) {
   useEffect(() => {
     getCommentCriteria();
   }, []);
+
   return !loading ? (
     <SafeAreaView style={BaseStyle.safeAreaView} forceInset={{top: 'always'}}>
       <Header
@@ -54,13 +55,13 @@ export default function CriteriaComments({navigation, route}) {
             />
           );
         }}
-        renderRight={() => {
-          return (
-            <Text headline primaryColor numberOfLines={1}>
-              {t('replay')}
-            </Text>
-          );
-        }}
+        // renderRight={() => {
+        //   return (
+        //     <Text headline primaryColor numberOfLines={1}>
+        //       {t('replay')}
+        //     </Text>
+        //   );
+        // }}
         onPressLeft={() => {
           navigation.goBack();
         }}
@@ -87,12 +88,10 @@ export default function CriteriaComments({navigation, route}) {
             maxPoint={maxPoint}
           />
         )}
-        renderItem={({item}) => (
+        renderItem={({item, index}) => (
           <CommentItem
             style={{marginTop: 10}}
-            // image={item.source}
             name={item.reviewDetail.review.user.fullName}
-            // rate={item.rate}
             date={item.reviewDetail.rating}
             title={
               item.title.length > 10
