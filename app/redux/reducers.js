@@ -5,6 +5,7 @@ import UniversityReducer from './university/reducer';
 import UniversityReducerHome from './university_home/reducer';
 import PostReducer from './posts/reducer';
 import CriteriaReducer from './criteria/reducer';
+import MajorReducer from './majors/reducer';
 export default combineReducers({
   auth: AuthReducer,
   application: ApplicationReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   universityHome: UniversityReducerHome,
   post: PostReducer,
   criteria: CriteriaReducer,
+  major: MajorReducer,
 });

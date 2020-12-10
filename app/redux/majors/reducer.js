@@ -1,6 +1,6 @@
-import {criteriaActionTypes} from './actions';
+import {majorActionTypes} from './actions';
 export const initialState = {
-  criterions: [],
+  majors: [],
   // query: {
   //   //offset: 0, // offset = (page - 1) * limit;
   //   limit: 10,
@@ -9,20 +9,20 @@ export const initialState = {
   total: 0,
   //pageCount: null,
   loading: false,
-  listCriteriaSuccess: undefined,
-  listCriteriaFailure: undefined,
+  listMajorsSuccess: undefined,
+  listMajorsFailure: undefined,
 };
 export default function (state = initialState, action) {
   switch (action.type) {
-    case criteriaActionTypes.GET_LIST_CRITERIA_ATTEMPT:
+    case majorActionTypes.GET_LIST_MAJORS_ATTEMPT:
       return {
         ...state,
         loading: true,
       };
-    case criteriaActionTypes.GET_LIST_CRITERIA_SUCCESS:
+    case majorActionTypes.GET_LIST_MAJORS_SUCCESS:
       return {
         ...state,
-        criterions: action.data,
+        majors: action.data,
         total: action.total,
         // limit: action.limit,
         // page: action.page,
@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
         listMajorsSuccess: true,
         listMajorsFailure: false,
       };
-    case criteriaActionTypes.GET_LIST_CRITERIA_FAILURE:
+    case majorActionTypes.GET_LIST_MAJORS_FAILURE:
       return {
         ...state,
         loading: false,
