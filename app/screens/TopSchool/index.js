@@ -16,23 +16,9 @@ import {Text} from '@components';
 
 export default function TopSchool({navigation, route}) {
   const [loading, setLoading] = useState(true);
-  console.log('TopSchoolData: ', route.params.topSchoolsData);
+
   const [topSchoolsData] = useState(route.params.topSchoolsData);
-  // useEffect(() => {
-  //   fetch(URL, {
-  //     method: 'GET',
-  //   })
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       setTopSchoolsData(json.data);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, []);
+
   const {t} = useTranslation();
 
   const scrollAnim = new Animated.Value(0);
@@ -52,9 +38,9 @@ export default function TopSchool({navigation, route}) {
   const {colors} = useTheme();
 
   const [refreshing] = useState(false);
-  const [topSchools] = useState(TopSchoolData);
+
   const onChangeSort = () => {};
-  const image = {uri: 'https://picsum.photos/200/300'};
+
   /**
    * @description Render container view
    * @author Passion UI <passionui.com>
@@ -62,11 +48,6 @@ export default function TopSchool({navigation, route}) {
    * @returns
    */
   const renderContent = () => {
-    // const navbarTranslate = clampedScroll.interpolate({
-    //   inputRange: [0, 40],
-    //   outputRange: [0, -40],
-    //   extrapolate: 'clamp',
-    // });
     return (
       <View style={{flex: 1}}>
         <View

@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import {rootURL} from '../common/rootURL';
+import Config from 'react-native-config';
 export const authActionTypes = {
   LOGIN_ATTEMPT: 'LOGIN_ATTEMPT',
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
@@ -31,8 +31,8 @@ export function LogoutSuccess() {
 export function Login(userValues) {
   return (dispatch) => {
     dispatch(LoginLoading());
-    //console.log('REQUEST API ');
-    return fetch(`${rootURL}/auth/login`, {
+
+    return fetch(`${Config.API_URL}/auth/login`, {
       method: 'POST',
       headers: {
         // these could be different for your API call
@@ -43,19 +43,16 @@ export function Login(userValues) {
     })
       .then((response) => response.json())
       .then((json) => {
-        //console.log('JSON', json);
         const res = json;
         if (res.token) {
           // response success checking logic could differ
-          //console.log('SUCCESSFULLY');
+
           dispatch(LoginSuccess(res)); // our action is called here
         } else {
-          //console.log('FAIL');
           dispatch(LoginFailure(res));
         }
       })
       .catch((err) => {
-        //console.log('ABC', err);
         dispatch(LoginFailure(err));
       });
   };

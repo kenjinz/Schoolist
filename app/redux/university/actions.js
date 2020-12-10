@@ -1,5 +1,5 @@
 import qs from 'qs';
-import {rootURL} from '../common/rootURL';
+import Config from 'react-native-config';
 export const universityActionTypes = {
   GET_LIST_UNIVERSITY_ATTEMPT: 'GET_LIST_UNIVERSITY_ATTEMPT',
   GET_LIST_UNIVERSITY_SUCCESS: 'GET_LIST_UNIVERSITY_SUCCESS',
@@ -13,9 +13,8 @@ export const universityActionTypes = {
   UPDATE_ONE_UNIVERSITY_SUCCESS: 'UPDATE_ONE_UNIVERSITY_SUCCESS',
   UPDATE_ONE_UNIVERSITY_FAILURE: 'UPDATE_ONE_UNIVERSITY_FAILURE',
 
-  SEARCH_HISTORY_UNIVERSITY_ATTEMPT: 'SEARCH_HISTORY_UNIVERSITY_ATTEMPT',
-  SEARCH_HISTORY_UNIVERSITY_SUCCESS: 'SEARCH_HISTORY_UNIVERSITY_SUCCESS',
-  SEARCH_HISTORY_UNIVERSITY_FAILURE: 'SEARCH_HISTORY_UNIVERSITY_FAILURE',
+  SET_SEARCH_TEXT_SUCCESS: 'SET_SEARCH_TEXT_SUCCESS',
+  SET_SEARCH_TEXT_FAILURE: 'SET_SEARCH_TEXT_FAILURE',
 };
 
 // GET LIST UNIVERSITY
@@ -76,22 +75,18 @@ export function updateUniversityFailure(updateError) {
   };
 }
 
-// SEARCH UNIVERSITY
-export function searchUniversityAttempt() {
+// Set search text
+
+export function setSearchTextSuccess(text) {
   return {
-    type: universityActionTypes.SEARCH_HISTORY_UNIVERSITY_ATTEMPT,
+    type: universityActionTypes.SET_SEARCH_TEXT_SUCCESS,
+    text,
   };
 }
-export function searchUniversitySuccess(data) {
+export function setSearchTextFailure(error) {
   return {
-    type: universityActionTypes.SEARCH_HISTORY_UNIVERSITY_SUCCESS,
-    data,
-  };
-}
-export function searchUniversityFailure(searchError) {
-  return {
-    type: universityActionTypes.SEARCH_HISTORY_UNIVERSITY_FAILURE,
-    searchError,
+    type: universityActionTypes.SET_SEARCH_TEXT_FAILURE,
+    error,
   };
 }
 // THUNK :
@@ -103,16 +98,15 @@ export function getListUniversity(query) {
     query.page = 1;
   }
 
-  console.log('query object: ', query);
+  query.s = JSON.stringify(query.s);
   const queryString = qs.stringify(query);
-  console.log('QUERY STRING', queryString);
+
   return (dispatch) => {
-    return fetch(`${rootURL}/universities?${queryString}`, {
+    return fetch(`${Config.API_URL}/universities?${queryString}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log('DATA ', json.data);
         dispatch(getListUniversitySuccess(json.data, query.page, json.total));
       })
       .catch((error) => {
@@ -121,13 +115,12 @@ export function getListUniversity(query) {
       });
   };
 }
-export function addSearchHistoryUniversity(data) {
-  console.log('ACTION:', data);
+export function setSearchText(text) {
   return (dispatch) => {
     try {
-      dispatch(searchUniversitySuccess(data));
+      dispatch(setSearchTextSuccess(text));
     } catch (error) {
-      dispatch(searchUniversityFailure(error));
+      dispatch(setSearchTextFailure(error));
     }
   };
 }

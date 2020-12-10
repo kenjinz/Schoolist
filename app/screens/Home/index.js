@@ -21,9 +21,9 @@ import {BaseStyle, Images, useTheme} from '@config';
 import * as Utils from '@utils';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
-import {getListUniversity} from '../../redux/university/actions';
+import {getListUniversityHome} from '../../redux/university_home/actions';
 import {useDispatch, useSelector} from 'react-redux';
-import {rootURL} from '../../redux/common/rootURL';
+import {Config} from 'react-native-config';
 //import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Home({navigation}) {
@@ -51,14 +51,13 @@ export default function Home({navigation}) {
   const [heightHeader, setHeightHeader] = useState(Utils.heightHeader());
   const deltaY = new Animated.Value(0);
   const [topSchoolsData, setTopSchoolsData] = useState([]);
-  const URL = `${rootURL}/universities/top`;
+  const URL = `${Config.API_URL}/universities/top`;
   useEffect(() => {
     fetch(URL, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((json) => {
-        //console.log('aeaoeaoeao: ', json.data);
         setTopSchoolsData(json.data);
       })
       .catch((err) => {
@@ -98,14 +97,15 @@ export default function Home({navigation}) {
   };
   const heightImageBanner = Utils.scaleWithPixel(140);
   const marginTopBanner = heightImageBanner - heightHeader;
-  const universities = useSelector((state) => state.university.universities);
-  const total = useSelector((state) => state.university.total);
+  const universities = useSelector(
+    (state) => state.universityHome.universities_Home,
+  );
+  const total = useSelector((state) => state.universityHome.total_home);
   const [page, setPage] = useState(1);
   const [limit] = useState(4);
   useEffect(() => {
-    dispatch(getListUniversity({page: 1, limit}));
-  }, []);
-  //console.log('aaaaa', universities);
+    dispatch(getListUniversityHome({page: 1, limit}));
+  }, [dispatch]);
 
   const HeaderScrollView = () => (
     <View style={{flex: 1}}>
@@ -193,7 +193,7 @@ export default function Home({navigation}) {
                     <Button
                       style={styles.btnPromotion}
                       onPress={() => {
-                        navigation.navigate('SchoolDetail');
+                        navigation.navigate('SchoolDetail', {id: item.id});
                       }}>
                       <Text body2 semibold whiteColor>
                         {t('see_school')}
@@ -217,7 +217,6 @@ export default function Home({navigation}) {
     </View>
   );
   const FooterScrollView = () => {
-    //console.log(total, universities.length);
     const length = universities ? universities.length : 0;
     return length < total ? (
       <ActivityIndicator size="large" color="red" />
@@ -227,9 +226,8 @@ export default function Home({navigation}) {
   function handleLoadMore() {
     if (universities.length < total) {
       setPage(page + 1);
-      console.log('page', page);
-      dispatch(getListUniversity({page, limit}));
-      console.log('University', universities);
+
+      dispatch(getListUniversityHome({page, limit}));
     }
   }
   return (
