@@ -44,4 +44,22 @@ export default StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 5,
   },
+  modal: {
+    justifyContent: 'flex-end',
+    margin: 0,
+  },
+  scrollableModal: {
+    height: '30%',
+  },
+  scrollableModalContent1: {
+    height: 70,
+    backgroundColor: '#87BBE0',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 1,
+  },
+  scrollableModalText1: {
+    fontSize: 20,
+    color: 'white',
+  },
 });

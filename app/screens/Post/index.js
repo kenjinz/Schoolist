@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {RefreshControl, FlatList, ActivityIndicator} from 'react-native';
 import {BaseStyle, useTheme} from '@config';
-import {Header, SafeAreaView, PostItem, ProfileAuthor} from '@components';
+import {Header, SafeAreaView, PostItem} from '@components';
 import styles from './styles';
-import {PostData} from '@data';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import {getListPost} from '../../redux/posts/actions';
@@ -16,8 +15,6 @@ export default function Post({navigation}) {
   const posts = useSelector((state) => state.post.posts);
   const loading = useSelector((state) => state.post.loading);
   const total = useSelector((state) => state.post.total);
-  //const [posts] = useState(PostData);
-  //const [loading] = useState(false);
   const [page, setPage] = useState(1);
   const [limit] = useState(4);
   const FooterView = () => {
@@ -27,9 +24,11 @@ export default function Post({navigation}) {
   };
   function handleLoadMore() {
     if (posts.length < total) {
-      setPage(page + 1);
-
-      dispatch(getListPost({page, limit}));
+      setPage((prevPage) => {
+        const newPage = prevPage + 1;
+        dispatch(getListPost({page: newPage, limit}));
+        return newPage;
+      });
     }
   }
   useEffect(() => {

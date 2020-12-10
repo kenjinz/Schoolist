@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -7,6 +7,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  RefreshControl,
 } from 'react-native';
 import {BaseStyle, BaseColor, Images, useTheme} from '@config';
 import {Header, SafeAreaView, TextInput, Icon, Text, Button} from '@components';
@@ -15,6 +16,8 @@ import {useTranslation} from 'react-i18next';
 import Modal from 'react-native-modal';
 import {useDispatch, useSelector} from 'react-redux';
 import {setSearchText} from '../../redux/university/actions';
+import {getListMajors} from '../../redux/majors/actions';
+import {getListCriteria} from '../../redux/criteria/actions';
 export default function SearchHistory({navigation, route}) {
   //const setSearchCallBack = route.params.setSearch;
   const dispatch = useDispatch();
@@ -30,99 +33,154 @@ export default function SearchHistory({navigation, route}) {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const [textMajor, setTextMajor] = useState('Choose your Major');
-  const [majors] = useState([
-    'Công nghệ thông tin',
-    'Điện tử viễn thôg',
-    'Học máy',
-    'Trí tuệ nhân tạo',
-    ,
-  ]);
+  const [refreshing] = useState(false);
+  const majors = useSelector((state) => state.major.majors);
   const [textCriteria, setTextCriteria] = useState('Choose your Criteria');
-  const [criteria] = useState([
-    'Wifi',
-    'Quán Net',
-    'Tiền học',
-    'Chất lượng đào tạo',
-    ,
-  ]);
+  // const [criteria] = useState([
+  //   'Wifi',
+  //   'Quán Net',
+  //   'Tiền học',
+  //   'Chất lượng đào tạo',
+  //   ,
+  // ]);
+  const criteria = useSelector((state) => state.criteria.criterions);
   //Handling Increase or Decrease text:
   const [filterCriteria, setFilterCriteria] = useState(true);
   const [filterFee, setFilterFee] = useState(true);
   const [filterRating, setFilterRating] = useState(true);
-  /**
-   * call when search data
-   * @param {*} keyword
-   */
+  useEffect(() => {
+    dispatch(getListMajors());
+    dispatch(getListCriteria());
+  }, [dispatch]);
   const onSearch = (keyword) => {
     dispatch(setSearchText(keyword));
     navigation.navigate('ListSchool');
   };
-  const MajorModal = () => (
-    <View>
-      <Modal
-        testID={'modal'}
-        isVisible={majorModalVisible}
-        backdropOpacity={0.2}
-        onBackdropPress={() => setMajorModalVisible(false)}
-        // swipeDirection={['up', 'left', 'right', 'down']}
-        style={styles.view}>
-        {majors.map((major) => (
-          <View style={styles.majorModalWrapper}>
-            <TouchableOpacity
-              onPress={() => {
-                setTextMajor(major);
-                setMajorModalVisible(false);
-              }}>
-              <View style={styles.majorModal}>
-                <Text
-                  title3
-                  style={{
-                    borderBottomWidth: 1,
-                    paddingBottom: 10,
-                    borderBottomColor: colors.border,
-                  }}>
-                  {major}
-                </Text>
-              </View>
-            </TouchableOpacity>
+  const MajorModal = () => {
+    const [scrollOffset, setScrollOffset] = useState();
+    const scrollViewRef = useRef();
+    const handleOnScroll = (event) => {
+      setScrollOffset(event.nativeEvent.contentOffset.y);
+    };
+    const handleScrollTo = (p) => {
+      if (scrollViewRef.current) {
+        scrollViewRef.current.scrollTo(p);
+      }
+    };
+    return (
+      <View>
+        <Modal
+          testID={'modal'}
+          isVisible={majorModalVisible}
+          onBackdropPress={() => setMajorModalVisible(false)}
+          // onSwipeComplete={close()}
+          //swipeDirection={['down']}
+          scrollTo={handleScrollTo}
+          scrollOffset={scrollOffset}
+          scrollOffsetMax={100} // content height - ScrollView height
+          propagateSwipe={true}
+          style={styles.modal}>
+          <View style={styles.scrollableModal}>
+            <ScrollView
+              ref={scrollViewRef}
+              onScroll={handleOnScroll}
+              scrollEventThrottle={16}>
+              {majors.map((major) => (
+                <View style={styles.majorModalWrapper}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setTextMajor(major.name);
+                      setMajorModalVisible(false);
+                    }}
+                    activeOpacity={0.7}>
+                    <View
+                      style={[
+                        styles.scrollableModalContent1,
+                        {backgroundColor: colors.primary},
+                      ]}>
+                      <Text
+                        title3
+                        whiteColor
+                        semibold
+                        style={{
+                          marginLeft: 4,
+                          textAlign: 'center',
+                          paddingBottom: 10,
+                        }}>
+                        {major.name}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </ScrollView>
           </View>
-        ))}
-      </Modal>
-    </View>
-  );
-  const CriteriaModal = () => (
-    <View>
-      <Modal
-        testID={'modal'}
-        isVisible={criteriaModalVisible}
-        backdropOpacity={0.2}
-        onBackdropPress={() => setCriteriaModalVisible(false)}
-        // swipeDirection={['up', 'left', 'right', 'down']}
-        style={styles.view}>
-        {criteria.map((cri) => (
-          <View style={styles.majorModalWrapper}>
-            <TouchableOpacity
-              onPress={() => {
-                setTextCriteria(cri);
-                setCriteriaModalVisible(false);
-              }}>
-              <View style={styles.majorModal}>
-                <Text
-                  title3
-                  style={{
-                    borderBottomWidth: 1,
-                    paddingBottom: 10,
-                    borderBottomColor: colors.border,
-                  }}>
-                  {cri}
-                </Text>
-              </View>
-            </TouchableOpacity>
+        </Modal>
+      </View>
+    );
+  };
+  const CriteriaModal = () => {
+    const [scrollOffset, setScrollOffset] = useState();
+    const scrollViewRef = useRef();
+    const handleOnScroll = (event) => {
+      setScrollOffset(event.nativeEvent.contentOffset.y);
+    };
+    const handleScrollTo = (p) => {
+      if (scrollViewRef.current) {
+        scrollViewRef.current.scrollTo(p);
+      }
+    };
+    return (
+      <View>
+        <Modal
+          testID={'modal'}
+          isVisible={criteriaModalVisible}
+          onBackdropPress={() => setCriteriaModalVisible(false)}
+          // onSwipeComplete={close()}
+          //swipeDirection={['down']}
+          scrollTo={handleScrollTo}
+          scrollOffset={scrollOffset}
+          scrollOffsetMax={100} // content height - ScrollView height
+          propagateSwipe={true}
+          style={styles.modal}>
+          <View style={styles.scrollableModal}>
+            <ScrollView
+              ref={scrollViewRef}
+              onScroll={handleOnScroll}
+              scrollEventThrottle={16}>
+              {criteria.map((cri) => (
+                <View style={styles.majorModalWrapper}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setTextCriteria(cri.name);
+                      setCriteriaModalVisible(false);
+                    }}
+                    activeOpacity={0.7}>
+                    <View
+                      style={[
+                        styles.scrollableModalContent1,
+                        {backgroundColor: colors.primary},
+                      ]}>
+                      <Text
+                        title3
+                        whiteColor
+                        semibold
+                        style={{
+                          paddingBottom: 10,
+                        }}>
+                        {cri.name}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </ScrollView>
           </View>
-        ))}
-      </Modal>
-    </View>
-  );
+        </Modal>
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={BaseStyle.safeAreaView} forceInset={{top: 'always'}}>
       <Header
