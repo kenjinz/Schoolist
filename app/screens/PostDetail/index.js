@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, ScrollView, Animated, TouchableOpacity} from 'react-native';
 import {BaseColor, Images} from '@config';
+import Config from 'react-native-config';
 import {
   Header,
   SafeAreaView,
@@ -14,20 +15,38 @@ import {
 import * as Utils from '@utils';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
+import moment from 'moment';
 
 export default function PostDetail({navigation, route}) {
   const id = route.params.id;
   const {t} = useTranslation();
-
+  const [loading, setLoading] = useState(true);
   const deltaY = new Animated.Value(0);
   const heightHeader = Utils.heightHeader();
   const heightImageBanner = Utils.scaleWithPixel(250);
   const marginTopBanner = heightImageBanner - heightHeader - 30;
+  const [universityDetail, setUniversityDetail] = useState();
+  useEffect(() => {
+    const URL = Config.API_URL;
+    const query = `${URL}/posts/${id}`;
 
+    fetch(`${URL}posts/${id}`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        setUniversityDetail(json);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
+  }, []);
   return (
     <View style={{flex: 1}}>
       <Animated.Image
-        source={Images.room6}
+        source={{uri: universityDetail?.mainImage.link.medium}}
+        // source={Images.room6}
         style={[
           styles.imgBanner,
           {
@@ -89,24 +108,16 @@ export default function PostDetail({navigation, route}) {
               {t('post_title')}
             </Text>
             <ProfileAuthor
-              image={Images.profile2}
-              name="Steve Garrett"
-              description="5 hours ago | 100k views"
-              textRight="Jun 2018"
+              // image={Images.profile2}
+              name={universityDetail?.title}
+              description={moment(universityDetail?.updatedAt).fromNow()}
+              textRight={`Lượt Xem: ${universityDetail?.viewCount}`}
               style={{
+                marginLeft: -50,
                 marginTop: 20,
               }}
             />
-            <Text body2>
-              Depression after trips like study abroad, volunteering, or
-              interning overseas can range from mild post vacation sadness to
-              full-blown post trip depression. Each person reacts differently to
-              returning from abroad. If it seems that your friend has easily
-              slipped back into college life while you’re struggling to get to
-              class, don’t panic. Just like you got through all the challenges
-              of living abroad, you can also get through the post abroad
-              depression you’re feeling now.
-            </Text>
+            <Text body2>{universityDetail?.content}</Text>
             <Text
               headline
               semibold
@@ -131,7 +142,7 @@ export default function PostDetail({navigation, route}) {
                 marginTop: 20,
               }}>
               <Text headline semibold>
-                {t('top_experiences')}
+                Relative
               </Text>
               <TouchableOpacity onPress={() => navigation.navigate('Post')}>
                 <Text footnote grayColor>
@@ -139,7 +150,6 @@ export default function PostDetail({navigation, route}) {
                 </Text>
               </TouchableOpacity>
             </View>
-            {/* Image gallery */}
             <View style={styles.contentImageFollowing}>
               <View style={{flex: 4, marginRight: 10}}>
                 <Card image={Images.trip7}>
@@ -179,7 +189,79 @@ export default function PostDetail({navigation, route}) {
                 </View>
               </View>
             </View>
-            {/* Featured Posts */}
+            {/* 
+            <Text
+              headline
+              semibold
+              style={{
+                marginTop: 20,
+              }}>
+              {t('user_following')}
+            </Text>
+            <ProfileGroup
+              name="Steve, Lincoln, Harry"
+              detail="and 15 people like this"
+              users={[
+                {image: Images.profile1},
+                {image: Images.profile3},
+                {image: Images.profile4},
+              ]}
+            />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 20,
+              }}>
+              <Text headline semibold>
+                {t('top_experiences')}
+              </Text>
+              <TouchableOpacity onPress={() => navigation.navigate('Post')}>
+                <Text footnote grayColor>
+                  {t('show_more')}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.contentImageFollowing}>
+              <View style={{flex: 4, marginRight: 10}}>
+                <Card image={Images.trip7}>
+                  <Text headline semibold whiteColor>
+                    Dallas
+                  </Text>
+                </Card>
+              </View>
+              <View style={{flex: 6}}>
+                <View style={{flex: 1}}>
+                  <Card image={Images.trip3}>
+                    <Text headline semibold whiteColor>
+                      Warsaw
+                    </Text>
+                  </Card>
+                </View>
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    marginTop: 10,
+                  }}>
+                  <View style={{flex: 6, marginRight: 10}}>
+                    <Card image={Images.trip4}>
+                      <Text headline semibold whiteColor>
+                        Yokohama
+                      </Text>
+                    </Card>
+                  </View>
+                  <View style={{flex: 4}}>
+                    <Card image={Images.trip6}>
+                      <Text headline semibold whiteColor>
+                        10+
+                      </Text>
+                    </Card>
+                  </View>
+                </View>
+              </View>
+            </View>
             <Text
               headline
               semibold
@@ -205,7 +287,7 @@ export default function PostDetail({navigation, route}) {
               onPress={() => {
                 navigation.navigate('Post');
               }}
-            />
+            /> */}
           </View>
         </ScrollView>
       </SafeAreaView>

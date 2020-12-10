@@ -7,6 +7,7 @@ export const initialState = {
   //   page: 1,
   // },
   total: 0,
+  searchText: {},
   //pageCount: null,
   loading: false,
   listUniversitySuccess: undefined,
@@ -17,6 +18,9 @@ export const initialState = {
 
   updateUniversitySuccess: undefined,
   updateUniversityFailure: undefined,
+
+  setSearchTextSuccess: undefined,
+  setSearchTextFailure: undefined,
 };
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -84,6 +88,23 @@ export default function (state = initialState, action) {
         loading: false,
         updateUniversitySuccess: false,
         updateUniversityFailure: action.updateError,
+      };
+    case universityActionTypes.SET_SEARCH_TEXT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        searchText: {
+          name: {$contL: action.text},
+        },
+        setSearchTextSuccess: true,
+        setSearchTextFailure: false,
+      };
+    case universityActionTypes.SEARCH_HISTORY_UNIVERSITY_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        setSearchTextSuccess: false,
+        setSearchTextFailure: action.error,
       };
     default:
       return state;

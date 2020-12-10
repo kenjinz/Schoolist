@@ -57,10 +57,25 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   wrapRating: {
+    flex: 1,
     flexDirection: 'row',
     height: 30,
     backgroundColor: '#DCDCDC',
     marginTop: 5,
     borderRadius: 8,
+  },
+  view: {
+    justifyContent: 'center',
+    margin: 0,
+  },
+  majorModalWrapper: {
+    alignSelf: 'center',
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 7,
+  },
+  majorModal: {
+    alignItems: 'center',
+    padding: 10,
   },
 });

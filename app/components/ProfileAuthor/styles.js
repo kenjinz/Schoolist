@@ -21,6 +21,7 @@ export default StyleSheet.create({
   contentRight: {
     flex: 2,
     justifyContent: "center",
-    alignItems: "flex-end"
+    alignItems: "flex-end",
+    marginTop:20
   }
 });

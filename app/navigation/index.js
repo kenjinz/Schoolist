@@ -20,10 +20,9 @@ const RootStack = createStackNavigator();
 
 export default function Navigator() {
   const storeLanguage = useSelector((state) => {
-    //console.log('STORE', state);
     return state.application.language;
   });
-  console.log(storeLanguage);
+
   const {theme, colors} = useTheme();
   const isDarkMode = useDarkMode();
 

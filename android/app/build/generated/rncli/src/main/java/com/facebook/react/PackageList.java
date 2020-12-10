@@ -15,8 +15,12 @@ import java.util.ArrayList;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// @react-native-community/slider
+import com.reactnativecommunity.slider.ReactSliderPackage;
 // @react-native-community/viewpager
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
+// react-native-config
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 // react-native-dark-mode
 import com.codemotionapps.reactnativedarkmode.DarkModePackage;
 // react-native-fast-image
@@ -88,7 +92,9 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
       new RNCMaskedViewPackage(),
+      new ReactSliderPackage(),
       new RNCViewPagerPackage(),
+      new ReactNativeConfigPackage(),
       new DarkModePackage(),
       new FastImageViewPackage(),
       new RNGestureHandlerPackage(),

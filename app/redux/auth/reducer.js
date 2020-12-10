@@ -4,7 +4,7 @@ import {authActionTypes} from './actions';
 const _INITIAL_STATE_ = {
   isAuthenticated: false,
   data: {
-    //token: '',
+    token: '',
     fullName: '',
     id: 0,
     name: '',
